@@ -132,7 +132,7 @@ export const resumeData: ResumeData = {
       attachments: {
         presentation: "https://drive.google.com/file/d/1bamGIxFNk5kAjnu-8Z9QE7tbUJuUIrf6/view?usp=sharing",
         presentationLabel: "Research Presentation",
-        github: "https://github.com/Adhin575"
+        github: "https://github.com/Adhin575/NRHOStationkeeping"
       }
     },
     {

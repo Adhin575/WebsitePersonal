@@ -125,7 +125,7 @@ export const resumeData: ResumeData = {
       title: "Attitude Dynamics and Control of a Nano-Satellite Orbiting Mars",
       role: "Graduate Researcher",
       duration: "Jan 2026 - May 2026",
-      thumbnail: "https://lh3.googleusercontent.com/d/1L0pUiz2yZbKGggfIeCTmvdIETTy5Dw7J",
+      thumbnail: "https://lh3.googleusercontent.com/d/1tswIfdRUI1LznOpgReLzsHzO4qol4SAb",
       technologies: ["Python", "Spacecraft ADC", "Math Modelling"],
       description: "Designed and implemented a full 6-DOF attitude dynamics simulation and autonomous PD control system for a Mars nano-satellite in Python, achieving three real-time pointing modes — solar, nadir, and communication — with a custom RK4 integrator and live 3D visualization",
       impact: "Demonstrated that a nano-satellite can autonomously manage competing mission objectives — power generation, science observation, and inter-satellite communication — through mathematically rigorous attitude control without ground intervention.",

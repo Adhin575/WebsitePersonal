@@ -121,6 +121,21 @@ export const resumeData: ResumeData = {
       }
     },
     {
+      id: "mars-adc",
+      title: "Attitude Dynamics and Control of a Nano-Satellite Orbiting Mars",
+      role: "Graduate Researcher",
+      duration: "Jan 2026 - May 2026",
+      thumbnail: "https://drive.google.com/file/d/1L0pUiz2yZbKGggfIeCTmvdIETTy5Dw7J/view?usp=drive_link",
+      technologies: ["Python", "Spacecraft ADC", "Math Modelling"],
+      description: "Designed and implemented a full 6-DOF attitude dynamics simulation and autonomous PD control system for a Mars nano-satellite in Python, achieving three real-time pointing modes — solar, nadir, and communication — with a custom RK4 integrator and live 3D visualization",
+      impact: "Demonstrated that a nano-satellite can autonomously manage competing mission objectives — power generation, science observation, and inter-satellite communication — through mathematically rigorous attitude control without ground intervention.",
+      attachments: {
+        pdf: "#",
+        pdflabel: "Technical Report",
+        github: "https://github.com/Adhin575/NanoSatelliteMarsADC"
+      }
+    },
+    {
       id: "nrho-stationkeeping",
       title: "Autonomous Station-keeping in Earth-Moon NRHO",
       role: "Graduate Researcher",
@@ -158,7 +173,7 @@ export const resumeData: ResumeData = {
       attachments: {
         presentation: "https://drive.google.com/file/d/1YQfDouzujvs3Z--T90m6GpDX9jf0biVw/view?usp=drive_link",
         presentationLabel: "CDR Presentation",
-        github: "https://github.com/Adhin575"
+        github: "https://github.com/Adhin575/FLAIRGroundStation"
       }
     },
     {
@@ -190,7 +205,7 @@ export const resumeData: ResumeData = {
         pdfLabel: "Mission Proposal",
         presentation: "https://drive.google.com/file/d/1-n3TADzS-WvgMXe2Vc4oIjU_JGhUls04/view?usp=drive_link",
         presentationLabel: "Poster Presentation",
-        github: "https://github.com/Adhin575"
+        github: "https://github.com/Adhin575/SHINEMissionSimulator"
       }
     },
     {

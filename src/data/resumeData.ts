@@ -131,9 +131,10 @@ export const resumeData: ResumeData = {
       description: "Designed and implemented a full 6-DOF attitude dynamics simulation and autonomous PD control system for a Mars nano-satellite in Python, achieving three real-time pointing modes — solar, nadir, and communication — with a custom RK4 integrator and live 3D visualization",
       impact: "Demonstrated that a nano-satellite can autonomously manage competing mission objectives — power generation, science observation, and inter-satellite communication — through mathematically rigorous attitude control without ground intervention.",
       attachments: {
-        pdf: "#",
+        pdf: "https://drive.google.com/file/d/1SkxzJqeQRlILCJnkSajnnOzq-wiWO4Z9/view?usp=drive_link",
         pdflabel: "Technical Report",
-        github: "https://github.com/Adhin575/NanoSatelliteMarsADC"
+        github: "https://github.com/Adhin575/NanoSatelliteMarsADC",
+        gallery: [{ type: 'image', url: 'https://ais-dev-vjdscjft6pldq6vvtfnp2p-50373832064.us-west2.run.app/user_uploads/mars_adc_photo.png' }, { type: 'video', url: 'https://ais-dev-vjdscjft6pldq6vvtfnp2p-50373832064.us-west2.run.app/user_uploads/mars_adc_video.mp4' }],
       }
     },
     {

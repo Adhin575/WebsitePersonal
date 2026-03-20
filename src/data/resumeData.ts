@@ -7,6 +7,7 @@ export interface Project {
   technologies: string[];
   description: string;
   impact: string;
+  gallery?: { type: 'image' | 'video'; url: string }[];
   attachments: {
     pdf?: string;
     pdfLabel?: string;

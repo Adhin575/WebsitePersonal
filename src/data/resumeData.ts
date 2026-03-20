@@ -133,8 +133,7 @@ export const resumeData: ResumeData = {
       attachments: {
         pdf: "https://drive.google.com/file/d/1SkxzJqeQRlILCJnkSajnnOzq-wiWO4Z9/view?usp=drive_link",
         pdflabel: "Technical Report",
-        github: "https://github.com/Adhin575/NanoSatelliteMarsADC",
-        gallery: [{ type: 'image', url: 'https://ais-dev-vjdscjft6pldq6vvtfnp2p-50373832064.us-west2.run.app/user_uploads/mars_adc_photo.png' }, { type: 'video', url: 'https://ais-dev-vjdscjft6pldq6vvtfnp2p-50373832064.us-west2.run.app/user_uploads/mars_adc_video.mp4' }],
+        github: "https://github.com/Adhin575/NanoSatelliteMarsADC"
       }
     },
     {

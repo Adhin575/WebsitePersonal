@@ -166,36 +166,7 @@ export const Portfolio: React.FC = () => {
                           {selectedProject.impact}
                         </p>
                       </section>
-
-                      {selectedProject.gallery && selectedProject.gallery.length > 0 && (
-                        <section>
-                          <h4 className="text-xs font-mono font-bold text-accent uppercase tracking-[0.3em] mb-4">Gallery</h4>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {selectedProject.gallery.map((item, idx) => (
-                              <motion.div
-                                key={idx}
-                                whileHover={{ scale: 1.02 }}
-                                className="relative aspect-video rounded-2xl overflow-hidden border border-border-main bg-bg-sub"
-                              >
-                                {item.type === 'image' ? (
-                                  <img
-                                    src={item.url}
-                                    alt={`${selectedProject.title} gallery ${idx + 1}`}
-                                    referrerPolicy="no-referrer"
-                                    className="w-full h-full object-cover"
-                                  />
-                                ) : (
-                                  <video
-                                    src={item.url}
-                                    controls
-                                    className="w-full h-full object-cover"
-                                  />
-                                )}
-                              </motion.div>
-                            ))}
-                          </div>
-                        </section>
-                      )}
+                      
                     </div>
 
                     <div className="space-y-10">

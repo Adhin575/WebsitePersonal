@@ -197,6 +197,7 @@ export const resumeData: ResumeData = {
       attachments: {
         presentation: "https://drive.google.com/file/d/1YQfDouzujvs3Z--T90m6GpDX9jf0biVw/view?usp=drive_link",
         presentationLabel: "CDR Presentation",
+        github: "https://github.com/Adhin575/FLAIRGroundStation"
       }
     },
     {
@@ -219,6 +220,7 @@ export const resumeData: ResumeData = {
       attachments: {
         pdf: "https://drive.google.com/file/d/1qrxZ6ymutSDUYI0pE8ztbpcn5wjD9tf0/view?usp=drive_link",
         pdfLabel: "Mission Proposal",
+        github: "https://github.com/Adhin575/SHINEMissionSimulator"
       }
     },
     {
@@ -423,7 +425,7 @@ export const resumeData: ResumeData = {
     }
   ],
   profileImage: "https://lh3.googleusercontent.com/d/15zM68OM3zZH4TKm2L4WwD34kzYJD9XVV",
-  resumeUrl: "https://drive.google.com/file/d/11uUkFnx3fXiPSyYO6tYul23pDbeMb91L/view?usp=drive_link",
+  resumeUrl: "https://drive.google.com/file/d/1Ccx91_vkiSLrCkEneoncJWyA-kUHzkU-/preview",
   contact: {
     email: "vsadhi70@gmail.com",
     linkedin: "https://linkedin.com/in/adhindravs",

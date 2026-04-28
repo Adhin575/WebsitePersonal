@@ -73,17 +73,6 @@ export const Portfolio: React.FC = () => {
                       {project.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {project.technologies.slice(0, 3).map((tech, i) => (
-                        <span key={i} className="text-[10px] font-mono font-bold uppercase tracking-widest text-text-sub px-2 py-1 rounded-md bg-bg-sub border border-border-main transition-colors duration-500">
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className="text-[10px] font-mono font-bold text-accent">+ {project.technologies.length - 3}</span>
-                      )}
-                    </div>
-
                     <div className="flex items-center justify-between pt-6 border-t border-border-main">
                       <span className="text-xs font-bold text-text-sub uppercase tracking-widest">{project.role}</span>
                       <div className="flex gap-4">

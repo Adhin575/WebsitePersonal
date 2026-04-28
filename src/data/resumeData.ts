@@ -286,9 +286,9 @@ export const resumeData: ResumeData = {
         { type: 'image', url: 'https://picsum.photos/seed/am3/1200/800', caption: 'Warpage Comparison Charts' }
       ],
       attachments: {
-        pdf: "https://drive.google.com/file/d/1mgRlJJMSnkqV8k2iD4n7FSC3pc6QX_R-/view?usp=drive_link",
+        pdf1: "https://drive.google.com/file/d/1mgRlJJMSnkqV8k2iD4n7FSC3pc6QX_R-/view?usp=drive_link",
         pdfLabel: "PLA-TPU Published Paper",
-        pdf: "https://drive.google.com/file/d/1zCJBiRCiWL3Ru0T3MrLX0oa3jhU3ZBOU/view?usp=drive_link",
+        pdf2: "https://drive.google.com/file/d/1zCJBiRCiWL3Ru0T3MrLX0oa3jhU3ZBOU/view?usp=drive_link",
         pdfLabel: "rPP and vPP Published Paper"
       }
     },

@@ -1,120 +1,92 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, Award } from 'lucide-react';
+import { GraduationCap, Calendar, Award, Target, BookOpen } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
 export const Education: React.FC = () => {
   return (
-    <section id="education" className="py-24 px-6 bg-transparent overflow-hidden">
-      <div className="max-w-4xl mx-auto">
+    <section id="education" className="py-32 px-6 bg-transparent overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-black mb-4">Education</h2>
-          <motion.div 
-            initial={{ width: 0 }}
-            whileInView={{ width: 80 }}
-            viewport={{ once: true }}
-            className="h-1 bg-accent mx-auto rounded-full" 
-          />
+          <span className="text-accent font-mono text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Academic Foundation</span>
+          <h2 className="text-5xl md:text-7xl font-display font-black tracking-tighter italic">Educational <span className="text-accent">Background.</span></h2>
         </motion.div>
 
-        <div className="relative space-y-12">
-          {/* Timeline line */}
-          <motion.div 
-            initial={{ height: 0 }}
-            whileInView={{ height: '100%' }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute left-0 md:left-1/2 top-0 w-0.5 bg-border-main -translate-x-1/2 hidden md:block" 
-          />
-
+        <div className="grid lg:grid-cols-2 gap-12">
           {resumeData.education.map((edu, i) => (
             <motion.div
               key={edu.institution}
-              initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-              className={`relative flex flex-col md:flex-row items-center gap-8 ${
-                i % 2 === 0 ? 'md:flex-row-reverse' : ''
-              }`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.2 }}
+              className="group relative"
             >
-              {/* Timeline Node */}
-              <motion.div 
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="absolute left-0 md:left-1/2 w-5 h-5 rounded-full bg-accent timeline-glow -translate-x-1/2 z-10 hidden md:block border-4 border-bg-main" 
-              />
-
-              <div className="w-full md:w-1/2">
-                <motion.div 
-                  whileHover={{ y: -5, borderColor: "var(--color-accent)" }}
-                  className="bg-bg-main p-8 rounded-[2.5rem] border border-border-main hover:shadow-accent-sm transition-all group"
-                >
-                  <div className="flex items-center gap-3 text-accent mb-4">
-                    <div className="p-2 bg-accent/10 rounded-lg">
-                      <GraduationCap size={20} />
+              <div className="absolute -inset-2 bg-gradient-to-r from-accent/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[3rem]" />
+              
+              <div className="relative bg-bg-sub/40 backdrop-blur-xl p-10 md:p-12 rounded-[3rem] border border-border-main hover:border-accent/40 transition-all duration-500 overflow-hidden h-full">
+                {/* Blueprint Grid Overlay */}
+                <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+                     style={{ backgroundImage: 'linear-gradient(var(--color-accent) 1px, transparent 1px), linear-gradient(90deg, var(--color-accent) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center gap-4">
+                      <div className="p-4 bg-accent/10 rounded-2xl text-accent group-hover:scale-110 transition-transform">
+                        <GraduationCap size={28} />
+                      </div>
+                      <div>
+                        <p className="text-accent font-mono text-[10px] uppercase tracking-[0.3em] mb-1">Academic Cycle</p>
+                        <p className="text-text-main font-black text-lg tracking-tight">{edu.duration}</p>
+                      </div>
                     </div>
-                    <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]">
-                      {edu.duration}
-                    </span>
+                    {edu.gpa && (
+                      <div className="text-right">
+                        <p className="text-accent font-mono text-[10px] uppercase tracking-[0.3em] mb-1">Performance</p>
+                        <p className="text-text-main font-black text-2xl tracking-tighter">GPA: {edu.gpa}</p>
+                      </div>
+                    )}
                   </div>
-                  <h3 className="text-2xl font-display font-black mb-2 group-hover:text-accent transition-colors">
+
+                  <h3 className="text-3xl font-black text-text-main mb-3 group-hover:text-accent transition-colors tracking-tight leading-tight">
                     {edu.degree}
                   </h3>
-                  <p className="text-lg font-bold text-text-sub mb-6">
+                  <p className="text-xl font-bold text-text-sub mb-10 flex items-center gap-2">
+                    <Target size={18} className="text-accent/40" />
                     {edu.institution}
                   </p>
 
                   {edu.highlights && (
-                    <motion.ul 
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={{
-                        hidden: { opacity: 0 },
-                        visible: {
-                          opacity: 1,
-                          transition: { staggerChildren: 0.1, delayChildren: 0.3 }
-                        }
-                      }}
-                      className="space-y-3"
-                    >
-                      {edu.highlights.map((highlight) => (
-                        <motion.li 
-                          key={highlight}
-                          variants={{
-                            hidden: { opacity: 0, x: -10 },
-                            visible: { opacity: 1, x: 0 }
-                          }}
-                          className="flex items-start gap-3 text-text-sub text-sm"
-                        >
-                          <Award size={16} className="text-accent shrink-0 mt-0.5" />
-                          <span>{highlight}</span>
-                        </motion.li>
-                      ))}
-                    </motion.ul>
+                    <div className="space-y-6">
+                      <p className="text-accent font-mono text-[10px] uppercase tracking-[0.3em] border-b border-accent/10 pb-2 mb-4">Core Competencies & Achievements</p>
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        {edu.highlights.map((highlight) => (
+                          <div 
+                            key={highlight}
+                            className="flex items-start gap-3 text-text-sub text-sm font-medium group/item"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 group-hover/item:scale-150 transition-transform" />
+                            <span>{highlight}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   )}
 
-                  {edu.gpa && (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: 1 }}
-                      className="mt-6 pt-6 border-t border-border-main"
-                    >
-                      <span className="text-sm font-bold text-accent">GPA: {edu.gpa}</span>
-                    </motion.div>
-                  )}
-                </motion.div>
+                  <div className="mt-12 pt-8 border-t border-border-main flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-[10px] font-mono text-text-sub uppercase tracking-widest">
+                      <BookOpen size={14} className="text-accent/40" />
+                      Technical Curriculum
+                    </div>
+                    <div className="w-12 h-1 bg-accent/10 rounded-full group-hover:w-24 transition-all duration-500" />
+                  </div>
+                </div>
               </div>
-              <div className="hidden md:block w-1/2" />
             </motion.div>
           ))}
         </div>

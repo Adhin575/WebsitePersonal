@@ -97,7 +97,6 @@ export const resumeData: ResumeData = {
       highlights: [
         "Special Topics in Astrodynamics, Satellite Navigation, and Management",
         "Relevant Coursework: Spacecraft Attitude Determination, Spaceflight Dynamics, Space Habitat Design, Space Life Sciences, Spacecraft Design, Space Mission Design and Development",
-        "Current GPA: 4.0/4.0"
       ],
       gpa: "4.0/4.0"
     },
@@ -107,8 +106,7 @@ export const resumeData: ResumeData = {
       duration: "Aug 2021 - May 2025",
       highlights: [
         "Minor in Communications and Media Arts",
-        "Relevant Coursework: Mechatronics, Computational Fluid Dynamics, Mechanics of Composite Materials, Finite Element Methods, Computational Methods in Mechanical Engg., Advanced Thermodynamics",
-        "GPA: 9.02/10 (High Distinction)"
+        "Relevant Coursework: Mechatronics, Computational Fluid Dynamics, Mechanics of Composite Materials, Finite Element Methods, Computational Methods in Mechanical Engg., Advanced Thermodynamics"
       ],
       gpa: "9.02/10"
     }

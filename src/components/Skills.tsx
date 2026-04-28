@@ -11,33 +11,27 @@ export const Skills: React.FC = () => {
     : resumeData.skills.find(cat => cat.category === activeCategory)?.skills || [];
 
   return (
-    <section id="skills" className="py-24 px-6 bg-transparent relative overflow-hidden">
+    <section id="skills" className="py-32 px-6 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-black mb-4">Skills & Expertise</h2>
-          <motion.div 
-            initial={{ width: 0 }}
-            whileInView={{ width: 80 }}
-            viewport={{ once: true }}
-            className="h-1 bg-accent mx-auto rounded-full" 
-          />
+          <h2 className="text-5xl md:text-7xl font-display font-black tracking-tighter">Skills & <span className="text-accent">Expertise.</span></h2>
         </motion.div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-4 mb-20">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-8 py-3 rounded-2xl text-sm font-bold transition-all border ${
+              className={`px-8 py-3 rounded-2xl text-xs font-black uppercase tracking-widest transition-all duration-500 border ${
                 activeCategory === cat 
                   ? 'bg-accent text-white border-accent shadow-accent-sm' 
-                  : 'bg-bg-main text-text-sub border-border-main hover:border-accent/40'
+                  : 'bg-bg-sub/40 backdrop-blur-md text-text-sub border-border-main hover:border-accent/40'
               }`}
             >
               {cat}
@@ -47,7 +41,7 @@ export const Skills: React.FC = () => {
 
         <motion.div 
           layout
-          className="grid md:grid-cols-2 gap-x-12 gap-y-8"
+          className="grid md:grid-cols-2 gap-x-16 gap-y-10"
         >
           <AnimatePresence mode="popLayout">
             {filteredSkills.map((skill, idx) => (
@@ -60,24 +54,38 @@ export const Skills: React.FC = () => {
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
                 className="group"
               >
-                <div className="flex justify-between items-end mb-3">
-                  <span className="text-lg font-bold text-text-main group-hover:text-accent transition-colors">
-                    {skill.name}
-                  </span>
-                  <span className="text-xs font-mono font-bold text-accent">
-                    {skill.level}%
-                  </span>
+                <div className="flex justify-between items-end mb-4">
+                  <div className="flex flex-col">
+                    <span className="text-xl font-black text-text-main group-hover:text-accent transition-colors tracking-tight">
+                      {skill.name}
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-xs font-mono font-bold text-accent">
+                      {skill.level}%
+                    </span>
+                  </div>
                 </div>
-                <div className="h-3 bg-bg-main rounded-full overflow-hidden border border-border-main p-[2px]">
+                <div className="h-4 bg-bg-sub/50 rounded-full overflow-hidden border border-border-main p-[3px] relative transition-colors duration-500">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                    className="h-full bg-accent rounded-full relative"
+                    transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                    className="h-full bg-accent rounded-full relative overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20" />
+                    <motion.div 
+                      animate={{ x: ['-100%', '100%'] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                    />
                   </motion.div>
+                  {/* Tick Marks */}
+                  <div className="absolute inset-0 flex justify-between px-4 pointer-events-none opacity-20">
+                    {[...Array(10)].map((_, i) => (
+                      <div key={i} className="w-[1px] h-full bg-text-main" />
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}

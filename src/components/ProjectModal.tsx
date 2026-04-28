@@ -30,7 +30,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const tabs = [
     { id: 'overview', label: 'Overview', icon: <Target className="w-4 h-4" /> },
     { id: 'results', label: 'Results', icon: <CheckCircle2 className="w-4 h-4" /> },
-    { id: 'techStack', label: 'Tech Stack', icon: <Code className="w-4 h-4" /> },
     { id: 'resources', label: 'Resources', icon: <FileText className="w-4 h-4" /> },
   ];
 
@@ -49,26 +48,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <p className="text-text-main font-bold text-lg leading-snug italic tracking-tight">
               "{project.impact}"
             </p>
-          </div>
-        </div>
-      );
-    }
-
-    if (activeTab === 'techStack') {
-      return (
-        <div className="flex flex-col gap-6">
-          <p className="text-text-sub leading-relaxed text-lg font-medium">
-            {project.technicalDetails?.techStack || 'Detailed technical stack and implementation specifics.'}
-          </p>
-          <div>
-            <h4 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-text-sub mb-4 border-b border-border-main/50 pb-2">Technical Core</h4>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, i) => (
-                <span key={i} className="px-3 py-1.5 rounded-lg bg-accent/5 border border-accent/10 text-accent text-[10px] font-mono font-bold">
-                  {tech}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       );

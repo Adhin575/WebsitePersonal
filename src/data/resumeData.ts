@@ -118,22 +118,24 @@ export const resumeData: ResumeData = {
       role: "Fault Protection Systems Engineering Lead and Flight Software Sub-Lead",
       duration: "Jan 2026 - May 2026",
       thumbnail: "https://lh3.googleusercontent.com/d/1cCC9HZxPgkp0-DtjRRfVGZOlR3gr0dUx",
-      technologies: ["FDIR Architecture", "Decision Autonomy", "Python", "CAD", "Spacecraft Design"],
+      technologies: ["FDIR Architecture", "Decision Autonomy", "Systems Engineering", "Flight Software"],
       description: "Designed the mission patch and worked with Systems Engineers to establish concrete requirements for every subsystem. Designed an elaborate fault protection architecture, safe mode configuration, and FDIR logic for nearly 300 possible faults. Devised flight software architecture and state machines.",
       technicalDetails: {
-        overview: "The WatchDogL2 mission focuses on surveillance and interception at the Earth-Moon L2 Lagrange point. My role involved leading the Fault Detection, Isolation, and Recovery (FDIR) architecture and co-leading the flight software development. We established rigorous systems requirements to ensure mission success in a complex orbital environment.",
-        results: "Successfully developed a fault protection logic capable of handling over 300 fault scenarios across five criticality levels (F0-F4). This architecture is projected to improve mission reliability by 30%.",
-        techStack: "Systems Engineering (MBSE), FDIR Logic, Python-based Flight Software simulations, CAD modeling for sensor placement, and STK for orbital analysis."
+        overview: "The WatchDogL2 mission is a Space Force mission that focuses on surveillance and interception of enemy spacecraft at the Earth-Moon L2 Lagrange point. My role involved leading the Fault Detection, Isolation, and Recovery (FDIR) architecture and co-leading the flight software development. We established rigorous systems requirements to ensure mission success in a complex orbital environment.",
+        results: "Successfully developed a fault protection logic capable of handling over 300 fault scenarios across five criticality levels (F0-F4). Designed an industry-grade NASA Class B FPDD to show all the findings and fault DIR strategies. As the flight software co-lead, I devised the flight software architecture, state machine, and worked on the SLoC estimates. Helped in executing TS8 trade studies for FSW autonomy and FDIR execution.",
+        techStack: "MS Office Tools, Canva, Python"
       },
-      impact: "Decreased chances of LoM / LoV by 30% through accurate mitigation and isolation strategies for faults ranging from F0 to F4 criticality.",
+      impact: "Provided accurate mitigation and isolation strategies for each of those faults ranging from F0 to F4 criticality, thereby decreasing chances of LoM / LoV by 30%.",
       gallery: [
         { type: 'image', url: 'https://lh3.googleusercontent.com/d/1cCC9HZxPgkp0-DtjRRfVGZOlR3gr0dUx', caption: 'WatchDogL2 Mission Patch Design' },
         { type: 'image', url: 'https://picsum.photos/seed/watchdog2/1200/800', caption: 'FDIR Logic Diagram' },
         { type: 'image', url: 'https://picsum.photos/seed/watchdog3/1200/800', caption: 'Flight Software State Machine' }
       ],
       attachments: {
-        presentation: "https://drive.google.com/file/d/1WxS59qU8assscak55axOL8-5TWWM7hJW/view?usp=sharing",
-        presentationLabel: "CoDR Presentation"
+        presentation: "https://docs.google.com/presentation/d/1y5Bzl-ZFoOdZiR9oegBI3ackV7pwOIPk/edit?usp=sharing&ouid=113711368431435030458&rtpof=true&sd=true",
+        presentationLabel: "PDR Presentation",
+        pdf: "https://docs.google.com/document/d/1l1r-BG3qC3FtQEBQQ4zwNPBYMthBp-T-/edit?usp=drive_link&ouid=113711368431435030458&rtpof=true&sd=true",
+        pdfLabel: "Fault Protection Design Document"
       }
     },
     {

@@ -1,178 +1,188 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, ArrowRight, Mail, Camera } from 'lucide-react';
+import { ChevronRight, Download, Mail } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
+import { useTheme } from '../context/ThemeContext';
 
 export const Hero: React.FC = () => {
-  const titleWords = resumeData.name.split(" ");
+  const { mode } = useTheme();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent/5 blur-[120px] rounded-full" />
+    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0">
+        <div className={`absolute top-1/4 left-1/4 w-[40vw] h-[40vw] ${mode === 'dark' ? 'bg-accent/[0.03]' : 'bg-accent/[0.08]'} blur-[120px] rounded-full transition-colors duration-1000`} />
+        <div className={`absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] ${mode === 'dark' ? 'bg-accent/[0.03]' : 'bg-accent/[0.05]'} blur-[100px] rounded-full transition-colors duration-1000`} />
+      </div>
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.2 }
-            }
-          }}
-        >
-          <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 10 },
-              visible: { opacity: 1, y: 0 }
+      {/* Tiny stars/particles effect */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        {[...Array(20)].map((_, i) => (
+          <div 
+            key={i}
+            className={`absolute rounded-full animate-pulse transition-colors duration-500 ${mode === 'dark' ? 'bg-white' : 'bg-accent'}`}
+            style={{
+              width: Math.random() * 2 + 'px',
+              height: Math.random() * 2 + 'px',
+              top: Math.random() * 100 + '%',
+              left: Math.random() * 100 + '%',
+              animationDelay: Math.random() * 5 + 's',
+              animationDuration: Math.random() * 3 + 2 + 's'
             }}
-            className="text-accent font-mono text-sm mb-4 tracking-[0.3em] uppercase font-bold"
+          />
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid lg:grid-cols-[1.1fr,0.9fr] items-center gap-16">
+        {/* Left Content */}
+        <div className="flex flex-col gap-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-[4.5rem] md:text-[6.5rem] lg:text-[8rem] font-display font-bold tracking-tight text-text-main leading-[0.9]"
           >
-            Hello, I am
-          </motion.p>
-          
-          <div className="flex flex-wrap gap-x-4 mb-6">
-            {titleWords.map((word, i) => (
-              <motion.h1
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 100, rotateX: -90 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0, 
-                    rotateX: 0,
-                    transition: { 
-                      type: "spring", 
-                      damping: 10, 
-                      stiffness: 100,
-                      delay: i * 0.1
-                    }
-                  }
-                }}
-                className="text-6xl md:text-8xl font-display font-black leading-tight"
-              >
-                {word}
-              </motion.h1>
-            ))}
-          </div>
+            Adhindra <span className="italic text-accent">VS</span>
+          </motion.h1>
 
           <motion.h2
-            variants={{
-              hidden: { opacity: 0, x: -50 },
-              visible: { 
-                opacity: 1, 
-                x: 0,
-                transition: { type: "spring", damping: 20, stiffness: 100, delay: 0.5 }
-              }
-            }}
-            className="text-2xl md:text-3xl text-text-sub mb-8 font-light tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-2xl md:text-3xl lg:text-[2.5rem] text-text-main/90 font-display italic tracking-tight leading-none"
           >
-            {resumeData.title}
+            Aerospace & Mechanical Engineer
           </motion.h2>
 
-          <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
-                y: 0,
-                transition: { delay: 0.7 }
-              }
-            }}
-            className="text-lg text-text-sub mb-10 max-w-lg leading-relaxed border-l-2 border-accent/30 pl-6"
-          >
-            {resumeData.summary}
-          </motion.p>
-
           <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            className="flex flex-wrap gap-4"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="relative px-8 py-2 my-8 flex items-center"
           >
-            <motion.a
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(var(--accent-rgb), 0.4)" }}
-              whileTap={{ scale: 0.95 }}
+            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-accent shadow-accent-sm" />
+            <p className="text-xl text-text-sub max-w-2xl font-medium leading-relaxed italic">
+              {resumeData.summary}
+            </p>
+          </motion.div>
+
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-wrap items-center gap-6"
+          >
+            <a
               href="#portfolio"
-              className="px-10 py-5 bg-accent text-white rounded-2xl font-bold flex items-center gap-3 transition-all"
+              className="group flex items-center gap-3 px-8 py-5 rounded-xl bg-accent text-white font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-accent-sm"
             >
-              View Portfolio <ArrowRight size={20} />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05, borderColor: "var(--color-accent)", backgroundColor: "rgba(var(--accent-rgb), 0.05)" }}
-              whileTap={{ scale: 0.95 }}
+              View Portfolio
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
               href={resumeData.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-10 py-5 border-2 border-border-main text-text-main rounded-2xl font-bold flex items-center gap-3 transition-all"
-              aria-label="Download Resume"
+              className="group flex items-center gap-3 px-8 py-5 rounded-xl bg-bg-sub/50 border border-border-main text-text-main font-black text-xs uppercase tracking-widest hover:bg-accent/5 hover:border-accent transition-all"
             >
-              Download Resume <Download size={20} />
-            </motion.a>
-            <motion.a
-              whileHover={{ rotate: 15, scale: 1.1 }}
-              href="#contact"
-              className="p-4 rounded-full border border-border-main hover:bg-bg-sub transition-all"
+              Download Resume
+              <Download className="w-4 h-4" />
+            </a>
+            <a
+              href={`mailto:${resumeData.contact.email}`}
+              className="w-14 h-14 rounded-xl bg-bg-sub/50 border border-border-main flex items-center justify-center text-text-main hover:border-accent hover:text-accent transition-all"
             >
-              <Mail size={20} />
-            </motion.a>
+              <Mail className="w-5 h-5" />
+            </a>
           </motion.div>
-        </motion.div>
+        </div>
 
+        {/* Right Content: Circular Image Layout with Neon Animations */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="relative flex justify-center items-center h-[500px]"
         >
-          <div className="relative w-64 h-64 md:w-96 md:h-96">
-            {/* Animated Rings */}
-            <motion.div
-              animate={{ rotate: 360, scale: [1, 1.05, 1] }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-6 border-2 border-dashed border-accent/20 rounded-full"
+          {/* Neon Rotating Borders */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            {/* Outer dotted ring */}
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+              className={`absolute w-[110%] aspect-square rounded-full border border-dashed transition-colors duration-500 ${mode === 'dark' ? 'border-white/[0.05]' : 'border-accent/10'}`}
             />
-            <motion.div
-              animate={{ rotate: -360, scale: [1, 1.1, 1] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-12 border border-accent/5 rounded-full"
+            {/* Middle dotted ring */}
+            <motion.div 
+              animate={{ rotate: -360 }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              className={`absolute w-[125%] aspect-square rounded-full border border-dotted transition-colors duration-500 ${mode === 'dark' ? 'border-white/[0.03]' : 'border-accent/5'}`}
             />
-            
-            {/* Floating Dots */}
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={i}
-                animate={{ 
-                  y: [0, -10, 0],
-                  opacity: [0.2, 0.5, 0.2]
-                }}
-                transition={{ 
-                  duration: 3 + i, 
-                  repeat: Infinity, 
-                  delay: i * 0.5 
-                }}
-                className="absolute w-2 h-2 bg-accent rounded-full blur-[1px]"
-                style={{
-                  top: `${50 + 45 * Math.sin(i * Math.PI / 4)}%`,
-                  left: `${50 + 45 * Math.cos(i * Math.PI / 4)}%`,
-                }}
-              />
-            ))}
+            {/* Inner accent ring */}
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[105%] aspect-square rounded-full border-2 border-accent/20 border-t-accent/60 opacity-40 blur-[1px]"
+            />
 
-            <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-bg-main shadow-2xl group">
-              <motion.img
-                whileHover={{ scale: 1.1 }}
+            {/* Float Experience Badge */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className={`absolute -bottom-6 -right-[20%] p-5 rounded-2xl border backdrop-blur-xl shadow-2xl transition-colors duration-500 min-w-[180px] z-20 ${mode === 'dark' ? 'bg-bg-sub/80 border-white/10' : 'bg-white/80 border-accent/20'}`}
+            >
+              <div className="flex flex-col gap-1">
+                <span className="text-[10px] font-black uppercase tracking-widest text-accent">Professional Experience</span>
+                <p className="text-sm font-bold text-text-main leading-tight">
+                  {resumeData.professionalExperiences[0].role}
+                </p>
+                <p className="text-[11px] font-medium text-text-sub">
+                  {resumeData.professionalExperiences[0].organization}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Inner Circular Image Container */}
+          <div className={`relative w-full max-w-[420px] aspect-square rounded-full p-6 border transition-colors duration-500 bg-gradient-to-br from-accent/5 to-transparent backdrop-blur-xl group ${mode === 'dark' ? 'border-white/10' : 'border-accent/20'}`}>
+            {/* Extra Glow effect behind image */}
+            <div className="absolute inset-4 rounded-full bg-accent/5 blur-3xl group-hover:bg-accent/10 transition-colors" />
+            
+            <div className={`w-full h-full rounded-full overflow-hidden border-2 transition-colors duration-500 shadow-2xl relative ${mode === 'dark' ? 'border-white/20' : 'border-accent/30'}`}>
+              <img
                 src={resumeData.profileImage}
                 alt={resumeData.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "50% 10%" }}
+                className="w-full h-full object-cover scale-110 transition-transform duration-700 group-hover:scale-125"
+                style={{ objectPosition: '50% 25%' }}
               />
+              {/* Radial Fade Overlay */}
+              <div className={`absolute inset-0 pointer-events-none transition-colors duration-500 ${mode === 'dark' ? 'bg-radial-gradient from-transparent to-black/50' : 'bg-radial-gradient from-transparent to-white/30'}`} />
+              
+              {/* Scanline effect */}
+              <div className="absolute inset-0 bg-scanline pointer-events-none opacity-20" />
             </div>
+
+            {/* Orbiting particles */}
+            {[...Array(3)].map((_, i) => (
+              <motion.div
+                key={i}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10 + i * 5, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 pointer-events-none"
+              >
+                <div 
+                  className="w-2 h-2 rounded-full bg-accent shadow-accent-sm"
+                  style={{ 
+                    position: 'absolute', 
+                    top: '-5px', 
+                    left: '50%', 
+                    transform: 'translateX(-50%)' 
+                  }}
+                />
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

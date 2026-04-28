@@ -1,18 +1,31 @@
+export interface GalleryItem {
+  type: 'image';
+  url: string;
+  caption?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
   role: string;
   duration: string;
   thumbnail: string;
+  gallery?: GalleryItem[];
   technologies: string[];
   description: string;
   impact: string;
+  technicalDetails?: {
+    overview: string;
+    results: string;
+    techStack?: string;
+  };
   attachments: {
     pdf?: string;
     pdfLabel?: string;
     presentation?: string;
     presentationLabel?: string;
     github?: string;
+    publication?: string;
   };
 }
 
@@ -67,7 +80,7 @@ export const resumeData: ResumeData = {
   name: "Adhindra VS",
   title: "Aerospace & Mechanical Engineer",
   summary: "Passionate engineer specializing in bioastronautics, space mission and spacecraft design, astrodynamics, additive manufacturing, CAD/CAE, Python, and structural analysis.",
-  about: "Hi, I’m Adhindra VS — a mechanical engineer and aspiring aerospace engineer and researcher driven by curiosity at the intersection of design, simulation, and space systems. With experience spanning computational modeling, composite materials research, and hands-on prototyping, I enjoy transforming complex engineering concepts into tangible, high-performance solutions. My work integrates analytical rigor with experimental validation, from 3D-printed composite structures to rocket and space system design. Passionate about advancing aerospace technologies, I seek opportunities where I can contribute to innovative research and engineering solutions that push the boundaries of flight and space exploration.",
+  about: "MS Aerospace Engineering student specializing in Bioastronautics, with hands-on experience in CubeSat missions and space mission development. Worked on SWARM-ex and MAXWELL CubeSat programs, along with other mechanical and aerospace projects. Research and industry interests include mission and spacecraft design, ECLSS systems, spacesuit design, habitat design, UAV formulation, and Lunar space missions.",
   strengths: [
     "Space Mission Design & Systems Engineering",
     "Advanced Additive Manufacturing (FDM, Composites)",
@@ -78,201 +91,283 @@ export const resumeData: ResumeData = {
   ],
   education: [
     {
-      institution: "University of Colorado Boulder",
-      degree: "Master of Science in Aerospace Engineering Sciences",
-      duration: "2025 - Present (Expected Dec 2026)",
+      institution: "University of Colorado - Boulder",
+      degree: "M.S. in Aerospace Engineering Sciences (Focus: Bioastronautics)",
+      duration: "Aug 2025 - present",
       highlights: [
-        "Focus on Bioastronautics",
-        "Additional Focus on Astrodynamics, Satellite Navigation and Project Management",
-        "Special interest in spaceflight dynamics, spacecraft and mission design/development, GNSS",
-        "Part of multiple projects and research opportunities including Maxwell CubeSat",
-        "CGPA: 4.0/4.0"
-      ]
+        "Special Topics in Astrodynamics, Satellite Navigation, and Management",
+        "Relevant Coursework: Spacecraft Attitude Determination, Spaceflight Dynamics, Space Habitat Design, Space Life Sciences, Spacecraft Design, Space Mission Design and Development",
+        "Current GPA: 4.0/4.0"
+      ],
+      gpa: "4.0/4.0"
     },
     {
       institution: "Shiv Nadar Institution of Eminence",
-      degree: "B.Tech in Mechanical Engineering",
-      duration: "2021 - 2025",
+      degree: "BTech in Mechanical Engineering (Focus: Computational Techniques in Mech. Engg.)",
+      duration: "Aug 2021 - May 2025",
       highlights: [
-        "Focus on Computational Techniques in Mechanical Engineering",
-        "Undergraduate Research Presented at ICAMSF-2025 and SNIoE OUR Conference 2024 on 2 separate projects",
-        "2 Research Paper Publications for Additive Manufacturing Resesarch with PLA-TPU and rPP/vPP",
-        "Design Patent published for FGM synthesis device",
-        "Was part of university teams for ASME e-HPVC, SAE e-Baja, ISRO-URoC, World Robotics Championship, CanSat competitions",
-        "CGPA: 9.02/10 (High Distinction)"
+        "Minor in Communications and Media Arts",
+        "Relevant Coursework: Mechatronics, Computational Fluid Dynamics, Mechanics of Composite Materials, Finite Element Methods, Computational Methods in Mechanical Engg., Advanced Thermodynamics",
+        "GPA: 9.02/10 (High Distinction)"
       ],
+      gpa: "9.02/10"
     }
   ],
   projects: [
     {
       id: "watchdog-l2",
-      title: "WatchDogL2 - Earth-Moon L2 Surveillance and Interception Satellite",
-      role: "Fault Protection Lead and Flight Software Sub-Lead",
+      title: "WatchDogL2 - Earth-Moon L2 Surveillance & Interception Satellite",
+      role: "Fault Protection Systems Engineering Lead and Flight Software Sub-Lead",
       duration: "Jan 2026 - May 2026",
       thumbnail: "https://lh3.googleusercontent.com/d/1cCC9HZxPgkp0-DtjRRfVGZOlR3gr0dUx",
-      technologies: ["Canva", "Python", "CAD", "FDIR Architecture", "Decision Autonomy"],
-      description: "Designed a fool-proof fault protection system for all the separate subsystems and their associated interfaces at all times, while creating a decision tree for autonomy and manual commands. Defined all the different modes of the spacecraft during the 2+ year mission during which the spacecraft would station at EarthMoon L2 and surveil the space. Assisted the flight software team with creating a full-fledged flight software assisted by a TS8 Autonomy Trade study.",
-      impact: "Reduced the chances of fault to less than 30%, while increasing the efficiency of the protection scheme by 20%. Led to a robust FSW, C&DH, Telecom, EEIS and Fault Protection Plan and Chain of Command during the mission.",
+      technologies: ["FDIR Architecture", "Decision Autonomy", "Python", "CAD", "Spacecraft Design"],
+      description: "Designed the mission patch and worked with Systems Engineers to establish concrete requirements for every subsystem. Designed an elaborate fault protection architecture, safe mode configuration, and FDIR logic for nearly 300 possible faults. Devised flight software architecture and state machines.",
+      technicalDetails: {
+        overview: "The WatchDogL2 mission focuses on surveillance and interception at the Earth-Moon L2 Lagrange point. My role involved leading the Fault Detection, Isolation, and Recovery (FDIR) architecture and co-leading the flight software development. We established rigorous systems requirements to ensure mission success in a complex orbital environment.",
+        results: "Successfully developed a fault protection logic capable of handling over 300 fault scenarios across five criticality levels (F0-F4). This architecture is projected to improve mission reliability by 30%.",
+        techStack: "Systems Engineering (MBSE), FDIR Logic, Python-based Flight Software simulations, CAD modeling for sensor placement, and STK for orbital analysis."
+      },
+      impact: "Decreased chances of LoM / LoV by 30% through accurate mitigation and isolation strategies for faults ranging from F0 to F4 criticality.",
+      gallery: [
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1cCC9HZxPgkp0-DtjRRfVGZOlR3gr0dUx', caption: 'WatchDogL2 Mission Patch Design' },
+        { type: 'image', url: 'https://picsum.photos/seed/watchdog2/1200/800', caption: 'FDIR Logic Diagram' },
+        { type: 'image', url: 'https://picsum.photos/seed/watchdog3/1200/800', caption: 'Flight Software State Machine' }
+      ],
       attachments: {
-        pdf: "#",
-        pdfLabel: "Spacecraft Design Report",
         presentation: "https://drive.google.com/file/d/1WxS59qU8assscak55axOL8-5TWWM7hJW/view?usp=sharing",
         presentationLabel: "CoDR Presentation"
       }
     },
     {
-      id: "mars-adc",
-      title: "Attitude Dynamics and Control of a Nano-Satellite Orbiting Mars",
-      role: "Graduate Researcher",
-      duration: "Jan 2026 - May 2026",
-      thumbnail: "https://lh3.googleusercontent.com/d/1tswIfdRUI1LznOpgReLzsHzO4qol4SAb",
-      technologies: ["Python", "Spacecraft ADC", "Math Modelling"],
-      description: "Designed and implemented a full 6-DOF attitude dynamics simulation and autonomous PD control system for a Mars nano-satellite in Python, achieving three real-time pointing modes — solar, nadir, and communication — with a custom RK4 integrator and live 3D visualization",
-      impact: "Demonstrated that a nano-satellite can autonomously manage competing mission objectives — power generation, science observation, and inter-satellite communication — through mathematically rigorous attitude control without ground intervention.",
-      attachments: {
-        pdf: "https://drive.google.com/file/d/1SkxzJqeQRlILCJnkSajnnOzq-wiWO4Z9/view?usp=drive_link",
-        pdflabel: "Technical Report",
-        github: "https://github.com/Adhin575/NanoSatelliteMarsADC"
-      }
-    },
-    {
-      id: "nrho-stationkeeping",
-      title: "Autonomous Station-keeping in Earth-Moon NRHO",
-      role: "Graduate Researcher",
-      duration: "Jan 2026 - Feb 2026",
-      thumbnail: "https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400",
-      technologies: ["Python", "Astrodynamics", "Math Modelling"],
-      description: "Executed an individual masters and entry PhD level research with a math modeling and Python computational code. Presented it at the Smead Aerospace Inter-Departmental Graduate Conference Feb'26.",
-      impact: "Proposed a fuel efficient gate-keeping strategy for Lunar South Pole Gateway and Artemis missions by using Linear Quadratic Regulator, Model Predictive Control, and Invariant Manifold Fixation Strategy in a CR3BP -> BCR4BP situation ",
-      attachments: {
-        presentation: "https://drive.google.com/file/d/1bamGIxFNk5kAjnu-8Z9QE7tbUJuUIrf6/view?usp=sharing",
-        presentationLabel: "Research Presentation",
-        github: "https://github.com/Adhin575/NRHOStationkeeping"
-      }
-    },
-    {
-      id: "maxwell",
-      title: "Maxwell and Swarm-Ex CubeSats - Colorado Center of Astrodynamic Research (CCAR)",
-      role: "Structures, AI&T, and System Engineering Research Team",
-      duration: "Aug 2025 - May 2026",
-      thumbnail: "https://lh3.googleusercontent.com/d/1L7iUe-4On_zYTXlpLUMLhvpAlTh35OnQ",
-      technologies: ["ANSYS Structural and Thermal", "SolidWorks", "Systems Engineering", "AI&T"],
-      description: "Executed Thermal testing and Structural Stability Testing of the PLDC Component of the Maxwell 6U CubeSat and worked on the integration of the same component in the body of the CubeSat",
-      impact: "Optimized the orientation and positioning of the electrical components in the PLDC based on stability conditions of thermal and mechanical loading due to operational temperatures in space, and bolting operations of the PLDC on the spacecraft.",
-      attachments: {}
-    },
-    {
       id: "flair",
-      title: "Flying Lab for Atmospheric Isotope Research (FLAIR)",
-      role: "Graduate Researcher - Software Engineer, Data Analyst, and Fabrication Engineer",
-      duration: "Aug 2025 - May 2026",
+      title: "Flying Lab for Airborne Isotope Research (FLAIR) - INSTAAR Lab",
+      role: "UI/UX Software Lead / Data Analyst / Fabrication Engineer",
+      duration: "Sep 2025 - May 2026",
       thumbnail: "https://lh3.googleusercontent.com/d/1aljQ6j_b8ifiHK4QpS0q1zjyXz5AlbsC",
-      technologies: ["Python", "UI/UX Design", "Arduino", "3D Printing", "Mechanical Fabrication & AI&T"],
-      description: "Created a Ground Station Interface App that enables the ground to connect to the drone, and display the data read by the drone in exciting visual plots, using custom defined atmospheric boundaries of the algorithm. I also worked on the actual AI&T of the payload into the BlackSwift S3 VToL, as a fabrication engineer, along with 3D printing of bulkheads and laser cavity enclosures.",
-      impact: "Could present interactive and understandable results, instead of just providing complex datasets as part of the conference submission. As a fabrication engineer, I reduced manufacturing and testing costs by approximately 25% and increasing time efficiency to complete 1 month prior to the actual deadline",
+      technologies: ["Python", "Arduino", "3D Printing", "TCFA Testing", "Data Analysis"],
+      description: "Created a Ground Station Interface App on Python connecting to Payload Arduino. Displays real-time atmospheric data plots and controls hardware like exhaust fans. Worked on fabrication and TCFA testing for PLA enclosures and bulkheads.",
+      technicalDetails: {
+        overview: "FLAIR is an airborne research platform designed to study atmospheric isotopes. I spearheaded the software development for the ground station and led the rapid prototyping of core structural components using carbon fiber and 3D printing.",
+        results: "Developed a functional real-time telemetry dashboard using Python/PyQt and successfully integrated it with the BlackSwift S3 aircraft. Fabrication optimizations led to a 25% reduction in production costs.",
+        techStack: "Python (GUI development), Arduino (firmware), SolidWorks (CAD), 3D Printing (FDM), and TCFA (Thermal/Structural testing)."
+      },
+      impact: "Reduced fabrication costs by 25% of the budget. Assisted in AI&T of the payload in the BlackSwift S3 VTOL and secured payload data during test flights.",
+      gallery: [
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1aljQ6j_b8ifiHK4QpS0q1zjyXz5AlbsC', caption: 'Ground Station Dashboard Interface' },
+        { type: 'image', url: 'https://picsum.photos/seed/flair2/1200/800', caption: 'BlackSwift S3 Integration' },
+        { type: 'image', url: 'https://picsum.photos/seed/flair3/1200/800', caption: 'TCFA Testing Setup' }
+      ],
       attachments: {
         presentation: "https://drive.google.com/file/d/1YQfDouzujvs3Z--T90m6GpDX9jf0biVw/view?usp=drive_link",
-        presentationLabel: "CDR Presentation",
-        github: "https://github.com/Adhin575/FLAIRGroundStation"
-      }
-    },
-    {
-      id: "horizon-nexus",
-      title: "Horizon Nexus: Long Duration (5+ Years) LEO Space Habitat",
-      role: "Power & Thermal Lead, ECLSS and Crew/Payload Accommodation Co-Lead",
-      duration: "Aug 2025 - Dec 2025",
-      thumbnail: "https://lh3.googleusercontent.com/d/1fMHF6CnJZwDaRZXhd1JaQzMgltJPlq3B",
-      technologies: ["Power & Thermal Control", "Electrical Systems", "Human Factors", "ECLSS"],
-      description: "Designed a power generation, storage, management and distribution system for a reusable, commercial LEO space habitat for 3 crewmembers. I designed an ACTS and PCTS as part of the thermal lead role, along with drafting subsystem and system block diagrams and budgets. I worked on a dedicated mass budget for the entire spacecraft surrounding ECLSS and astronaut needs, while designing the interior plan for the habitat.",
-      impact: "Made it 20% more efficient and designed a 18% more-efficient cooling and thermal maintenance system for the habitat with an annual maintenance PoA. As the ECLSS Co-Lead, I ended up saving 20% of mass budget with a 15% reserve included in the actual budget thereby making the payload lighter.",
-      attachments: {
-        pdf: "https://drive.google.com/file/d/1mqU46v4jv0UGQprFDEBJcvFFl5m1tuii/view?usp=drive_link",
-        presentation: "https://drive.google.com/file/d/1KU-iPvA6CMpMgN1xEiLTe9QGxLWCLCXw/view?usp=drive_link",
-        presentationLabel: "Design Presentation"
+        presentationLabel: "CDR Presentation"
       }
     },
     {
       id: "shine",
-      title: "Survey of Hidden water-Ice in Non-illuminated Environments",
-      role: "Principal Investigator and Project Manager",
-      duration: "Aug 2025 - Dec 2025",
+      title: "SHINE (Survey of Hidden water-Ice in Non-illuminated Environments)",
+      role: "Principal Investigator / Project Manager",
+      duration: "Sep 2025 - Dec 2025",
       thumbnail: "https://lh3.googleusercontent.com/d/121FOdalh3aCXpKRUmEEyyxe1j2lPlsry",
-      technologies: ["Mission Design", "SolidWorks", "Python", "Scheduling and Budgeting"],
-      description: "Came up with a highly comprehensible and sound requirements list with the system engineer, along with an instrument study with the payload specialist and designed the 6U spacecraft with the spacecraft lead along with a detailed mission design and ConOps. Created a near-perfect schedule for the entire mission duration, compliant with real standards, along with a mission budget and test plan.",
-      impact: "Optimized the trajectory to reach the Lunar South Pole at an altitude of ~30 km from the surface in an NRHO orbit, in just 1.5 years, with an Ion propulsion system. As the Project Manager, I reduced approximately 13 Million USD from the initial cost cap, making it 24% more efficient.",
+      technologies: ["Mission Design", "ConOps", "Budgeting", "V&V Plans", "TRL Management"],
+      description: "Led development of a NASA Class D SMEX mission, overseeing STM development, instrumentation, and ConOps. Designed mission schedules, cost budgets, and testing V&V plans.",
+      technicalDetails: {
+        overview: "SHINE is a proposed lunar mission aimed at surveying permanently shadowed regions (PSRs) for water ice. As PI/Project Manager, I led the mission architecture, payload selection, and systems budgeting.",
+        results: "Delivered a comprehensive mission proposal with a 24% reduction in projected costs through optimized component trade-offs and robust V&V plans.",
+        techStack: "Systems Tool Kit (STK), NASA Cost Estimation Models, ConOps Design, and V&V Planning."
+      },
+      impact: "Reduced mission costs by 24% while maintaining maximum safety limits and defining key component trade studies.",
+      gallery: [
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/121FOdalh3aCXpKRUmEEyyxe1j2lPlsry', caption: 'SHINE Spacecraft Configuration' },
+        { type: 'image', url: 'https://picsum.photos/seed/shine/1200/800', caption: 'Mission Trajectory Map' }
+      ],
       attachments: {
         pdf: "https://drive.google.com/file/d/1qrxZ6ymutSDUYI0pE8ztbpcn5wjD9tf0/view?usp=drive_link",
-        pdfLabel: "Mission Proposal",
-        presentation: "https://drive.google.com/file/d/1-n3TADzS-WvgMXe2Vc4oIjU_JGhUls04/view?usp=drive_link",
-        presentationLabel: "Poster Presentation",
-        github: "https://github.com/Adhin575/SHINEMissionSimulator"
+        pdfLabel: "Mission Proposal"
       }
     },
     {
-      id: "vPPrPP",
-      title: "Mechanical Property Improvement of 3D-Printed rPP and vPP through Heat Treatment and Sustainable Filament Reuse",
-      role: "Undergraduate Researcher and Paper Author",
-      duration: "Jan 2025 - May 2025",
+      id: "horizon-nexus",
+      title: "Horizon Nexus - LEO Long Duration Human Space Habitat",
+      role: "Power & Thermal Lead / Crew Accommodation and EVA Lead, ECLSS Co-Lead",
+      duration: "Sep 2025 - Dec 2025",
+      thumbnail: "https://lh3.googleusercontent.com/d/1fMHF6CnJZwDaRZXhd1JaQzMgltJPlq3B",
+      technologies: ["Thermal Systems", "Power Budgeting", "ECLSS", "Human Factors"],
+      description: "Drafted Power budget for a 5+ year mission. Designed a highly-efficient thermal maintenance system and led development of mass budgets for ECLSS and consumables. Drafted interior habitat layouts.",
+      technicalDetails: {
+        overview: "Horizon Nexus is a conceptual design for a long-duration human habitat in Low Earth Orbit. I was responsible for the critical life-support infrastructure, including power, thermal, and ECLSS subsystems.",
+        results: "Conceptualized a thermal management system that improved efficiency by 20% and optimized the mass budget for a crew of six over a 5-year operational lifespan.",
+        techStack: "Thermal Simulation, Power Budgeting (Excel/vba), AutoCAD for habitat layout, and ECLSS modeling."
+      },
+      impact: "Increased power efficiency by 20% and optimized mass budget through strategic positioning of functioning bays.",
+      gallery: [
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1fMHF6CnJZwDaRZXhd1JaQzMgltJPlq3B', caption: 'Habitat Interior Design Concept' },
+        { type: 'image', url: 'https://picsum.photos/seed/horizon2/1200/800', caption: 'Thermal System Layout' },
+        { type: 'image', url: 'https://picsum.photos/seed/horizon3/1200/800', caption: 'Consumables Analysis' }
+      ],
+      attachments: {
+        pdf: "https://drive.google.com/file/d/1mqU46v4jv0UGQprFDEBJcvFFl5m1tuii/view?usp=drive_link",
+        presentation: "https://drive.google.com/file/d/1KU-iPvA6CMpMgN1xEiLTe9QGxLWCLCXw/view?usp=drive_link"
+      }
+    },
+    {
+      id: "sans-research",
+      title: "Mechanistic Investigation for SANS",
+      role: "Lead Researcher / Author",
+      duration: "Jan 2026 - May 2026",
+      thumbnail: "https://picsum.photos/seed/sans/800/600",
+      technologies: ["Microgravity Research", "Fluid Dynamics", "Literature Review", "Peer Review"],
+      description: "Conducted extensive literature review on Spaceflight Associated Neuro-ocular Syndrome (SANS) and proposed experimental methods for ground and ISS testing, focusing on intracranial fluid dynamics.",
+      technicalDetails: {
+        overview: "This research investigates the mechanical triggers behind SANS, a critical health risk for astronauts on long-duration missions. The study focuses on how microgravity shifts fluid pressure within the cranium.",
+        results: "Identified key physiological indicators for early SANS onset and proposed a set of hydrodynamic countermeasures to be tested on the ISS.",
+        techStack: "Fluid Dynamics modeling, Biological Systems Analysis, ISS experiment protocols, and Academic Literature Synthesis."
+      },
+      impact: "Authored professional peer-review publication identifying new countermeasure strategies to mitigate microgravity effects on astronauts.",
+      gallery: [
+        { type: 'image', url: 'https://picsum.photos/seed/sans2/1200/800', caption: 'Fluid Dynamics Model under Microgravity' }
+      ],
+      attachments: {}
+    },
+    {
+      id: "nrho-stationkeeping",
+      title: "Autonomous Low-Thrust Station-Keeping in Earth-Moon NRHO",
+      role: "Graduate Researcher",
+      duration: "Jan 2026 - Feb 2026",
+      thumbnail: "https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400",
+      technologies: ["CR3BP Modeling", "LQR Control", "Invariant Manifolds", "Python"],
+      description: "Developed an autonomous low-thrust station-keeping framework for Earth-Moon NRHOs using nonlinear CR3BP modeling and time-varying LQR control. Quantified solar perturbation impacts on drift.",
+      technicalDetails: {
+        overview: "Research into maintaining stable orbits around Earth-Moon Lagrange points (NRHO) using low-thrust electric propulsion. This is critical for future missions like the Lunar Gateway.",
+        results: "Demonstrated accurate station-keeping with kilometer-scale precision while accounting for solar radiation pressure and third-body perturbations.",
+        techStack: "Circular Restricted 3-Body Problem (CR3BP), Linear Quadratic Regulator (LQR), Python (NumPy/SciPy), and Astrodynamics Manifold Theory."
+      },
+      impact: "Presented results at departmental aerospace conference, demonstrating kilometer-scale drift control through structure-aware control strategies.",
+      gallery: [
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400', caption: 'Orbital Trajectory Plotting' },
+        { type: 'image', url: 'https://picsum.photos/seed/nrho/1200/800', caption: 'Drift Analysis Graph' }
+      ],
+      attachments: {
+        presentation: "https://drive.google.com/file/d/1bamGIxFNk5kAjnu-8Z9QE7tbUJuUIrf6/view?usp=sharing",
+        github: "https://github.com/Adhin575"
+      }
+    },
+    {
+      id: "maxwell",
+      title: "Maxwell and SWARM-Ex CubeSat Programs",
+      role: "AI&T, Systems and Structural Engineer",
+      duration: "Aug 2025 - present",
+      thumbnail: "https://lh3.googleusercontent.com/d/1L7iUe-4On_zYTXlpLUMLhvpAlTh35OnQ",
+      technologies: ["Thermal Testing", "Structural Stability", "V&V Test Plan", "Systems Engineering"],
+      description: "Executed Thermal and Structural Stability testing of the PLDC Component of the Maxwell 6U CubeSat. Devised V&V Systems Test Plans and detailed interface requirement documents for Swarm-Ex.",
+      technicalDetails: {
+        overview: "Hands-on engineering roles in the Maxwell and Swarm-Ex CubeSat programs. Focus was on Assembly, Integration, and Testing (AI&T) and systems-level documentation.",
+        results: "Successfully completed structural verification for Maxwell and established standardized interface protocols for the multi-satellite Swarm-Ex constellation.",
+        techStack: "Vibration Testing, Thermal Vacuum (TVAC) Chamber, Systems Engineering V-model, and JIRA/Confluence."
+      },
+      impact: "Successfully integrated core components into the Maxwell body and standardized systems interface requirements for the program.",
+      gallery: [
+        // Maxwell remains images only as per user request exception
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1L7iUe-4On_zYTXlpLUMLhvpAlTh35OnQ', caption: 'Maxwell CubeSat Integration' }
+      ],
+      attachments: {}
+    },
+    {
+      id: "am-optimization",
+      title: "Property Optimization of AM Parts",
+      role: "Lead Researcher / Author",
+      duration: "Aug 2024 - May 2025",
       thumbnail: "https://lh3.googleusercontent.com/d/1yTrIvT4-z3EmB75ZrT27_uWaxkzH439c",
-      technologies: ["Additive Manufacturing", "FEA", "Material Science", "Microstructural Study"],
-      description: "Evaluated tensile mechanical properties, porosity, and warpage differences between virgin and recycled polypropylene via ASTM D638 tensile testing on 3D printed dogbones, after applying a research standard heat treatment procedure. Conducted a sustainability analysis to check industry grade usage on ANSYS Granta.",
-      impact: " Presented our findings before a panel of highly qualified mechanical engineering professors. Results were published through a research paper in ACS Omega Journals.",
+      technologies: ["3D Printing", "ABAQUS", "ANSYS Granta", "SEM Analysis"],
+      description: "Evaluated tensile mechanical properties and warpage of virgin/recycled polypropylene via tensile testing on dogbones created via ABAQUS geometry. Investigated FDM composite reinforcement conditions.",
+      technicalDetails: {
+        overview: "Research into optimizing the mechanical properties of parts produced via Fused Deposition Modeling (FDM). Focus was on using recycled materials and composite reinforcements.",
+        results: "Determined optimal layer height and infill patterns to maximize tensile strength while minimizing warpage, resulting in two peer-reviewed publications.",
+        techStack: "ABAQUS (Finite Element Analysis), ANSYS Granta, Tensile Testing Machines, and Scanning Electron Microscopy (SEM)."
+      },
+      impact: "Co-authored two peer-reviewed publications (ACS Omega, Journal of Process Mechanical Engineering) regarding material usage in engineering applications.",
+      gallery: [
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1yTrIvT4-z3EmB75ZrT27_uWaxkzH439c', caption: 'Testing of 3D Printed Specimens' },
+        { type: 'image', url: 'https://picsum.photos/seed/am2/1200/800', caption: 'SEM Analysis of Composites' },
+        { type: 'image', url: 'https://picsum.photos/seed/am3/1200/800', caption: 'Warpage Comparison Charts' }
+      ],
       attachments: {
-        pdf: "https://drive.google.com/file/d/1zCJBiRCiWL3Ru0T3MrLX0oa3jhU3ZBOU/view?usp=drive_link",
-        pdfLabel: "Published Research Paper",
-        presentation: "https://drive.google.com/file/d/1H1BYP1QPNh73myqBQDsdnz9CSxRZAjEp/view?usp=drive_link"
+        pdf: "https://doi.org/10.1021/acsomega.5c09444",
+        pdfLabel: "ACS Omega Publication"
       }
     },
     {
-      id: "PlaTpu",
-      title: "Optimizing mechanical performance of 3D-printed PLA–TPU composites through heat treatment and geometric interlocking",
-      role: "Undergraduate Researcher and Paper Author",
-      duration: "Aug 2024 - Jan 2025",
-      thumbnail: "https://lh3.googleusercontent.com/d/1dSmjanStOR1m4Xzo85yluHSCl7iM7hOg",
-      technologies: ["Additive Manufacturing", "FEA", "Material Science", "Microstructural Study"],
-      description: "Investigated FDM type composite reinforcement conditions with special emphasis on interlocking and heat treatment patterns for PLA-TPU filaments and looked at tensile properties, porosity, toughness, and warpage using SEM and post-formatting on ImageJ.",
-      impact: "Presented our findings before a panel of highly qualified mechanical engineering professors. Results were published through a research paper in Journal of Process Mechanical Engineering: Part E.",
-      attachments: {
-        pdf: "https://drive.google.com/file/d/1mgRlJJMSnkqV8k2iD4n7FSC3pc6QX_R-/view?usp=drive_link",
-        pdfLabel: "Published Research Paper",
-        presentation: "https://drive.google.com/file/d/1KnM0DiwX_UDCz_J2A1voFctuU5h0_4x9/view?usp=drive_link"
-      }
-    },
-    {
-      id: "fgm",
-      title: "Apparatus to Develop a Functionally Graded Material using Electro-magnetic separation methods",
-      role: "Undergraduate Researcher and Design Patent Holder",
-      duration: "Aug 2023 - Sep 2024",
+      id: "fgm-apparatus",
+      title: "Functionally Graded Materials Apparatus",
+      role: "Researcher / Design Patent Holder",
+      duration: "Aug 2024 - May 2025",
       thumbnail: "https://lh3.googleusercontent.com/d/15zBK97adxXQn7lXKa1FBHf6zU964hhhl",
-      technologies: ["SolidWorks", "Circuit Methods", "Python", "Sheet Metal", "Technical Research"],
-      description: "Designed an entire device which works on electric and magnetic field intersection along with controlled heating to create a Functionally Graded Material (FGM) using a metal and a non-metal with very minimal preparation of the specimen .I executed a full-fledged mechanical CAD assembly of the entire device, along with a detailed electronic schematic and a Python code to control the amount of material that falls in through an automated funnel. ",
-      impact: "Acquired a design patent for the same from the Government of India. (202411043289)",
+      technologies: ["CAD Assembly", "Electromagnetic Separation", "Electronic Schematics", "Python"],
+      description: "Designed a device for FGM synthesis using electric/magnetic field intersection with controlled heating. Executed full CAD assembly and electronic control systems.",
+      technicalDetails: {
+        overview: "Development of a novel apparatus for creating Functionally Graded Materials (FGMs) by selectively depositing materials using electromagnetic fields.",
+        results: "Successfully designed and patented an automated system for material synthesis, opening new possibilities for graduated composite fabrication.",
+        techStack: "Electromagnetic Simulation, SolidWorks CAD, Arduino-based PID control, and Thermal Analysis."
+      },
+      impact: "Acquired a design patent from the Government of India for the automated synthesis process.",
+      gallery: [
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/15zBK97adxXQn7lXKa1FBHf6zU964hhhl', caption: 'CAD Model of the FGM Apparatus' },
+        { type: 'image', url: 'https://picsum.photos/seed/fgm2/1200/800', caption: 'Electronic Control Schematic' },
+        { type: 'image', url: 'https://picsum.photos/seed/fgm3/1200/800', caption: 'Magneto-Thermal Separation Chamber' }
+      ],
       attachments: {
         pdf: "https://drive.google.com/file/d/1uitB-R2ppRoM4UFsXKYeMOKmzDG-kg-5/view?usp=drive_link",
-        pdfLabel: "Conference Presentation"
+        pdfLabel: "Technical Presentation"
       }
+    },
+    {
+      id: "sae-baja",
+      title: "SAE India e-Baja Endurance Driving",
+      role: "Wheel Assembly, Suspension and CAE Co-lead",
+      duration: "May 2022 - May 2023",
+      thumbnail: "https://picsum.photos/seed/baja/800/600",
+      technologies: ["CAE Analysis", "Wheel Assembly", "Lotus Shark", "Suspension Design"],
+      description: "Worked on wheel assembly and suspension trade studies on Lotus Shark. Performed hands-on assembly, testing and created CAE Critical Design reports for electric ATVs.",
+      technicalDetails: {
+        overview: "Engineering role in the e-Baja SAE competition, focusing on the design and analysis of the vehicle's suspension and wheel assembly.",
+        results: "Achieved high performance in the endurance event after rigorous CAE analysis and hands-on assembly of the suspension subsystems.",
+        techStack: "Lotus Shark (Suspension Geometry), CAE (Computer-Aided Engineering), Manual Fabrication, and Data Acquisition."
+      },
+      impact: "Produced industry-grade reports and successfully executed A&T for driving and suspension subsystems.",
+      gallery: [
+        { type: 'image', url: 'https://picsum.photos/seed/baja2/1200/800', caption: 'ATV Suspension Components' },
+        { type: 'image', url: 'https://picsum.photos/seed/baja3/1200/800', caption: 'CAE Analysis Stress Plots' },
+        { type: 'image', url: 'https://picsum.photos/seed/baja4/1200/800', caption: 'Hands-on Assembly Phase' }
+      ],
+      attachments: {}
     }
   ],
   professionalExperiences: [
     {
+      id: "intern-ret",
+      role: "Mechanical CAD and CFD Intern",
+      organization: "RE&T, Muscat, Oman",
+      description: "Executed industry grade research on turbopump design parameters. Worked on the design of an 80-bar turbopump and conducted comparative simulations.",
+      duration: "Jul 2026 - Aug 2026"
+    },
+    {
       id: "aaeio",
       role: "Junior Director of Outreach",
       organization: "American Association for Engineers of Indian Origin (AAEIO)",
-      description: "Worked on handling, calling and inviting guests to call for lectures and talks to the Indian Engineering community. Organized events, handled a large team of 20-25 students, curated databases. Also handled the social media of the club to increase more viewership.",
-      duration: "Jan 2026 - May 2026"
+      description: "Organized events, handled a team of 20-25 students, and curated databases. Handled social media to increase viewership.",
+      duration: "2026 - present"
     },
     {
       id: "agso",
-      role: "MS Representative of Graduate and PhD Aerospace Engineering Batch of 2025-27",
+      role: "MS Representative of Graduate and PhD Aerospace Engineering Batch",
       organization: "Aerospace Graduate Student Organization",
-      description: "Developed a much more robust feedback system to allow students to ask any questions about the course & upcoming project opportunities, provide feedback about the professors, and gain access to a lot more new projects and labs, thereby creating a more research-oriented community of aerospace engineers.",
-      duration: "Sep 2025 - May 2026"
+      description: "Developed a robust feedback system and created a more research-oriented community for aerospace students.",
+      duration: "2025 - 2026"
     },
     {
       id: "ta",
-      role: "Teaching Assistant (TA) - Material Sciences and Engineering",
-      organization: "SNIoE",
-      description: "Worked on MS Excel and Word to help in grading, planning lecture and laboratory sessions along with assisting the professor during lab lessons in VESTA and LAMMPS GUI. Supported a class of 150+ Computer Science Engineering student by conducting lectures by teaching them key concepts of BCC, FCC type crystal configurations, and seeing them as a visual, along with coding in python and LAMMPS to create a stable molecule from scratch and analyzing their properties.",
+      role: "Teaching Assistant - Material Sciences",
+      organization: "Shiv Nadar Institution of Eminence",
+      description: "Assisted in grading and planning laboratory sessions for 150+ students. Conducted lectures on crystal configurations.",
       duration: "Aug 2024 - Dec 2024"
     }
   ],
@@ -281,34 +376,35 @@ export const resumeData: ResumeData = {
       category: "Programming",
       skills: [
         { name: "Python", level: 95 },
-        { name: "MATLAB", level: 85 },
+        { name: "MATLAB", level: 90 },
         { name: "SQL", level: 80 },
-        { name: "PowerBi", level: 80 },
-        { name: "Arduino and Thonny", level: 70 },
-        { name: "HTML/CSS/JS", level: 65 }
+        { name: "PowerBi", level: 85 },
+        { name: "Tableau", level: 80 },
+        { name: "GitHub", level: 90 }
       ]
     },
     {
       category: "CAD/CAE",
       skills: [
-        { name: "SolidWorks", level: 90 },
-        { name: "Autodesk Fusion 360", level: 80 },
-        { name: "Abaqus", level: 80 },
-        { name: "Dassault Systemes 3DExperience", level: 75 },
-        { name: "ANSYS Fluent", level: 75 },
-        { name: "GMAT", level: 70 },
-        { name: "Altium PCB Designer", level: 70}
+        { name: "SolidWorks", level: 95 },
+        { name: "Autodesk Fusion 360", level: 90 },
+        { name: "ANSYS Fluent & Structural", level: 85 },
+        { name: "3D Experience", level: 85 },
+        { name: "GMAT", level: 80 },
+        { name: "Ansys STK", level: 80 },
+        { name: "Abaqus", level: 85 },
+        { name: "Altium PCB Designer", level: 75 }
       ]
     },
     {
       category: "Manufacturing",
       skills: [
-        { name: "3D Printing", level: 90 },
-        { name: "Laser Cutting/ Engraving", level: 80 },
-        { name: "Testing and Fault Protection", level: 75 },
-        { name: "Sheet Metal Working", level: 70 },
-        { name: "Carpentry & Welding", level: 65 },
-        { name: "Electric Soldering and Circuitry", level: 65}
+        { name: "3D Printing", level: 95 },
+        { name: "Laser Cutting", level: 85 },
+        { name: "Carbon Fiber Fabrication", level: 80 },
+        { name: "Carpentry", level: 75 },
+        { name: "Sheet Metal Working", level: 80 },
+        { name: "Welding", level: 70 }
       ]
     },
     {
@@ -323,11 +419,11 @@ export const resumeData: ResumeData = {
     {
       category: "Additional",
       skills: [
+        { name: "MS Office Tools", level: 95 },
         { name: "Canva", level: 90 },
-        { name: "Figma", level: 80 },
-        { name: "Adobe Premiere Pro", level: 75 },
-        { name: "Adobe After Effects", level: 75 },
-        { name: "MS Office Tools", level: 80}
+        { name: "Figma", level: 85 },
+        { name: "Adobe Premier Pro", level: 80 },
+        { name: "After Effects", level: 80 }
       ]
     }
   ],

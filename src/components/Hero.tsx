@@ -125,24 +125,6 @@ export const Hero: React.FC = () => {
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
               className="absolute w-[105%] aspect-square rounded-full border-2 border-accent/20 border-t-accent/60 opacity-40 blur-[1px]"
             />
-
-            {/* Float Experience Badge */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className={`absolute -bottom-6 -right-[20%] p-5 rounded-2xl border backdrop-blur-xl shadow-2xl transition-colors duration-500 min-w-[180px] z-20 ${mode === 'dark' ? 'bg-bg-sub/80 border-white/10' : 'bg-white/80 border-accent/20'}`}
-            >
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black uppercase tracking-widest text-accent">Professional Experience</span>
-                <p className="text-sm font-bold text-text-main leading-tight">
-                  {resumeData.professionalExperiences[0].role}
-                </p>
-                <p className="text-[11px] font-medium text-text-sub">
-                  {resumeData.professionalExperiences[0].organization}
-                </p>
-              </div>
-            </motion.div>
           </div>
 
           {/* Inner Circular Image Container */}

@@ -10,13 +10,13 @@ export const Hero: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div className={`absolute top-1/4 left-1/4 w-[40vw] h-[40vw] ${mode === 'dark' ? 'bg-accent/[0.03]' : 'bg-accent/[0.08]'} blur-[120px] rounded-full transition-colors duration-1000`} />
         <div className={`absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] ${mode === 'dark' ? 'bg-accent/[0.03]' : 'bg-accent/[0.05]'} blur-[100px] rounded-full transition-colors duration-1000`} />
       </div>
 
       {/* Tiny stars/particles effect */}
-      <div className="absolute inset-0 z-0 opacity-30">
+      <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <div 
             key={i}
@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid lg:grid-cols-[1.1fr,0.9fr] items-center gap-16">
         {/* Left Content */}
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 relative z-20">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,30 +71,49 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="flex flex-wrap items-center gap-6"
+            className="flex flex-wrap items-center gap-6 relative z-30"
           >
-            <a
+            <motion.a
               href="#portfolio"
-              className="group flex items-center gap-3 px-8 py-5 rounded-xl bg-accent text-white font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-accent-sm"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(var(--accent-rgb), 0.4)",
+                backgroundColor: "var(--color-accent)" 
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="group flex items-center gap-3 px-8 py-5 rounded-xl bg-accent text-white font-black text-xs uppercase tracking-widest transition-all shadow-accent-sm pointer-events-auto"
             >
               View Portfolio
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href={resumeData.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-3 px-8 py-5 rounded-xl bg-bg-sub/50 border border-border-main text-text-main font-black text-xs uppercase tracking-widest hover:bg-accent/5 hover:border-accent transition-all"
+            </motion.a>
+            <motion.a
+              href={resumeData.resumeUrl || "#"}
+              download
+              whileHover={{ 
+                scale: 1.05,
+                borderColor: "var(--color-accent)",
+                boxShadow: "0 0 15px rgba(var(--accent-rgb), 0.2)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className={`group flex items-center gap-3 px-8 py-5 rounded-xl border border-border-main text-text-main font-black text-xs uppercase tracking-widest transition-all pointer-events-auto ${mode === 'dark' ? 'bg-bg-sub/50 hover:bg-accent/10' : 'bg-white hover:bg-accent/5'}`}
             >
               Download Resume
-              <Download className="w-4 h-4" />
-            </a>
-            <a
-              href={`mailto:${resumeData.contact.email}`}
-              className="w-14 h-14 rounded-xl bg-bg-sub/50 border border-border-main flex items-center justify-center text-text-main hover:border-accent hover:text-accent transition-all"
+              <Download className="w-4 h-4 group-hover:animate-bounce" />
+            </motion.a>
+            <motion.a
+              href="#contact"
+              whileHover={{ 
+                scale: 1.1, 
+                rotate: 5,
+                borderColor: "var(--color-accent)",
+                color: "var(--color-accent)",
+                boxShadow: "0 0 15px rgba(var(--accent-rgb), 0.2)"
+              }}
+              whileTap={{ scale: 0.9 }}
+              className={`w-14 h-14 rounded-xl border border-border-main flex items-center justify-center text-text-main transition-all pointer-events-auto ${mode === 'dark' ? 'bg-bg-sub/50' : 'bg-white'}`}
             >
               <Mail className="w-5 h-5" />
-            </a>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -103,10 +122,10 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="relative flex justify-center items-center h-[500px]"
+          className="relative flex justify-center items-center h-[500px] z-10"
         >
           {/* Neon Rotating Borders */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             {/* Outer dotted ring */}
             <motion.div 
               animate={{ rotate: 360 }}

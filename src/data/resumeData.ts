@@ -117,7 +117,7 @@ export const resumeData: ResumeData = {
       title: "WatchDogL2 - Earth-Moon L2 Surveillance & Interception Satellite",
       role: "Fault Protection Systems Engineering Lead and Flight Software Sub-Lead",
       duration: "Jan 2026 - May 2026",
-      thumbnail: "https://lh3.googleusercontent.com/d/1cCC9HZxPgkp0-DtjRRfVGZOlR3gr0dUx",
+      thumbnail: "https://lh3.googleusercontent.com/d/1HeUHIWj8K5uMi3bOwugUvZPron2nrd1E",
       technologies: ["FDIR Architecture", "Decision Autonomy", "Systems Engineering", "Flight Software"],
       description: "Designed the mission patch and worked with Systems Engineers to establish concrete requirements for every subsystem. Designed an elaborate fault protection architecture, safe mode configuration, and FDIR logic for nearly 300 possible faults. Devised flight software architecture and state machines.",
       technicalDetails: {

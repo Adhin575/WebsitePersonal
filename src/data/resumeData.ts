@@ -126,9 +126,10 @@ export const resumeData: ResumeData = {
       },
       impact: "Provided accurate mitigation and isolation strategies for each of those faults ranging from F0 to F4 criticality, thereby decreasing chances of LoM / LoV by 30%.",
       gallery: [
-        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1cCC9HZxPgkp0-DtjRRfVGZOlR3gr0dUx', caption: 'WatchDogL2 Mission Patch Design' },
-        { type: 'image', url: 'https://picsum.photos/seed/watchdog2/1200/800', caption: 'FDIR Logic Diagram' },
-        { type: 'image', url: 'https://picsum.photos/seed/watchdog3/1200/800', caption: 'Flight Software State Machine' }
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1HeUHIWj8K5uMi3bOwugUvZPron2nrd1E', caption: 'Spacecraft CAD' },
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1gSLDGNww5uq2bUM86kq536B16bH0EH_H', caption: 'WatchDog L2 Mission Patch' },
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/122i1Sy3dspVbg6P8mhJCv6udrpUD7Up1', caption: 'Flight Software Architecture' },
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1XbM_isrQxGvhvbuvs6GIRNX_9nvLb6I9', caption: 'FDIR Logic Flow Chart'}}
       ],
       attachments: {
         pdf: "https://drive.google.com/file/d/1ayGQCikx1nGVS1KJua9S4T94EKSysGMJ/view?usp=drive_link",

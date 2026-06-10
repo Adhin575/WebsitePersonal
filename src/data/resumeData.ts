@@ -79,7 +79,7 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   name: "Adhindra VS",
   title: "Aerospace & Mechanical Engineer",
-  summary: "Passionate engineer specializing in bioastronautics, space mission and spacecraft design, astrodynamics, additive manufacturing, CAD/CAE, Python, and structural analysis.",
+  summary: "Aspiring engineer specializing in bioastronautics, space mission and spacecraft design, astrodynamics, additive manufacturing, CAD/CAE, Python, and structural analysis.",
   about: "MS Aerospace Engineering student specializing in Bioastronautics, with hands-on experience in CubeSat missions and space mission development. Worked on SWARM-ex and MAXWELL CubeSat programs, along with other mechanical and aerospace projects. Research and industry interests include mission and spacecraft design, ECLSS systems, spacesuit design, habitat design, UAV formulation, and Lunar space missions.",
   strengths: [
     "Space Mission Design & Systems Engineering",
@@ -342,9 +342,9 @@ export const resumeData: ResumeData = {
   professionalExperiences: [
     {
       id: "intern-ret",
-      role: "Mechanical CAD and CFD Intern",
+      role: "R&D Aerospace Intern",
       organization: "RE&T, Muscat, Oman",
-      description: "Executed industry grade research on turbopump design parameters. Worked on the design of an 80-bar turbopump and conducted comparative simulations.",
+      description: "Executed industry grade research on turbopump design parameters. Worked on the design optimization of an 80-bar turbopump and conducted multiple comparative design and simulation iterations to arrive at a highly efficient end product.",
       duration: "Jul 2026 - Aug 2026"
     },
     {

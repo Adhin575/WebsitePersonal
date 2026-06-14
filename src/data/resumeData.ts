@@ -79,7 +79,7 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   name: "Adhindra VS",
   title: "Aerospace & Mechanical Engineer",
-  summary: "Aspiring engineer specializing in bioastronautics, space mission and spacecraft design, astrodynamics, additive manufacturing, CAD/CAE, Python, and structural analysis.",
+  summary: "Aspiring engineer specializing in bioastronautics, space mission and spacecraft design, astrodynamics, with additional skills in additive manufacturing, CAD/CAE, Python, and structural analysis.",
   about: "MS Aerospace Engineering student specializing in Bioastronautics, with hands-on experience in CubeSat missions and space mission development. Worked on SWARM-ex and MAXWELL CubeSat programs, along with other mechanical and aerospace projects. Research and industry interests include mission and spacecraft design, ECLSS systems, spacesuit design, habitat design, UAV formulation, and Lunar space missions.",
   strengths: [
     "Space Mission Design & Systems Engineering",
@@ -101,14 +101,14 @@ export const resumeData: ResumeData = {
       gpa: "4.0/4.0"
     },
     {
-      institution: "Shiv Nadar Institution of Eminence",
+      institution: "Shiv Nadar University (Institute of Eminence)",
       degree: "BTech in Mechanical Engineering (Focus: Computational Techniques in Mech. Engg.)",
       duration: "Aug 2021 - May 2025",
       highlights: [
         "Minor in Communications and Media Arts",
         "Relevant Coursework: Mechatronics, Computational Fluid Dynamics, Mechanics of Composite Materials, Finite Element Methods, Computational Methods in Mechanical Engg., Advanced Thermodynamics"
       ],
-      gpa: "9.02/10"
+      gpa: "9.02/10 (High Distinction)"
     }
   ],
   projects: [

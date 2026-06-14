@@ -129,7 +129,7 @@ export const resumeData: ResumeData = {
         { type: 'image', url: 'https://lh3.googleusercontent.com/d/1HeUHIWj8K5uMi3bOwugUvZPron2nrd1E', caption: 'Spacecraft CAD' },
         { type: 'image', url: 'https://lh3.googleusercontent.com/d/1gSLDGNww5uq2bUM86kq536B16bH0EH_H', caption: 'WatchDog L2 Mission Patch' },
         { type: 'image', url: 'https://lh3.googleusercontent.com/d/122i1Sy3dspVbg6P8mhJCv6udrpUD7Up1', caption: 'Flight Software Architecture' },
-        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1XbM_isrQxGvhvbuvs6GIRNX_9nvLb6I9', caption: 'FDIR Logic Flow Chart'}}
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1XbM_isrQxGvhvbuvs6GIRNX_9nvLb6I9', caption: 'FDIR Logic Flow Chart'}
       ],
       attachments: {
         pdf: "https://drive.google.com/file/d/1ayGQCikx1nGVS1KJua9S4T94EKSysGMJ/view?usp=drive_link",
@@ -290,7 +290,7 @@ export const resumeData: ResumeData = {
         pdf1: "https://drive.google.com/file/d/1mgRlJJMSnkqV8k2iD4n7FSC3pc6QX_R-/view?usp=drive_link",
         pdfLabel: "PLA-TPU Published Paper",
         pdf2: "https://drive.google.com/file/d/1zCJBiRCiWL3Ru0T3MrLX0oa3jhU3ZBOU/view?usp=drive_link",
-        pdfLabel: "rPP and vPP Published Paper"
+        pdfLabel2: "rPP and vPP Published Paper"
       }
     },
     {

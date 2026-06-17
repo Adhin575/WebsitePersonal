@@ -137,8 +137,31 @@ export const resumeData: ResumeData = {
       }
     },
     {
+      id: "mars-adc",
+      title: "Attitude Dynamics and Control of a Nano-Satellite Orbiting Mars",
+      role: "Graduate Researcher",
+      duration: "Jan 2026 - Mar 2026",
+      thumbnail: "https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400",
+      technologies: ["Python", "ADCS", "Satellite Navigation", "STK"],
+      description: "Developed an an ADCS program to simulate the coordinate and navigation mechanism of a nano-satellite that is orbiting Mars under Sun-Pointing and GMO pointing modes.",
+      technicalDetails: {
+        overview: "Developed and simulated a multi-mode attitude dynamics and control system for a Mars-orbiting nanosatellite capable of autonomous Sun-pointing, nadir-pointing, and communication-pointing operations.",
+        results: "Achieved stable attitude tracking and rapid detumbling using an MRP-based PD controller, with successful autonomous mode transitions and convergence across all mission phases in a 6,500-second Mars mission simulation.",
+      },
+      impact: "Established a scalable control framework for autonomous deep-space small-satellite missions operating under complex pointing requirements.",
+      gallery: [
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400', caption: 'Orbital Trajectory Plotting' },
+        { type: 'image', url: 'https://picsum.photos/seed/nrho/1200/800', caption: 'Drift Analysis Graph' }
+      ],
+      attachments: {
+        pdf: "https://drive.google.com/file/d/1ayGQCikx1nGVS1KJua9S4T94EKSysGMJ/view?usp=drive_link",
+        pdfLabel: "Mars Nanosatellite ADCS description"
+        github: "https://github.com/Adhin575/NanoSatelliteMarsADC"
+      }
+    },
+    {
       id: "nrho-stationkeeping",
-      title: "Autonomous Low-Thrust Station-Keeping in Earth-Moon NRHO",
+      title: "Autonomous Low-Thrust Station-Keeping in Earth-Moon NRHO using Invariant Manifolds",
       role: "Graduate Researcher",
       duration: "Jan 2026 - Feb 2026",
       thumbnail: "https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400",
@@ -147,7 +170,6 @@ export const resumeData: ResumeData = {
       technicalDetails: {
         overview: "Research into maintaining stable orbits around Earth-Moon Lagrange points (NRHO) using low-thrust electric propulsion. This is critical for future missions like the Lunar Gateway.",
         results: "Demonstrated accurate station-keeping with kilometer-scale precision while accounting for solar radiation pressure and third-body perturbations.",
-        techStack: "Circular Restricted 3-Body Problem (CR3BP), Linear Quadratic Regulator (LQR), Python (NumPy/SciPy), and Astrodynamics Manifold Theory."
       },
       impact: "Presented results at departmental aerospace conference, demonstrating kilometer-scale drift control through structure-aware control strategies.",
       gallery: [

@@ -155,7 +155,7 @@ export const resumeData: ResumeData = {
       ],
       attachments: {
         pdf: "https://drive.google.com/file/d/1ayGQCikx1nGVS1KJua9S4T94EKSysGMJ/view?usp=drive_link",
-        pdfLabel: "Mars Nanosatellite ADCS description"
+        pdfLabel: "Mars Nanosatellite ADCS description",
         github: "https://github.com/Adhin575/NanoSatelliteMarsADC"
       }
     },

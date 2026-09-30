@@ -79,13 +79,13 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   name: "Adhindra VS",
   title: "Aerospace & Mechanical Engineer",
-  summary: "Aspiring engineer specializing in bioastronautics, space mission and spacecraft design, astrodynamics, with additional skills in additive manufacturing, CAD/CAE, Python, and structural analysis.",
+  summary: "Aspiring engineer specializing in bioastronautics, space mission and satellite design, astrodynamics, with additional skills in additive manufacturing, CAD/CAE, Python, and structural analysis.",
   about: "MS Aerospace Engineering student specializing in Bioastronautics, with hands-on experience in CubeSat missions and space mission development. Worked on SWARM-ex and MAXWELL CubeSat programs, along with other mechanical and aerospace projects. Research and industry interests include mission and spacecraft design, ECLSS systems, spacesuit design, habitat design, UAV formulation, and Lunar space missions.",
   strengths: [
-    "Space Mission Design & Systems Engineering",
+    "Space Mission Design & Satellite Systems Design",
     "Advanced Additive Manufacturing (FDM, Composites)",
     "Astrodynamics and Satellite Navigation",
-    "Bio-Astronautics and Robotics",
+    "Bio-Astronautics and Systems Engineering",
     "Technical Leadership & Project Management",
     "Mechanical Design and Analysis"
   ],
@@ -95,8 +95,9 @@ export const resumeData: ResumeData = {
       degree: "M.S. in Aerospace Engineering Sciences (Focus: Bioastronautics)",
       duration: "Aug 2025 - present",
       highlights: [
+        "Certification in Satellite Systems Design",
         "Special Topics in Astrodynamics, Satellite Navigation, and Engineering Management",
-        "Relevant Coursework: Spacecraft Attitude Determination, Spaceflight Dynamics, Space Habitat Design, Space Life Sciences, Spacecraft Design, Space Mission Design and Development",
+        "Relevant Coursework: ECLSS Systems, Space Habitat Design, Space Life Sciences, Spacecraft Design, Space Mission Design and Development, Systems Engineering, State Estimation of Dynamical Systems, Spacecraft Attitude Determination, Spaceflight Dynamics, GNSS Design and Implementation",
       ],
       gpa: "4.0/4.0"
     },

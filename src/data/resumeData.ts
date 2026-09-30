@@ -97,7 +97,7 @@ export const resumeData: ResumeData = {
       highlights: [
         "Certification in Satellite Systems Design",
         "Special Topics in Astrodynamics, Satellite Navigation, and Engineering Management",
-        "Relevant Coursework: ECLSS Systems, Space Habitat Design, Space Life Sciences, Spacecraft Design, Space Mission Design and Development, Systems Engineering, State Estimation of Dynamical Systems, Spacecraft Attitude Determination, Spaceflight Dynamics, GNSS Design and Implementation",
+        "Relevant Coursework: ECLSS Systems, Space Habitat Design, Space Life Sciences, Spacecraft Design, Space Mission Design and Development, Systems Engineering",
       ],
       gpa: "4.0/4.0"
     },

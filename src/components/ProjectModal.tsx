@@ -14,7 +14,6 @@ import {
   CheckCircle2,
   FileText,
   Presentation,
-  Download,
   Layout,
   Play
 } from 'lucide-react';
@@ -26,10 +25,13 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-type ProjectTab =
-  | 'overview'
-  | 'results'
-  | 'resources';
+type ProjectTab = 'overview' | 'results' | 'resources';
+
+interface ProjectResource {
+  label: string;
+  url: string;
+  icon: React.ReactNode;
+}
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
@@ -49,26 +51,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
   const currentItem = gallery[currentGalleryIndex] || null;
 
-  // Reset interface when a different project is selected.
+  // Reset gallery and tabs when selecting another project.
   useEffect(() => {
     setCurrentGalleryIndex(0);
     setActiveTab('overview');
     setIsZoomed(false);
   }, [project.id]);
 
-  // Pause video when changing gallery items or closing.
+  // Pause a playing video when changing projects or unmounting.
   useEffect(() => {
+    const video = videoRef.current;
+
     return () => {
-      if (videoRef.current) {
-        videoRef.current.pause();
-      }
+      video?.pause();
     };
   }, [currentGalleryIndex, project.id]);
 
   const changeGalleryItem = (index: number) => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
+    videoRef.current?.pause();
 
     setCurrentGalleryIndex(index);
     setIsZoomed(false);
@@ -92,10 +92,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   };
 
   const handleClose = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
-
+    videoRef.current?.pause();
     onClose();
   };
 
@@ -121,12 +118,69 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     }
   ];
 
+  // Construct resource links without optional-field type errors.
+  const getResources = (): ProjectResource[] => {
+    const attachments = project.attachments;
+    const resources: ProjectResource[] = [];
+
+    if (attachments.pdf) {
+      resources.push({
+        label: attachments.pdfLabel || 'Technical Report (PDF)',
+        url: attachments.pdf,
+        icon: <FileText className="w-5 h-5" />
+      });
+    }
+
+    if (attachments.pdf1) {
+      resources.push({
+        label: attachments.pdfLabel || 'Publication 1',
+        url: attachments.pdf1,
+        icon: <FileText className="w-5 h-5" />
+      });
+    }
+
+    if (attachments.pdf2) {
+      resources.push({
+        label: attachments.pdfLabel2 || 'Publication 2',
+        url: attachments.pdf2,
+        icon: <FileText className="w-5 h-5" />
+      });
+    }
+
+    if (attachments.presentation) {
+      resources.push({
+        label:
+          attachments.presentationLabel ||
+          'Project Presentation',
+        url: attachments.presentation,
+        icon: <Presentation className="w-5 h-5" />
+      });
+    }
+
+    if (attachments.github) {
+      resources.push({
+        label: 'GitHub Repository',
+        url: attachments.github,
+        icon: <Github className="w-5 h-5" />
+      });
+    }
+
+    if (attachments.publication) {
+      resources.push({
+        label: 'Scientific Publication',
+        url: attachments.publication,
+        icon: <Layout className="w-5 h-5" />
+      });
+    }
+
+    return resources;
+  };
+
   // ------------------------------------------------------------
   // TAB CONTENT
   // ------------------------------------------------------------
 
   const renderTabContent = () => {
-
     // OVERVIEW
     if (activeTab === 'overview') {
       return (
@@ -196,61 +250,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
     // RESOURCES
     if (activeTab === 'resources') {
-      const attachments = project.attachments;
-
-      const resources = [
-        attachments.pdf && {
-          label:
-            attachments.pdfLabel ||
-            'Technical Report (PDF)',
-          url: attachments.pdf,
-          icon: <FileText className="w-5 h-5" />
-        },
-
-        attachments.pdf1 && {
-          label:
-            attachments.pdfLabel ||
-            'Publication 1',
-          url: attachments.pdf1,
-          icon: <FileText className="w-5 h-5" />
-        },
-
-        attachments.pdf2 && {
-          label:
-            attachments.pdfLabel2 ||
-            'Publication 2',
-          url: attachments.pdf2,
-          icon: <FileText className="w-5 h-5" />
-        },
-
-        attachments.presentation && {
-          label:
-            attachments.presentationLabel ||
-            'Project Presentation',
-          url: attachments.presentation,
-          icon: <Presentation className="w-5 h-5" />
-        },
-
-        attachments.github && {
-          label: 'GitHub Repository',
-          url: attachments.github,
-          icon: <Github className="w-5 h-5" />
-        },
-
-        attachments.publication && {
-          label: 'Scientific Publication',
-          url: attachments.publication,
-          icon: <Layout className="w-5 h-5" />
-        }
-      ].filter(
-        (
-          resource
-        ): resource is {
-          label: string;
-          url: string;
-          icon: React.ReactNode;
-        } => Boolean(resource)
-      );
+      const resources = getResources();
 
       return (
         <div className="flex flex-col gap-5">
@@ -343,7 +343,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         -------------------------------------------------- */}
 
         <div className="relative w-full lg:w-[57%] h-[38dvh] sm:h-[45dvh] lg:h-full shrink-0 bg-bg-sub/50 overflow-hidden group flex items-center justify-center">
-
           <AnimatePresence mode="wait">
             <motion.div
               key={`${project.id}-${currentGalleryIndex}`}
@@ -370,14 +369,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 }
               }}
             >
-
               {/* VIDEO PLAYER */}
               {currentItem?.type === 'video' ? (
                 <div
                   className="w-full h-full flex items-center justify-center bg-black p-2 sm:p-4"
-                  onClick={(event) =>
-                    event.stopPropagation()
-                  }
+                  onClick={(event) => event.stopPropagation()}
                 >
                   <video
                     ref={videoRef}
@@ -393,22 +389,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   </video>
                 </div>
               ) : (
-
                 /* IMAGE VIEWER */
                 <img
-                  src={
-                    currentItem?.url ||
-                    project.thumbnail
-                  }
-                  alt={
-                    currentItem?.caption ||
-                    project.title
-                  }
+                  src={currentItem?.url || project.thumbnail}
+                  alt={currentItem?.caption || project.title}
                   className="w-full h-full object-contain select-none"
                   draggable={false}
                 />
               )}
-
             </motion.div>
           </AnimatePresence>
 
@@ -454,9 +442,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                         ? 'true'
                         : undefined
                     }
-                    onClick={() =>
-                      changeGalleryItem(index)
-                    }
+                    onClick={() => changeGalleryItem(index)}
                     className={`h-2.5 rounded-full shrink-0 transition-all ${
                       index === currentGalleryIndex
                         ? 'w-9 bg-accent'
@@ -495,9 +481,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         -------------------------------------------------- */}
 
         <div className="w-full lg:w-[43%] flex-1 min-h-0 overflow-y-auto overscroll-contain custom-scrollbar bg-bg-main">
-
           <div className="p-5 sm:p-8 lg:p-10 xl:p-12">
-
             {/* PROJECT TITLE */}
             <div className="mb-8 pr-12">
               <div className="flex items-center gap-3 mb-5">
@@ -533,12 +517,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     type="button"
                     key={tab.id}
                     role="tab"
-                    aria-selected={
-                      activeTab === tab.id
-                    }
-                    onClick={() =>
-                      setActiveTab(tab.id)
-                    }
+                    aria-selected={activeTab === tab.id}
+                    onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center justify-center gap-2 px-2 sm:px-3 py-3 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all ${
                       activeTab === tab.id
                         ? 'bg-accent text-white shadow-accent-sm'
@@ -559,21 +539,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${project.id}-${activeTab}`}
-                initial={{
-                  opacity: 0,
-                  y: 10
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0
-                }}
-                exit={{
-                  opacity: 0,
-                  y: -10
-                }}
-                transition={{
-                  duration: 0.2
-                }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
                 role="tabpanel"
                 className="bg-bg-sub/20 p-5 sm:p-7 rounded-2xl border border-border-main min-h-[180px]"
               >
@@ -614,16 +583,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl bg-bg-sub/40 border border-border-main hover:border-accent hover:text-accent transition-all font-black text-xs uppercase tracking-widest text-text-main"
                 >
                   <Github className="w-5 h-5" />
-
                   View Repository
-
                   <ExternalLink className="w-4 h-4" />
                 </a>
-              )}
+              </div>
+            )}
 
             {/* BOTTOM SPACING */}
             <div className="h-8" />
-
           </div>
         </div>
       </motion.div>

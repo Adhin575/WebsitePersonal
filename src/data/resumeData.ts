@@ -1,8 +1,9 @@
 
 export interface GalleryItem {
-  type: 'image';
+  type: 'image' | 'video';
   url: string;
   caption?: string;
+  poster?: string;
 }
 
 export interface Project {

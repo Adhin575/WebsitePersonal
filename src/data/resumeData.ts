@@ -621,24 +621,23 @@ export const resumeData: ResumeData = {
       technicalDetails: {
         overview: "I contributed to the mechanical development of an SAE e-Baja electric ATV, focusing on suspension, chassis, and wheel assembly design. Conducted configuration analyses and trade studies for the suspension and wheel-assembly design and geometry using Lotus Shark, supported CAE investigations and generated an industry grade CAE report, and worked on subsystem assembly and testing.",
         results: "Could fabricate our entire vehicle 2 weeks before the deliverable deadline due to quicker design convergence. Also reduced around 12-15k Rs. on the fabrication of the vehicle due to effective usage and improvements of COTS products. Finished among the top 15 CAE reports among all the 150 + Indian teams, and finished among the top 50 teams after the Mechanical, Electrical Technical Inspections and the ATV Run on the off-road track.",
-        contribution: "Performed suspension geometry and wheel assembly configuration analyses using Lotus Shark. Assisted with CAE simulations and critical design documentation, and conducted hands-on assembly and testing of suspension, wheel assembly, and drivetrain components.",
-      techStack: "Lotus Shark, Suspension Analysis, Wheel Assembly Design, CAE, Engineering Trade Studies, Mechanical Assembly & Testing."
+      techStack: "Lotus Shark - Suspension Analysis, Wheel Assembly Design, CAE, Engineering Trade Studies, Mechanical Assembly & Testing."
       },
-      impact: "Supported electric ATV design optimization through suspension configuration studies, CAE documentation, and hands-on mechanical subsystem integration.",
+      impact: "Supported electric ATV design optimization through suspension and wheel - assembly configuration studies, CAE documentation, and hands-on mechanical subsystem integration.",
       gallery: [
         {
           type: "image",
           url:
             "https://lh3.googleusercontent.com/d/12Iznh89MgTQ25rqO75DEwj6CXwm3314C",
           caption:
-            "SAE e-Baja Electric All-Terrain Vehicle — Mechanical Design, Suspension and Wheel Assembly Integration"
+            "SAE e-Baja Electric All-Terrain Vehicle — BEAST v8"
         },
         {
           type: "image",
           url:
             "https://lh3.googleusercontent.com/d/1bmG9xKUu5TOcGm8CV3WRTx1fLtWxl-9e",
           caption:
-            "SAE e-Baja Project Team — Electric ATV Development and Assembly"
+            "SAE e-Baja Project Team "
         }
       ],
 

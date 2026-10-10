@@ -16,14 +16,12 @@ export interface Project {
   technologies: string[];
   description: string;
   impact: string;
-
   technicalDetails?: {
     overview: string;
     results: string;
     contribution?: string;
     techStack?: string;
   };
-
   attachments: {
     pdf?: string;
     pdf1?: string;
@@ -76,7 +74,6 @@ export interface ResumeData {
   skills: SkillCategory[];
   profileImage: string;
   resumeUrl: string;
-
   contact: {
     email: string;
     linkedin: string;
@@ -106,7 +103,7 @@ export const resumeData: ResumeData = {
       highlights: [
         "Certification in Satellite Systems Design",
         "Special Topics in Astrodynamics, Satellite Navigation, and Engineering Management",
-        "Relevant Coursework: ECLSS Systems, Space Habitat Design, Space Life Sciences, Spacecraft Design, Space Mission Design and Development, Systems Engineering",
+        "Relevant Coursework: ECLSS Systems, Space Habitat Design, Space Life Sciences, Spacecraft Design, Space Mission Design and Development, Systems Engineering"
       ],
       gpa: "4.0/4.0"
     },
@@ -121,6 +118,7 @@ export const resumeData: ResumeData = {
       gpa: "9.02/10 (High Distinction)"
     }
   ],
+
   projects: [
     {
       id: "watchdog-l2",
@@ -132,20 +130,21 @@ export const resumeData: ResumeData = {
       description: "Designed the mission patch and worked with Systems Engineers to establish concrete requirements for every subsystem. Designed an elaborate fault protection architecture, safe mode configuration, and FDIR logic for nearly 300 possible faults. Devised flight software architecture and state machines.",
       technicalDetails: {
         overview: "The WatchDogL2 mission is a Space Force mission that focuses on surveillance and interception of enemy spacecraft at the Earth-Moon L2 Lagrange point. My role involved leading the Fault Detection, Isolation, and Recovery (FDIR) architecture and co-leading the flight software development. We established rigorous systems requirements to ensure mission success in a complex orbital environment.",
-        results: "Successfully developed a fault protection logic capable of handling over 300 fault scenarios across five criticality levels (F0-F4). Designed an industry-grade NASA Class B FPDD to show all the findings and fault DIR strategies. As the flight software co-lead, I devised the flight software architecture, state machine, and worked on the SLoC estimates. Helped in executing TS8 trade studies for FSW autonomy and FDIR execution.",
+        results: "Successfully developed a fault protection logic capable of handling over 300 fault scenarios across five criticality levels (F0-F4). Designed an industry-grade NASA Class B FPDD to show all the findings and fault DIR strategies. As the flight software co-lead, I devised the flight software architecture, state machine, and worked on the SLoC estimates. Helped in executing TS8 trade studies for FSW autonomy and FDIR execution."
       },
       impact: "Provided accurate mitigation and isolation strategies for each of those faults ranging from F0 to F4 criticality, thereby decreasing chances of LoM / LoV by 30%.",
       gallery: [
         { type: 'image', url: 'https://lh3.googleusercontent.com/d/1HeUHIWj8K5uMi3bOwugUvZPron2nrd1E', caption: 'Spacecraft CAD' },
         { type: 'image', url: 'https://lh3.googleusercontent.com/d/1gSLDGNww5uq2bUM86kq536B16bH0EH_H', caption: 'WatchDog L2 Mission Patch' },
         { type: 'image', url: 'https://lh3.googleusercontent.com/d/122i1Sy3dspVbg6P8mhJCv6udrpUD7Up1', caption: 'Flight Software Architecture' },
-        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1XbM_isrQxGvhvbuvs6GIRNX_9nvLb6I9', caption: 'FDIR Logic Flow Chart'}
+        { type: 'image', url: 'https://lh3.googleusercontent.com/d/1XbM_isrQxGvhvbuvs6GIRNX_9nvLb6I9', caption: 'FDIR Logic Flow Chart' }
       ],
       attachments: {
         pdf: "https://drive.google.com/file/d/1ayGQCikx1nGVS1KJua9S4T94EKSysGMJ/view?usp=drive_link",
         pdfLabel: "Fault Protection Design Document"
       }
     },
+
     {
       id: "mars-adc",
       title: "Attitude Dynamics and Control of a Nano-Satellite Orbiting Mars",
@@ -156,7 +155,7 @@ export const resumeData: ResumeData = {
       description: "Developed an an ADCS program to simulate the coordinate and navigation mechanism of a nano-satellite that is orbiting Mars under Sun-Pointing and GMO pointing modes.",
       technicalDetails: {
         overview: "Developed and simulated a multi-mode attitude dynamics and control system for a Mars-orbiting nanosatellite capable of autonomous Sun-pointing, nadir-pointing, and communication-pointing operations.",
-        results: "Achieved stable attitude tracking and rapid detumbling using an MRP-based PD controller, with successful autonomous mode transitions and convergence across all mission phases in a 6,500-second Mars mission simulation.",
+        results: "Achieved stable attitude tracking and rapid detumbling using an MRP-based PD controller, with successful autonomous mode transitions and convergence across all mission phases in a 6,500-second Mars mission simulation."
       },
       impact: "Established a scalable control framework for autonomous deep-space small-satellite missions operating under complex pointing requirements.",
       gallery: [
@@ -169,6 +168,7 @@ export const resumeData: ResumeData = {
         github: "https://github.com/Adhin575/NanoSatelliteMarsADC"
       }
     },
+
     {
       id: "nrho-stationkeeping",
       title: "Autonomous Low-Thrust Station-Keeping in Earth-Moon NRHO using Invariant Manifolds",
@@ -179,7 +179,7 @@ export const resumeData: ResumeData = {
       description: "Developed an autonomous low-thrust station-keeping framework for Earth-Moon NRHOs using nonlinear CR3BP modeling and time-varying LQR control. Quantified solar perturbation impacts on drift.",
       technicalDetails: {
         overview: "Research into maintaining stable orbits around Earth-Moon Lagrange points (NRHO) using low-thrust electric propulsion. This is critical for future missions like the Lunar Gateway.",
-        results: "Demonstrated accurate station-keeping with kilometer-scale precision while accounting for solar radiation pressure and third-body perturbations.",
+        results: "Demonstrated accurate station-keeping with kilometer-scale precision while accounting for solar radiation pressure and third-body perturbations."
       },
       impact: "Presented results at departmental aerospace conference, demonstrating kilometer-scale drift control through structure-aware control strategies.",
       gallery: [
@@ -191,6 +191,7 @@ export const resumeData: ResumeData = {
         github: "https://github.com/Adhin575/NRHOStationkeeping"
       }
     },
+
     {
       id: "sans-research",
       title: "Mechanistic Investigation for Spaceflight Associated Neuro-ocular Syndrome (SANS)",
@@ -201,7 +202,7 @@ export const resumeData: ResumeData = {
       description: "Conducted extensive literature review on Spaceflight Associated Neuro-ocular Syndrome (SANS) and proposed experimental methods for ground and ISS testing, focusing on intracranial fluid dynamics.",
       technicalDetails: {
         overview: "This research investigates the mechanical triggers behind SANS, a critical health risk for astronauts on long-duration missions. The study focuses on how microgravity shifts fluid pressure within the cranium. Conducted extensive literature review and proposed experimental/analysis methods to be conducted in ground-based analogs and in the ISS to identify countermeasure strategies to mitigate SANS in astronauts",
-        results: "Identified key physiological indicators for early SANS onset and proposed a set of hydrodynamic experiments and countermeasures to be tested on the ISS.",
+        results: "Identified key physiological indicators for early SANS onset and proposed a set of hydrodynamic experiments and countermeasures to be tested on the ISS."
       },
       impact: "Authored professional peer-review publication identifying new countermeasure strategies to mitigate microgravity effects on astronauts. Currently under peer-review.",
       gallery: [
@@ -209,6 +210,7 @@ export const resumeData: ResumeData = {
       ],
       attachments: {}
     },
+
     {
       id: "flair",
       title: "Flying Lab for Airborne Isotope Research (FLAIR) - INSTAAR Lab",
@@ -219,7 +221,7 @@ export const resumeData: ResumeData = {
       description: "Created a Ground Station Interface App on Python connecting to Payload Arduino. Displays real-time atmospheric data plots and controls hardware like exhaust fans. Worked on fabrication and TCFA testing for PLA enclosures and bulkheads.",
       technicalDetails: {
         overview: "FLAIR is an airborne research payload designed to study atmospheric water O18 isotopes in the troposphere. I spearheaded the software development for the ground station and was responsible for the rapid prototyping of core structural components using carbon fiber and 3D printing.",
-        results: "Developed a functional real-time telemetry dashboard using Python/PyQt and successfully integrated it with the BlackSwift S3 aircraft. It connects to the Payload Arduino Code. Displays the data read by the drone in visual plots, using atmospheric boundary layer conditions. This app controls the exhaust fan in the laser spectrometer payload section, to enable smoother airflow through the system. Worked on the fabrication and TCFA testing to determine the ideal infill percentage for the PLA enclosures and bulkheads. Assisted on the AI&T of the payload in the BlackSwift S3 VToL",
+        results: "Developed a functional real-time telemetry dashboard using Python/PyQt and successfully integrated it with the BlackSwift S3 aircraft. It connects to the Payload Arduino Code. Displays the data read by the drone in visual plots, using atmospheric boundary layer conditions. This app controls the exhaust fan in the laser spectrometer payload section, to enable smoother airflow through the system. Worked on the fabrication and TCFA testing to determine the ideal infill percentage for the PLA enclosures and bulkheads. Assisted on the AI&T of the payload in the BlackSwift S3 VToL"
       },
       impact: "Reduced fabrication costs by 25% of the budget. Regulated a proper and accurate test flight and enhanced durability of the payload that made it survive a catapault launch using pressurized N2 and a hard landing.",
       gallery: [
@@ -233,6 +235,7 @@ export const resumeData: ResumeData = {
         github: "https://github.com/Adhin575/FLAIRGroundStation"
       }
     },
+
     {
       id: "shine",
       title: "SHINE (Survey of Hidden water-Ice in Non-illuminated Environments)",
@@ -243,7 +246,7 @@ export const resumeData: ResumeData = {
       description: "Led development of a NASA Class D SMEX mission, overseeing STM development, instrumentation, and ConOps. Designed mission schedules, cost budgets, and testing V&V plans.",
       technicalDetails: {
         overview: "SHINE is a proposed lunar mission aimed at surveying permanently shadowed regions (PSRs) for water ice. As PI/Project Manager, I led the mission architecture, payload selection, and systems budgeting.",
-        results: "Defined payload requirements and spacecraft components with trade studies and coordinated interfaces between the Science, Payload, and Spacecraft departments.",
+        results: "Defined payload requirements and spacecraft components with trade studies and coordinated interfaces between the Science, Payload, and Spacecraft departments."
       },
       impact: "Delivered a comprehensive mission proposal with a 24% reduction in projected costs through optimized component trade-offs and robust V&V plans.",
       gallery: [
@@ -256,6 +259,7 @@ export const resumeData: ResumeData = {
         github: "https://github.com/Adhin575/SHINEMissionSimulator"
       }
     },
+
     {
       id: "horizon-nexus",
       title: "Horizon Nexus - LEO Long Duration Human Space Habitat",
@@ -266,7 +270,7 @@ export const resumeData: ResumeData = {
       description: "Drafted Power budget for a 5+ year mission. Designed a highly-efficient thermal maintenance system and led development of mass budgets for ECLSS and consumables. Drafted interior habitat layouts.",
       technicalDetails: {
         overview: "Horizon Nexus is a conceptual design for a long-duration human habitat in Low Earth Orbit. I was responsible for the critical life-support infrastructure, including power, thermal, and ECLSS subsystems.",
-        results: "Conceptualized a thermal management system that improved efficiency by 20% and optimized the mass budget for a crew of six over a 5-year operational lifespan.",
+        results: "Conceptualized a thermal management system that improved efficiency by 20% and optimized the mass budget for a crew of six over a 5-year operational lifespan."
       },
       impact: "Increased power efficiency by 20% and optimized mass budget through strategic positioning of functioning bays.",
       gallery: [
@@ -279,6 +283,7 @@ export const resumeData: ResumeData = {
         pdfLabel: "Habitat Design Document"
       }
     },
+
     {
       id: "maxwell",
       title: "Maxwell and SWARM-Ex CubeSat Programs",
@@ -294,11 +299,11 @@ export const resumeData: ResumeData = {
       },
       impact: "Successfully integrated core components into the Maxwell body and standardized systems interface requirements for the program.",
       gallery: [
-        // Maxwell remains images only as per user request exception
         { type: 'image', url: 'https://lh3.googleusercontent.com/d/1L7iUe-4On_zYTXlpLUMLhvpAlTh35OnQ', caption: 'Maxwell CubeSat Integration' }
       ],
       attachments: {}
     },
+
     {
       id: "am-optimization",
       title: "Property Optimization of AM Parts",
@@ -325,6 +330,7 @@ export const resumeData: ResumeData = {
         pdfLabel2: "rPP and vPP Published Paper"
       }
     },
+
     {
       id: "fgm-apparatus",
       title: "Functionally Graded Materials Apparatus",
@@ -349,28 +355,104 @@ export const resumeData: ResumeData = {
         pdfLabel: "Conference Presentation"
       }
     },
+
+    // SAE E-BAJA — UPDATED PROJECT
     {
       id: "sae-baja",
-      title: "SAE India e-Baja Endurance Driving",
+      title: "SAE e-Baja | Electric All-Terrain Vehicle",
       role: "Wheel Assembly, Suspension and CAE Co-lead",
       duration: "May 2022 - May 2023",
-      thumbnail: "https://picsum.photos/seed/baja/800/600",
-      technologies: ["CAE Analysis", "Wheel Assembly", "Lotus Shark", "Suspension Design"],
-      description: "Worked on wheel assembly and suspension trade studies on Lotus Shark. Performed hands-on assembly, testing and created CAE Critical Design reports for electric ATVs.",
-      technicalDetails: {
-        overview: "Engineering role in the e-Baja SAE competition, focusing on the design and analysis of the vehicle's suspension and wheel assembly.",
-        results: "Achieved high performance in the endurance event after rigorous CAE analysis and hands-on assembly of the suspension subsystems.",
-        techStack: "Lotus Shark (Suspension Geometry), CAE (Computer-Aided Engineering), Manual Fabrication, and Data Acquisition."
-      },
-      impact: "Produced industry-grade reports and successfully executed A&T for driving and suspension subsystems.",
-      gallery: [
-        { type: 'image', url: 'https://picsum.photos/seed/baja2/1200/800', caption: 'ATV Suspension Components' },
-        { type: 'image', url: 'https://picsum.photos/seed/baja3/1200/800', caption: 'CAE Analysis Stress Plots' },
-        { type: 'image', url: 'https://picsum.photos/seed/baja4/1200/800', caption: 'Hands-on Assembly Phase' }
+
+      thumbnail: "/images/sae-baja/vehicle.jpg",
+
+      technologies: [
+        "Lotus Shark",
+        "Suspension Geometry Analysis",
+        "Wheel Assembly",
+        "Mechanical Design",
+        "CAE Analysis",
+        "Engineering Trade Studies",
+        "Assembly & Testing",
+        "Subsystem Integration",
+        "Technical Documentation"
       ],
+
+      description:
+        "Contributed to the mechanical design, suspension configuration analysis, and development of an electric all-terrain vehicle for the SAE e-Baja competition. Performed wheel assembly and suspension trade studies using Lotus Shark, supported CAE analysis and critical design documentation, and participated in hands-on assembly and testing of the vehicle's mechanical subsystems.",
+
+      technicalDetails: {
+
+        overview: `The SAE e-Baja project involved the engineering development of an electric all-terrain vehicle (ATV), integrating mechanical design, structural analysis, suspension engineering, and practical vehicle assembly.
+
+The project required evaluating mechanical subsystem configurations while considering the operational demands of off-road driving.
+
+My primary involvement was in the wheel assembly and suspension subsystems, where I performed configuration analyses and engineering trade studies using Lotus Shark.
+
+I also supported the computer-aided engineering (CAE) activities and contributed to the preparation of the vehicle's CAE Critical Design Report.
+
+Beyond design and analysis, I participated in hands-on assembly and testing activities involving the wheel assembly, drivetrain, and suspension subsystems, gaining practical experience in translating engineering design decisions into physical vehicle integration.`,
+
+        results: `The project produced several engineering outputs supporting the development and integration of the electric ATV.
+
+Key outcomes included:
+
+• Completion of wheel assembly and suspension configuration studies using Lotus Shark.
+
+• Preparation of industry-style engineering reports documenting suspension analyses, configuration comparisons, and technical design considerations.
+
+• Contributions to CAE analysis and the preparation of the Electric ATV CAE Critical Design Report.
+
+• Practical assembly and testing experience with wheel assembly, drivetrain, and suspension subsystems.
+
+• Participation in mechanical subsystem integration activities, connecting analytical design work with physical vehicle development.
+
+These activities strengthened the engineering documentation and mechanical integration process for the electric ATV.`,
+
+        contribution: `Suspension and Wheel Assembly Engineering
+• Performed suspension configuration analyses and engineering trade studies using Lotus Shark.
+• Evaluated wheel assembly and suspension design configurations to support subsystem development.
+• Documented technical findings and engineering design considerations.
+
+Computer-Aided Engineering (CAE)
+• Assisted with CAE-related analysis activities for the electric ATV.
+• Contributed to the preparation of the CAE Critical Design Report.
+• Supported technical documentation of mechanical subsystem design decisions.
+
+Assembly, Integration and Testing
+• Participated in hands-on assembly and testing of the wheel assembly and suspension systems.
+• Assisted with drivetrain and mechanical subsystem integration.
+• Supported practical assessment of subsystem configurations during vehicle development.
+
+Engineering Documentation
+• Prepared industry-style reports on wheel assembly and suspension trade studies.
+• Contributed to engineering documentation supporting the team's design review process.`,
+
+        techStack:
+          "Lotus Shark suspension analysis, mechanical configuration studies, CAE, suspension and wheel assembly engineering, hands-on assembly and testing, and technical design documentation."
+      },
+
+      impact:
+        "Supported electric ATV development through suspension and wheel assembly trade studies, CAE critical design documentation, and hands-on mechanical subsystem assembly and testing.",
+
+      gallery: [
+        {
+          type: "image",
+          url: "/images/sae-baja/vehicle.jpg",
+          caption:
+            "SAE e-Baja electric ATV during vehicle development and mechanical subsystem integration."
+        },
+        {
+          type: "image",
+          url: "/images/sae-baja/team.jpeg",
+          caption:
+            "SAE e-Baja project team during the vehicle development and assembly phase."
+        }
+      ],
+
       attachments: {}
     }
   ],
+
   professionalExperiences: [
     {
       id: "intern-ret",
@@ -401,6 +483,7 @@ export const resumeData: ResumeData = {
       duration: "Aug 2024 - Dec 2024"
     }
   ],
+
   skills: [
     {
       category: "Programming",
@@ -457,8 +540,10 @@ export const resumeData: ResumeData = {
       ]
     }
   ],
+
   profileImage: "https://lh3.googleusercontent.com/d/15zM68OM3zZH4TKm2L4WwD34kzYJD9XVV",
   resumeUrl: "https://drive.google.com/file/d/1Ccx91_vkiSLrCkEneoncJWyA-kUHzkU-/preview",
+
   contact: {
     email: "vsadhi70@gmail.com",
     linkedin: "https://linkedin.com/in/adhindravs",

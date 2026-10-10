@@ -1,3 +1,4 @@
+
 export interface GalleryItem {
   type: 'image';
   url: string;
@@ -14,14 +15,20 @@ export interface Project {
   technologies: string[];
   description: string;
   impact: string;
+
   technicalDetails?: {
     overview: string;
     results: string;
+    contribution?: string;
     techStack?: string;
   };
+
   attachments: {
     pdf?: string;
+    pdf1?: string;
+    pdf2?: string;
     pdfLabel?: string;
+    pdfLabel2?: string;
     presentation?: string;
     presentationLabel?: string;
     github?: string;
@@ -68,6 +75,7 @@ export interface ResumeData {
   skills: SkillCategory[];
   profileImage: string;
   resumeUrl: string;
+
   contact: {
     email: string;
     linkedin: string;

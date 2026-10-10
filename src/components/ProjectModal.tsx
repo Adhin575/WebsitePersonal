@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import {
   X,
   ExternalLink,
@@ -8,13 +9,14 @@ import {
   ChevronLeft,
   ChevronRight,
   ZoomIn,
+  ZoomOut,
   Target,
   CheckCircle2,
-  Layout,
   FileText,
   Presentation,
   Download,
-  Code
+  Layout,
+  Play
 } from 'lucide-react';
 
 import { Project } from '../data/resumeData';
@@ -27,40 +29,74 @@ interface ProjectModalProps {
 type ProjectTab =
   | 'overview'
   | 'results'
-  | 'contribution'
   | 'resources';
 
-export const ProjectModal = ({
+export const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
   onClose
-}: ProjectModalProps) => {
-  const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+}) => {
+  const [currentGalleryIndex, setCurrentGalleryIndex] =
+    useState(0);
 
   const [activeTab, setActiveTab] =
     useState<ProjectTab>('overview');
 
   const [isZoomed, setIsZoomed] = useState(false);
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const gallery = project.gallery || [];
 
   const currentItem = gallery[currentGalleryIndex] || null;
 
+  // Reset interface when a different project is selected.
+  useEffect(() => {
+    setCurrentGalleryIndex(0);
+    setActiveTab('overview');
+    setIsZoomed(false);
+  }, [project.id]);
+
+  // Pause video when changing gallery items or closing.
+  useEffect(() => {
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
+    };
+  }, [currentGalleryIndex, project.id]);
+
+  const changeGalleryItem = (index: number) => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+
+    setCurrentGalleryIndex(index);
+    setIsZoomed(false);
+  };
+
   const nextItem = () => {
     if (gallery.length > 1) {
-      setCurrentGalleryIndex(
-        prev => (prev + 1) % gallery.length
+      changeGalleryItem(
+        (currentGalleryIndex + 1) % gallery.length
       );
-      setIsZoomed(false);
     }
   };
 
   const prevItem = () => {
     if (gallery.length > 1) {
-      setCurrentGalleryIndex(
-        prev => (prev - 1 + gallery.length) % gallery.length
+      changeGalleryItem(
+        (currentGalleryIndex - 1 + gallery.length) %
+          gallery.length
       );
-      setIsZoomed(false);
     }
+  };
+
+  const handleClose = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+
+    onClose();
   };
 
   const tabs: {
@@ -79,16 +115,15 @@ export const ProjectModal = ({
       icon: <CheckCircle2 className="w-4 h-4" />
     },
     {
-      id: 'contribution',
-      label: 'My Contribution',
-      icon: <Code className="w-4 h-4" />
-    },
-    {
       id: 'resources',
       label: 'Resources',
       icon: <FileText className="w-4 h-4" />
     }
   ];
+
+  // ------------------------------------------------------------
+  // TAB CONTENT
+  // ------------------------------------------------------------
 
   const renderTabContent = () => {
 
@@ -96,14 +131,25 @@ export const ProjectModal = ({
     if (activeTab === 'overview') {
       return (
         <div className="flex flex-col gap-5">
-          <h4 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent">
-            Project Overview
-          </h4>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+              <Target className="w-5 h-5 text-accent" />
+            </div>
 
-          <p className="text-text-sub leading-relaxed text-lg font-medium whitespace-pre-line">
-            {project.technicalDetails?.overview ||
-              project.description}
-          </p>
+            <h4 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent">
+              Project Overview
+            </h4>
+          </div>
+
+          <div className="relative pl-5 py-1">
+            <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-accent" />
+
+            <p className="text-text-sub leading-relaxed text-base lg:text-lg font-medium whitespace-pre-line break-words">
+              {project.technicalDetails?.overview ||
+                project.technicalDetails?.contribution ||
+                project.description}
+            </p>
+          </div>
         </div>
       );
     }
@@ -112,77 +158,38 @@ export const ProjectModal = ({
     if (activeTab === 'results') {
       return (
         <div className="flex flex-col gap-6">
-          <h4 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent">
-            Results & Outcomes
-          </h4>
-
-          <p className="text-text-sub leading-relaxed text-lg font-medium whitespace-pre-line">
-            {project.technicalDetails?.results ||
-              'Results and outcomes of the project will be detailed here.'}
-          </p>
-
-          <div className="p-6 rounded-2xl bg-accent/5 border border-accent/20 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-accent" />
-
-            <h4 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-accent mb-3">
-              Mission Impact
-            </h4>
-
-            <p className="text-text-main font-bold text-lg leading-snug italic tracking-tight">
-              "{project.impact}"
-            </p>
-          </div>
-        </div>
-      );
-    }
-
-    // MY CONTRIBUTION
-    if (activeTab === 'contribution') {
-      const contribution =
-        project.technicalDetails?.contribution?.trim();
-
-      return (
-        <div className="flex flex-col gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
-              <Code className="w-5 h-5 text-accent" />
+            <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-5 h-5 text-accent" />
             </div>
 
-            <div>
-              <h4 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent">
-                My Contribution
-              </h4>
-
-              <p className="text-xs text-text-sub mt-1">
-                Individual responsibilities and technical work
-              </p>
-            </div>
+            <h4 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent">
+              Results & Outcomes
+            </h4>
           </div>
 
           <div className="relative pl-5 py-1">
             <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-accent" />
 
-            {contribution ? (
-              <p className="text-text-sub leading-relaxed text-lg font-medium whitespace-pre-line break-words">
-                {contribution}
-              </p>
-            ) : (
-              <p className="text-text-sub/70 leading-relaxed text-base italic">
-                Individual contributions and responsibilities
-                for this project will be added here.
-              </p>
-            )}
-          </div>
-
-          <div className="p-5 rounded-2xl bg-accent/5 border border-accent/10">
-            <p className="text-xs font-mono uppercase tracking-widest text-accent mb-2 font-bold">
-              Project Role
-            </p>
-
-            <p className="text-text-main text-base font-medium">
-              {project.role}
+            <p className="text-text-sub leading-relaxed text-base lg:text-lg font-medium whitespace-pre-line break-words">
+              {project.technicalDetails?.results ||
+                'Project results will be added here.'}
             </p>
           </div>
+
+          {project.impact && (
+            <div className="p-5 sm:p-6 rounded-2xl bg-accent/5 border border-accent/20 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-accent" />
+
+              <h4 className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-accent mb-3">
+                Project Impact
+              </h4>
+
+              <p className="text-text-main font-bold text-base lg:text-lg leading-relaxed italic">
+                {project.impact}
+              </p>
+            </div>
+          )}
         </div>
       );
     }
@@ -191,148 +198,106 @@ export const ProjectModal = ({
     if (activeTab === 'resources') {
       const attachments = project.attachments;
 
-      const hasAttachments = Boolean(
-        attachments.pdf ||
-        attachments.pdf1 ||
-        attachments.pdf2 ||
-        attachments.presentation ||
-        attachments.github ||
-        attachments.publication
+      const resources = [
+        attachments.pdf && {
+          label:
+            attachments.pdfLabel ||
+            'Technical Report (PDF)',
+          url: attachments.pdf,
+          icon: <FileText className="w-5 h-5" />
+        },
+
+        attachments.pdf1 && {
+          label:
+            attachments.pdfLabel ||
+            'Publication 1',
+          url: attachments.pdf1,
+          icon: <FileText className="w-5 h-5" />
+        },
+
+        attachments.pdf2 && {
+          label:
+            attachments.pdfLabel2 ||
+            'Publication 2',
+          url: attachments.pdf2,
+          icon: <FileText className="w-5 h-5" />
+        },
+
+        attachments.presentation && {
+          label:
+            attachments.presentationLabel ||
+            'Project Presentation',
+          url: attachments.presentation,
+          icon: <Presentation className="w-5 h-5" />
+        },
+
+        attachments.github && {
+          label: 'GitHub Repository',
+          url: attachments.github,
+          icon: <Github className="w-5 h-5" />
+        },
+
+        attachments.publication && {
+          label: 'Scientific Publication',
+          url: attachments.publication,
+          icon: <Layout className="w-5 h-5" />
+        }
+      ].filter(
+        (
+          resource
+        ): resource is {
+          label: string;
+          url: string;
+          icon: React.ReactNode;
+        } => Boolean(resource)
       );
 
       return (
-        <div className="flex flex-col gap-4">
-          <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-accent mb-2">
-            Downloadable Documents
-          </h4>
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+              <FileText className="w-5 h-5 text-accent" />
+            </div>
 
-          {!hasAttachments && (
-            <p className="text-text-sub italic">
-              No additional resources available for this
-              project yet.
-            </p>
-          )}
-
-          <div className="grid grid-cols-1 gap-3">
-
-            {attachments.pdf && (
-              <a
-                href={attachments.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:bg-accent/10 transition-all group"
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <FileText className="w-5 h-5 text-accent shrink-0" />
-
-                  <span className="text-sm font-bold text-text-main break-words">
-                    {attachments.pdfLabel ||
-                      'Technical Report (PDF)'}
-                  </span>
-                </div>
-
-                <Download className="w-4 h-4 shrink-0 text-text-sub group-hover:text-accent transition-all" />
-              </a>
-            )}
-
-            {attachments.pdf1 && (
-              <a
-                href={attachments.pdf1}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:bg-accent/10 transition-all group"
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <FileText className="w-5 h-5 text-accent shrink-0" />
-
-                  <span className="text-sm font-bold text-text-main break-words">
-                    {attachments.pdfLabel ||
-                      'Publication 1'}
-                  </span>
-                </div>
-
-                <ExternalLink className="w-4 h-4 shrink-0 text-text-sub group-hover:text-accent" />
-              </a>
-            )}
-
-            {attachments.pdf2 && (
-              <a
-                href={attachments.pdf2}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:bg-accent/10 transition-all group"
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <FileText className="w-5 h-5 text-accent shrink-0" />
-
-                  <span className="text-sm font-bold text-text-main break-words">
-                    {attachments.pdfLabel2 ||
-                      'Publication 2'}
-                  </span>
-                </div>
-
-                <ExternalLink className="w-4 h-4 shrink-0 text-text-sub group-hover:text-accent" />
-              </a>
-            )}
-
-            {attachments.presentation && (
-              <a
-                href={attachments.presentation}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:bg-accent/10 transition-all group"
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <Presentation className="w-5 h-5 text-accent shrink-0" />
-
-                  <span className="text-sm font-bold text-text-main break-words">
-                    {attachments.presentationLabel ||
-                      'Presentation'}
-                  </span>
-                </div>
-
-                <Download className="w-4 h-4 shrink-0 text-text-sub group-hover:text-accent" />
-              </a>
-            )}
-
-            {attachments.github && (
-              <a
-                href={attachments.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:bg-accent/10 transition-all group"
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <Github className="w-5 h-5 text-accent shrink-0" />
-
-                  <span className="text-sm font-bold text-text-main">
-                    Repository / Source
-                  </span>
-                </div>
-
-                <ExternalLink className="w-4 h-4 shrink-0 text-text-sub group-hover:text-accent" />
-              </a>
-            )}
-
-            {attachments.publication && (
-              <a
-                href={attachments.publication}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:bg-accent/10 transition-all group"
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <Layout className="w-5 h-5 text-accent shrink-0" />
-
-                  <span className="text-sm font-bold text-text-main">
-                    Scientific Publication
-                  </span>
-                </div>
-
-                <ExternalLink className="w-4 h-4 shrink-0 text-text-sub group-hover:text-accent" />
-              </a>
-            )}
+            <h4 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-accent">
+              Project Resources
+            </h4>
           </div>
+
+          {resources.length === 0 ? (
+            <div className="p-5 rounded-2xl border border-border-main bg-bg-sub/30">
+              <p className="text-text-sub italic text-sm leading-relaxed">
+                No additional resources are publicly available
+                for this project. Project photographs and
+                technical information can be viewed in the
+                gallery and overview.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-3">
+              {resources.map((resource, index) => (
+                <a
+                  key={`${resource.url}-${index}`}
+                  href={resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between gap-4 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:border-accent/50 hover:bg-accent/10 transition-all"
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="text-accent shrink-0">
+                      {resource.icon}
+                    </span>
+
+                    <span className="text-sm font-bold text-text-main break-words">
+                      {resource.label}
+                    </span>
+                  </div>
+
+                  <ExternalLink className="w-4 h-4 text-text-sub group-hover:text-accent shrink-0 transition-colors" />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       );
     }
@@ -340,97 +305,162 @@ export const ProjectModal = ({
     return null;
   };
 
+  // ------------------------------------------------------------
+  // MAIN PROJECT WINDOW
+  // ------------------------------------------------------------
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-bg-main/95 backdrop-blur-3xl"
-      onClick={onClose}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 lg:p-8 bg-bg-main backdrop-blur-3xl overflow-hidden"
+      onClick={handleClose}
     >
       <motion.div
-        initial={{ scale: 0.9, y: 20 }}
+        initial={{ scale: 0.97, y: 15 }}
         animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.9, y: 20 }}
-        className="relative w-full max-w-7xl max-h-[95vh] bg-bg-main border border-border-main rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row"
-        onClick={e => e.stopPropagation()}
+        exit={{ scale: 0.97, y: 15 }}
+        transition={{ duration: 0.25 }}
+        role="dialog"
+        aria-modal="true"
+        aria-label={`Project details: ${project.title}`}
+        className="relative w-full max-w-7xl h-[96dvh] max-h-[1000px] bg-bg-main border border-border-main rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row"
+        onClick={(event) => event.stopPropagation()}
       >
-        {/* Close button */}
+        {/* CLOSE BUTTON */}
         <button
           type="button"
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="Close project details"
-          className="absolute top-8 right-8 z-50 p-4 rounded-full bg-bg-main/50 backdrop-blur-md border border-border-main hover:bg-accent hover:text-white transition-all shadow-lg"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 p-3 rounded-full bg-bg-main/90 backdrop-blur-xl border border-border-main text-text-main hover:bg-accent hover:text-white transition-all shadow-lg"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5" />
         </button>
 
-        {/* LEFT: Project gallery */}
-        <div className="w-full lg:w-3/5 h-[45vh] lg:h-auto relative bg-bg-secondary flex items-center justify-center overflow-hidden group">
+        {/* --------------------------------------------------
+            LEFT PANEL: PROJECT IMAGE / VIDEO GALLERY
+        -------------------------------------------------- */}
+
+        <div className="relative w-full lg:w-[57%] h-[38dvh] sm:h-[45dvh] lg:h-full shrink-0 bg-bg-sub/50 overflow-hidden group flex items-center justify-center">
+
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentGalleryIndex}
-              initial={{ opacity: 0, scale: 1.1 }}
+              key={`${project.id}-${currentGalleryIndex}`}
+              initial={{ opacity: 0 }}
               animate={{
                 opacity: 1,
-                scale: isZoomed ? 1.5 : 1
+                scale:
+                  currentItem?.type === 'video'
+                    ? 1
+                    : isZoomed
+                      ? 1.5
+                      : 1
               }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5 }}
-              className="w-full h-full cursor-zoom-in"
-              onClick={() => setIsZoomed(!isZoomed)}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className={`w-full h-full flex items-center justify-center ${
+                currentItem?.type === 'video'
+                  ? ''
+                  : 'cursor-zoom-in'
+              }`}
+              onClick={() => {
+                if (currentItem?.type !== 'video') {
+                  setIsZoomed(!isZoomed);
+                }
+              }}
             >
-              <img
-                src={currentItem?.url || project.thumbnail}
-                alt={currentItem?.caption || project.title}
-                className="w-full h-full object-contain"
-              />
 
-              {currentItem?.caption && (
-                <div className="absolute bottom-20 left-0 w-full p-6 bg-gradient-to-t from-bg-main/90 to-transparent text-text-main pointer-events-none">
-                  <p className="text-sm font-mono font-bold uppercase tracking-widest">
-                    {currentItem.caption}
-                  </p>
+              {/* VIDEO PLAYER */}
+              {currentItem?.type === 'video' ? (
+                <div
+                  className="w-full h-full flex items-center justify-center bg-black p-2 sm:p-4"
+                  onClick={(event) =>
+                    event.stopPropagation()
+                  }
+                >
+                  <video
+                    ref={videoRef}
+                    key={currentItem.url}
+                    src={currentItem.url}
+                    poster={currentItem.poster}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-contain rounded-xl"
+                  >
+                    Your browser does not support HTML5 video.
+                  </video>
                 </div>
+              ) : (
+
+                /* IMAGE VIEWER */
+                <img
+                  src={
+                    currentItem?.url ||
+                    project.thumbnail
+                  }
+                  alt={
+                    currentItem?.caption ||
+                    project.title
+                  }
+                  className="w-full h-full object-contain select-none"
+                  draggable={false}
+                />
               )}
+
             </motion.div>
           </AnimatePresence>
 
-          {/* Gallery controls */}
+          {/* IMAGE / VIDEO CAPTION */}
+          {currentItem?.caption && !isZoomed && (
+            <div className="absolute bottom-16 sm:bottom-20 left-0 right-0 px-5 sm:px-8 py-5 bg-gradient-to-t from-bg-main/95 via-bg-main/75 to-transparent pointer-events-none z-10">
+              <p className="text-text-main text-xs sm:text-sm font-mono font-bold tracking-wide leading-relaxed">
+                {currentItem.caption}
+              </p>
+            </div>
+          )}
+
+          {/* GALLERY NAVIGATION */}
           {gallery.length > 1 && (
             <>
               <button
                 type="button"
                 onClick={prevItem}
-                aria-label="Previous project image"
-                className="absolute left-6 p-3 rounded-full bg-bg-sub/40 backdrop-blur-xl border border-border-main hover:bg-accent hover:text-white transition-all opacity-0 group-hover:opacity-100 z-10 duration-500"
+                aria-label="Previous gallery item"
+                className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-bg-main/80 backdrop-blur-xl border border-border-main text-text-main hover:bg-accent hover:text-white transition-all"
               >
-                <ChevronLeft className="w-6 h-6" />
+                <ChevronLeft className="w-5 h-5" />
               </button>
 
               <button
                 type="button"
                 onClick={nextItem}
-                aria-label="Next project image"
-                className="absolute right-6 p-3 rounded-full bg-bg-sub/40 backdrop-blur-xl border border-border-main hover:bg-accent hover:text-white transition-all opacity-0 group-hover:opacity-100 z-10 duration-500"
+                aria-label="Next gallery item"
+                className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-bg-main/80 backdrop-blur-xl border border-border-main text-text-main hover:bg-accent hover:text-white transition-all"
               >
-                <ChevronRight className="w-6 h-6" />
+                <ChevronRight className="w-5 h-5" />
               </button>
 
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-                {gallery.map((item, i) => (
+              {/* GALLERY INDICATORS */}
+              <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 max-w-[80%] overflow-x-auto">
+                {gallery.map((item, index) => (
                   <button
                     type="button"
-                    key={i}
-                    aria-label={`View project image ${i + 1}`}
-                    onClick={() => {
-                      setCurrentGalleryIndex(i);
-                      setIsZoomed(false);
-                    }}
-                    className={`h-3 rounded-full transition-all ${
-                      i === currentGalleryIndex
-                        ? 'bg-accent w-10'
-                        : 'w-3 bg-text-sub/30 hover:bg-text-sub/50'
+                    key={index}
+                    aria-label={`View gallery item ${index + 1}`}
+                    aria-current={
+                      index === currentGalleryIndex
+                        ? 'true'
+                        : undefined
+                    }
+                    onClick={() =>
+                      changeGalleryItem(index)
+                    }
+                    className={`h-2.5 rounded-full shrink-0 transition-all ${
+                      index === currentGalleryIndex
+                        ? 'w-9 bg-accent'
+                        : 'w-2.5 bg-text-sub/40 hover:bg-accent/60'
                     }`}
                   />
                 ))}
@@ -438,84 +468,163 @@ export const ProjectModal = ({
             </>
           )}
 
-          {!isZoomed && (
-            <div className="absolute bottom-8 right-8 p-3 rounded-xl bg-bg-sub/40 backdrop-blur-xl border border-border-main text-text-sub pointer-events-none">
-              <ZoomIn className="w-5 h-5" />
+          {/* ZOOM INDICATOR */}
+          {currentItem?.type !== 'video' && (
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 p-2.5 rounded-xl bg-bg-main/70 backdrop-blur-xl border border-border-main text-text-main pointer-events-none">
+              {isZoomed ? (
+                <ZoomOut className="w-5 h-5" />
+              ) : (
+                <ZoomIn className="w-5 h-5" />
+              )}
+            </div>
+          )}
+
+          {/* VIDEO INDICATOR */}
+          {currentItem?.type === 'video' && (
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 flex items-center gap-2 px-3 py-2 rounded-xl bg-bg-main/75 backdrop-blur-xl border border-border-main pointer-events-none">
+              <Play className="w-4 h-4 text-accent" />
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-text-main">
+                Video
+              </span>
             </div>
           )}
         </div>
 
-        {/* RIGHT: Project information */}
-        <div className="w-full lg:w-2/5 p-6 sm:p-10 lg:p-16 overflow-y-auto custom-scrollbar bg-bg-main/50">
-          <div className="mb-10">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+        {/* --------------------------------------------------
+            RIGHT PANEL: PROJECT DETAILS
+        -------------------------------------------------- */}
+
+        <div className="w-full lg:w-[43%] flex-1 min-h-0 overflow-y-auto overscroll-contain custom-scrollbar bg-bg-main">
+
+          <div className="p-5 sm:p-8 lg:p-10 xl:p-12">
+
+            {/* PROJECT TITLE */}
+            <div className="mb-8 pr-12">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="w-2 h-2 rounded-full bg-accent" />
+
+                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-accent">
+                  Project Portfolio
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl xl:text-5xl font-display font-black tracking-tighter leading-[1.1] text-text-main break-words">
+                {project.title}
+              </h2>
+
+              <div className="flex flex-wrap items-center gap-3 mt-5 text-text-sub font-mono text-xs font-bold uppercase tracking-wider">
+                <span>{project.role}</span>
+
+                <span className="w-1 h-1 rounded-full bg-accent" />
+
+                <span>{project.duration}</span>
+              </div>
             </div>
 
-            <h2 className="text-4xl lg:text-5xl font-display font-black mb-4 tracking-tighter leading-[1.05] italic">
-              {project.title}
-            </h2>
+            {/* THREE-TAB NAVIGATION */}
+            <div className="mb-8">
+              <div
+                role="tablist"
+                aria-label="Project information"
+                className="grid grid-cols-3 gap-2 p-1.5 bg-bg-sub/50 rounded-2xl border border-border-main"
+              >
+                {tabs.map((tab) => (
+                  <button
+                    type="button"
+                    key={tab.id}
+                    role="tab"
+                    aria-selected={
+                      activeTab === tab.id
+                    }
+                    onClick={() =>
+                      setActiveTab(tab.id)
+                    }
+                    className={`flex items-center justify-center gap-2 px-2 sm:px-3 py-3 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all ${
+                      activeTab === tab.id
+                        ? 'bg-accent text-white shadow-accent-sm'
+                        : 'text-text-sub hover:bg-accent/10 hover:text-accent'
+                    }`}
+                  >
+                    <span className="hidden sm:block">
+                      {tab.icon}
+                    </span>
 
-            <div className="flex flex-wrap items-center gap-3 text-text-sub font-mono text-xs font-bold uppercase tracking-widest">
-              <span>{project.role}</span>
-
-              <span className="w-1 h-1 rounded-full bg-border-main" />
-
-              <span>{project.duration}</span>
+                    <span>{tab.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Four project tabs */}
-          <div className="mb-12">
-            <div className="flex flex-wrap gap-2 mb-8 p-1.5 bg-bg-main/80 rounded-[1.5rem] border border-border-main">
-              {tabs.map(tab => (
-                <button
-                  type="button"
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
-                    activeTab === tab.id
-                      ? 'bg-accent text-white shadow-accent-sm'
-                      : 'text-text-sub hover:bg-accent/5 hover:text-accent'
-                  }`}
-                >
-                  {tab.icon}
-                  <span>{tab.label}</span>
-                </button>
-              ))}
-            </div>
-
+            {/* ACTIVE TAB CONTENT */}
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="bg-bg-main/60 p-5 sm:p-8 rounded-[2rem] border border-border-main min-h-[180px] relative"
+                key={`${project.id}-${activeTab}`}
+                initial={{
+                  opacity: 0,
+                  y: 10
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0
+                }}
+                exit={{
+                  opacity: 0,
+                  y: -10
+                }}
+                transition={{
+                  duration: 0.2
+                }}
+                role="tabpanel"
+                className="bg-bg-sub/20 p-5 sm:p-7 rounded-2xl border border-border-main min-h-[180px]"
               >
-                <div className="absolute top-4 right-4 opacity-10 pointer-events-none">
-                  {tabs.find(tab => tab.id === activeTab)?.icon}
-                </div>
-
                 {renderTabContent()}
               </motion.div>
             </AnimatePresence>
-          </div>
 
-          {/* Direct repository action */}
-          {project.attachments.github && (
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={project.attachments.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-3 px-8 py-5 rounded-2xl bg-bg-main border border-border-main hover:border-accent hover:text-accent transition-all font-black text-sm uppercase tracking-widest"
-              >
-                <Github className="w-5 h-5" />
-                Repository
-              </a>
-            </div>
-          )}
+            {/* TECHNOLOGY TAGS */}
+            {project.technologies &&
+              project.technologies.length > 0 && (
+                <div className="mt-10">
+                  <h4 className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-accent mb-4">
+                    Technologies & Skills
+                  </h4>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map(
+                      (technology, index) => (
+                        <span
+                          key={`${technology}-${index}`}
+                          className="px-3 py-2 rounded-lg bg-accent/5 border border-accent/15 text-text-sub text-[10px] font-bold uppercase tracking-wide"
+                        >
+                          {technology}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
+              )}
+
+            {/* DIRECT GITHUB LINK */}
+            {project.attachments.github && (
+              <div className="mt-10">
+                <a
+                  href={project.attachments.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-xl bg-bg-sub/40 border border-border-main hover:border-accent hover:text-accent transition-all font-black text-xs uppercase tracking-widest text-text-main"
+                >
+                  <Github className="w-5 h-5" />
+
+                  View Repository
+
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
+
+            {/* BOTTOM SPACING */}
+            <div className="h-8" />
+
+          </div>
         </div>
       </motion.div>
     </motion.div>

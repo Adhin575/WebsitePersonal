@@ -602,118 +602,29 @@ export const resumeData: ResumeData = {
       }
     },
 
-    // ============================================================
-    // SAE E-BAJA — UPDATED PROJECT WITH GOOGLE DRIVE PHOTOGRAPHS
-    // ============================================================
-
     {
       id: "sae-baja",
-
-      title: "SAE e-Baja | Electric All-Terrain Vehicle",
-
+      title: "SAE e-Baja - Electric All-Terrain Vehicle Design Competition",
       role: "Wheel Assembly, Suspension and CAE Co-lead",
-
       duration: "May 2022 - May 2023",
-
-      thumbnail:
-        "https://lh3.googleusercontent.com/d/12Iznh89MgTQ25rqO75DEwj6CXwm3314C",
-
+      thumbnail: "https://lh3.googleusercontent.com/d/12Iznh89MgTQ25rqO75DEwj6CXwm3314C",
       technologies: [
-        "Lotus Shark",
-        "Suspension Geometry Analysis",
+        "Lotus Shark Suspension Analysis",
         "Wheel Assembly",
-        "Mechanical Design",
-        "CAE Analysis",
+        "SolidWorks CAD Design",
+        "Ansys CAE Analysis",
         "Engineering Trade Studies",
         "Assembly & Testing",
-        "Subsystem Integration",
-        "Technical Documentation"
       ],
-
       description:
-        "Contributed to the mechanical design, suspension configuration analysis, and development of an electric all-terrain vehicle for the SAE e-Baja competition. Performed wheel assembly and suspension trade studies using Lotus Shark, supported CAE analysis and critical design documentation, and participated in hands-on assembly and testing of the vehicle's mechanical subsystems.",
-
+        "Baja SAE is a collegiate engineering competition challenging student teams to design, manufacture, and test rugged off-road all-terrain vehicles.",     
       technicalDetails: {
-        overview: `The SAE e-Baja project involved the engineering development of an electric all-terrain vehicle (ATV), integrating mechanical design, computer-aided engineering, suspension engineering, and practical vehicle assembly.
-
-The project required evaluating mechanical subsystem configurations while considering the operational demands of off-road driving.
-
-My primary involvement was in the wheel assembly and suspension subsystems, where I performed configuration analyses and engineering trade studies using Lotus Shark.
-
-These studies supported the evaluation of suspension geometry, wheel assembly configurations, and their implications for vehicle mechanical performance.
-
-I also supported computer-aided engineering (CAE) activities and contributed to the preparation of the vehicle's CAE Critical Design Report.
-
-Beyond design and analysis, I participated in hands-on assembly and testing activities involving the wheel assembly, drivetrain, and suspension subsystems.
-
-This experience provided an opportunity to connect theoretical engineering analysis with practical mechanical integration and the development of a functioning electric all-terrain vehicle.`,
-
-        results: `The project produced several engineering outputs supporting the design evaluation, development, and integration of the electric ATV.
-
-Key Engineering Outcomes:
-
-• Completed wheel assembly and suspension configuration studies using Lotus Shark to support the evaluation of subsystem design alternatives.
-
-• Prepared industry-style technical reports documenting suspension configuration analyses, engineering trade studies, and design considerations.
-
-• Contributed to computer-aided engineering analysis and the preparation of the Electric ATV CAE Critical Design Report.
-
-• Participated in hands-on assembly and testing of the wheel assembly, drivetrain, and suspension subsystems.
-
-• Supported mechanical subsystem integration activities, connecting analytical design work with physical vehicle development.
-
-• Gained practical experience in multidisciplinary engineering collaboration, design documentation, mechanical assembly, and subsystem-level testing.
-
-These activities contributed to the team's engineering design evaluation and mechanical integration process for the electric all-terrain vehicle.`,
-
-        contribution: `1. Suspension and Wheel Assembly Engineering
-
-• Performed suspension configuration analyses and engineering trade studies using Lotus Shark.
-
-• Evaluated alternative wheel assembly and suspension design configurations to support subsystem development.
-
-• Analyzed suspension geometry and mechanical configuration considerations relevant to off-road vehicle operation.
-
-• Documented findings and engineering considerations to assist subsystem-level design decisions.
-
-
-2. Computer-Aided Engineering (CAE)
-
-• Assisted with computer-aided engineering analysis activities for the electric ATV.
-
-• Contributed to the development and preparation of the CAE Critical Design Report.
-
-• Supported the technical documentation of mechanical subsystem design considerations and analysis outcomes.
-
-
-3. Assembly, Integration and Testing (AI&T)
-
-• Participated in hands-on assembly and testing of the wheel assembly and suspension systems.
-
-• Assisted with drivetrain and mechanical subsystem integration activities.
-
-• Supported practical assessment of mechanical subsystem configurations during the vehicle development process.
-
-• Gained experience in identifying and addressing mechanical integration considerations through hands-on engineering activities.
-
-
-4. Engineering Trade Studies and Documentation
-
-• Conducted trade studies to compare wheel assembly and suspension configurations.
-
-• Prepared industry-style engineering reports documenting configuration analyses and technical observations.
-
-• Contributed technical findings to the team's mechanical design review and documentation activities.
-
-• Supported communication of engineering analyses and design considerations within the vehicle development team.`,
-
-        techStack:
-          "Lotus Shark suspension analysis, mechanical design, suspension geometry evaluation, wheel assembly engineering, CAE, engineering trade studies, mechanical subsystem integration, hands-on assembly and testing, and technical design documentation."
+        overview: "I contributed to the mechanical development of an SAE e-Baja electric ATV, focusing on suspension, chassis, and wheel assembly design. Conducted configuration analyses and trade studies for the suspension and wheel-assembly design and geometry using Lotus Shark, supported CAE investigations and generated an industry grade CAE report, and worked on subsystem assembly and testing.",
+        results: "Could fabricate our entire vehicle 2 weeks before the deliverable deadline due to quicker design convergence. Also reduced around 12-15k Rs. on the fabrication of the vehicle due to effective usage and improvements of COTS products. Finished among the top 15 CAE reports among all the 150 + Indian teams, and finished among the top 50 teams after the Mechanical, Electrical Technical Inspections and the ATV Run on the off-road track.",
+        contribution: "Performed suspension geometry and wheel assembly configuration analyses using Lotus Shark. Assisted with CAE simulations and critical design documentation, and conducted hands-on assembly and testing of suspension, wheel assembly, and drivetrain components.",
+      techStack: "Lotus Shark, Suspension Analysis, Wheel Assembly Design, CAE, Engineering Trade Studies, Mechanical Assembly & Testing."
       },
-
-      impact:
-        "Supported the development and mechanical integration of an electric all-terrain vehicle through suspension and wheel assembly trade studies, CAE critical design documentation, and hands-on subsystem assembly and testing.",
-
+      impact: "Supported electric ATV design optimization through suspension configuration studies, CAE documentation, and hands-on mechanical subsystem integration.",
       gallery: [
         {
           type: "image",

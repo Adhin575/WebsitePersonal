@@ -437,13 +437,13 @@ Engineering Documentation
       gallery: [
         {
           type: "image",
-          url: "/images/sae-baja/vehicle.jpg",
+          url: "/Images/vehicle.jpg",
           caption:
             "SAE e-Baja electric ATV during vehicle development and mechanical subsystem integration."
         },
         {
           type: "image",
-          url: "/images/sae-baja/team.jpeg",
+          url: "/Images/team.jpg",
           caption:
             "SAE e-Baja project team during the vehicle development and assembly phase."
         }

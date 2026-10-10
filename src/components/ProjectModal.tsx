@@ -51,14 +51,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
   const currentItem = gallery[currentGalleryIndex] || null;
 
-  // Reset gallery and tabs when selecting another project.
+  // Reset the interface when a different project is selected.
   useEffect(() => {
     setCurrentGalleryIndex(0);
     setActiveTab('overview');
     setIsZoomed(false);
   }, [project.id]);
 
-  // Pause a playing video when changing projects or unmounting.
+  // Pause videos on gallery changes and component cleanup.
   useEffect(() => {
     const video = videoRef.current;
 
@@ -69,7 +69,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
   const changeGalleryItem = (index: number) => {
     videoRef.current?.pause();
-
     setCurrentGalleryIndex(index);
     setIsZoomed(false);
   };
@@ -96,31 +95,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     onClose();
   };
 
-  const tabs: {
-    id: ProjectTab;
-    label: string;
-    icon: React.ReactNode;
-  }[] = [
-    {
-      id: 'overview',
-      label: 'Overview',
-      icon: <Target className="w-4 h-4" />
-    },
-    {
-      id: 'results',
-      label: 'Results',
-      icon: <CheckCircle2 className="w-4 h-4" />
-    },
-    {
-      id: 'resources',
-      label: 'Resources',
-      icon: <FileText className="w-4 h-4" />
-    }
-  ];
+  // ------------------------------------------------------------
+  // RESOURCE DETECTION
+  // ------------------------------------------------------------
 
-  // Construct resource links without optional-field type errors.
   const getResources = (): ProjectResource[] => {
-    const attachments = project.attachments;
+    const attachments = project.attachments || {};
     const resources: ProjectResource[] = [];
 
     if (attachments.pdf) {
@@ -175,6 +155,41 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
     return resources;
   };
+
+  const resources = getResources();
+
+  // Resources tab only appears if the project has a resource.
+  const hasResources = resources.length > 0;
+
+  // ------------------------------------------------------------
+  // DYNAMIC TABS
+  // ------------------------------------------------------------
+
+  const tabs: {
+    id: ProjectTab;
+    label: string;
+    icon: React.ReactNode;
+  }[] = [
+    {
+      id: 'overview',
+      label: 'Overview',
+      icon: <Target className="w-4 h-4" />
+    },
+    {
+      id: 'results',
+      label: 'Results',
+      icon: <CheckCircle2 className="w-4 h-4" />
+    },
+    ...(hasResources
+      ? [
+          {
+            id: 'resources' as ProjectTab,
+            label: 'Resources',
+            icon: <FileText className="w-4 h-4" />
+          }
+        ]
+      : [])
+  ];
 
   // ------------------------------------------------------------
   // TAB CONTENT
@@ -250,8 +265,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
     // RESOURCES
     if (activeTab === 'resources') {
-      const resources = getResources();
-
       return (
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-3">
@@ -264,40 +277,29 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </h4>
           </div>
 
-          {resources.length === 0 ? (
-            <div className="p-5 rounded-2xl border border-border-main bg-bg-sub/30">
-              <p className="text-text-sub italic text-sm leading-relaxed">
-                No additional resources are publicly available
-                for this project. Project photographs and
-                technical information can be viewed in the
-                gallery and overview.
-              </p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 gap-3">
-              {resources.map((resource, index) => (
-                <a
-                  key={`${resource.url}-${index}`}
-                  href={resource.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between gap-4 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:border-accent/50 hover:bg-accent/10 transition-all"
-                >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <span className="text-accent shrink-0">
-                      {resource.icon}
-                    </span>
+          <div className="grid grid-cols-1 gap-3">
+            {resources.map((resource, index) => (
+              <a
+                key={`${resource.url}-${index}`}
+                href={resource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-4 p-4 rounded-xl bg-accent/5 border border-accent/20 hover:border-accent/50 hover:bg-accent/10 transition-all"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="text-accent shrink-0">
+                    {resource.icon}
+                  </span>
 
-                    <span className="text-sm font-bold text-text-main break-words">
-                      {resource.label}
-                    </span>
-                  </div>
+                  <span className="text-sm font-bold text-text-main break-words">
+                    {resource.label}
+                  </span>
+                </div>
 
-                  <ExternalLink className="w-4 h-4 text-text-sub group-hover:text-accent shrink-0 transition-colors" />
-                </a>
-              ))}
-            </div>
-          )}
+                <ExternalLink className="w-4 h-4 text-text-sub group-hover:text-accent shrink-0 transition-colors" />
+              </a>
+            ))}
+          </div>
         </div>
       );
     }
@@ -505,12 +507,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </div>
             </div>
 
-            {/* THREE-TAB NAVIGATION */}
+            {/* DYNAMIC TAB NAVIGATION */}
             <div className="mb-8">
               <div
                 role="tablist"
                 aria-label="Project information"
-                className="grid grid-cols-3 gap-2 p-1.5 bg-bg-sub/50 rounded-2xl border border-border-main"
+                className={`grid ${
+                  hasResources ? 'grid-cols-3' : 'grid-cols-2'
+                } gap-2 p-1.5 bg-bg-sub/50 rounded-2xl border border-border-main`}
               >
                 {tabs.map((tab) => (
                   <button

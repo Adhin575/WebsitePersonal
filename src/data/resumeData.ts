@@ -373,7 +373,7 @@ export const resumeData: ResumeData = {
       role: "Principal Investigator / Project Manager / Lead Engineer",
       duration: "Sep 2025 - Dec 2025",
       thumbnail:
-        "https://lh3.googleusercontent.com/d/121FOdalh3aCXpKRUmEEyyxe1j2lPlsry",
+        "https://lh3.googleusercontent.com/d/1OOvuHuVljF1qNh9sKtfDQhA8hgF3Y48C",
       technologies: [
         "Mission Design",
         "ConOps",
@@ -395,19 +395,27 @@ export const resumeData: ResumeData = {
         {
           type: "image",
           url:
-            "https://lh3.googleusercontent.com/d/121FOdalh3aCXpKRUmEEyyxe1j2lPlsry",
+            "https://lh3.googleusercontent.com/d/1OOvuHuVljF1qNh9sKtfDQhA8hgF3Y48C",
           caption: "SHINE Spacecraft Configuration"
         },
         {
           type: "image",
-          url: "https://picsum.photos/seed/shine/1200/800",
+          url: "https://lh3.googleusercontent.com/d/1v-bfmQeBnIFPsqXnL_03PORGrHo5CYm9",
           caption: "Mission Trajectory Map"
+        }
+        {
+          type: "image",
+          url: "https://lh3.googleusercontent.com/d/1aTLuHDFcZ6lvg7uppIZET9K9iL7dEu6A",
+          caption: "Mission Path and Timeline Simulator"
         }
       ],
       attachments: {
         pdf:
           "https://drive.google.com/file/d/1qrxZ6ymutSDUYI0pE8ztbpcn5wjD9tf0/view?usp=drive_link",
         pdfLabel: "Mission Proposal",
+        presentation:
+          "https://docs.google.com/presentation/d/12lcgb_0XOjSiEmUWDgdtAf_bDMTOfeWn/edit?usp=sharing&ouid=113711368431435030458&rtpof=true&sd=true",
+        presentationLabel: "PDR Presentation"
         github:
           "https://github.com/Adhin575/SHINEMissionSimulator"
       }
@@ -427,7 +435,7 @@ export const resumeData: ResumeData = {
         "Mass, Volume, and Power Budgeting",
         "ECLSS",
         "Human Factors"
-      ],
+          ],
       description: "Horizon Nexus is a conceptual design for a long-duration human habitat in Low Earth Orbit.",
       technicalDetails: {
         overview: "I was responsible for ideating, designing and calculating the requirements and concept study for the Power/Thermal, Crew Accomodation and EVA subsystems/tasks. I also assisted in doing the same tasks for the ECLSS and C3/Avionics Subsystem.",
@@ -471,9 +479,9 @@ export const resumeData: ResumeData = {
         "Structural Stability",
         "V&V Test Plan",
         "Systems Engineering"
-      ],
-      description: "Two university CubeSat programs focused on spacecraft assembly, integration, testing, and systems readiness: the Maxwell 6U satellite and the SWARM-Ex multi-satellite mission.",
-      technicalDetails: {
+          ],
+          description: "Two university CubeSat programs focused on spacecraft assembly, integration, testing, and systems readiness: the Maxwell 6U satellite and the SWARM-Ex multi-satellite mission.",
+          technicalDetails: {
         overview: "Supported Maxwell PLDC design, installation, and structural, thermal, and vibration testing as part of spacecraft AI&T. For SWARM-Ex, developed systems-engineering readiness documentation, verification and validation test plans, and interface requirements to support preliminary design review.",
         results: "Completed PLDC-level structural, thermal, and vibration verification activities and supported installation within the Maxwell spacecraft chassis. Prepared SWARM-Ex readiness and V&V documentation for system-level design review.",
         techStack: "Vibration and Thermal Testing using ANSYS, Thermal Vacuum (TVAC) Chamber, Systems Engineering, JIRA/Confluence."
@@ -661,7 +669,7 @@ export const resumeData: ResumeData = {
     {
       category: "Programming",
       skills: [
-        { name: "Python", level: 95 },
+            { name: "Python", level: 95 },
         { name: "MATLAB", level: 90 },
         { name: "SQL", level: 80 },
         { name: "PowerBi", level: 85 },

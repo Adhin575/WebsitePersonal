@@ -472,13 +472,13 @@ export const resumeData: ResumeData = {
         "V&V Test Plan",
         "Systems Engineering"
       ],
-      description: "Executed Thermal and Structural Stability testing of the PLDC Component of the Maxwell 6U CubeSat. Devised V&V Systems Test Plans and detailed interface requirement documents for Swarm-Ex.",
+      description: "Two university CubeSat programs focused on spacecraft assembly, integration, testing, and systems readiness: the Maxwell 6U satellite and the SWARM-Ex multi-satellite mission.",
       technicalDetails: {
-        overview: "I worked on engineering roles in the Maxwell and Swarm-Ex CubeSat programs. For the Maxwell CubeSat program, I worked on design, assembly and testing (structural, thermal, vibrational) of the PLDC. I also worked on installing that component in the CubeSat chassis as part of the AI&T (Assembly, Integration, and Testing) subsystem. For the Swarm-Ex mission, I worked on the Systems Engineering Subsystem to create a dedicated readiness document, focussing specifically on the programmatics of the mission, detailed Verification and Validation Test Plan, making it ready for PDR.",
-        results: "Successfully completed structural, thermal and vibrational verification for Maxwell PLDC system and installed on the spacecraft.",
+        overview: "Supported Maxwell PLDC design, installation, and structural, thermal, and vibration testing as part of spacecraft AI&T. For SWARM-Ex, developed systems-engineering readiness documentation, verification and validation test plans, and interface requirements to support preliminary design review.",
+        results: "Completed PLDC-level structural, thermal, and vibration verification activities and supported installation within the Maxwell spacecraft chassis. Prepared SWARM-Ex readiness and V&V documentation for system-level design review.",
         techStack: "Vibration and Thermal Testing using ANSYS, Thermal Vacuum (TVAC) Chamber, Systems Engineering, JIRA/Confluence."
       },
-      impact: "Successfully integrated core components into the Maxwell body and standardized systems interface requirements for the Swarm-Ex program. The Maxwell 6U CubeSat is now waiting on the launchpad for launching to space.",
+      impact: "Linked hardware verification and flight-system integration with traceable systems-engineering documentation across two CubeSat development programs.",
       gallery: [
         {
           type: "image",
@@ -507,13 +507,13 @@ export const resumeData: ResumeData = {
         "ANSYS Granta",
         "SEM Analysis"
       ],
-      description: "This was my final project to fulfill my undergraduate requirements under the guidance of Dr. Ankit Gupta. We focussed on strength and durability optimization of AM parts using heat treatment and geometric interlocking techniques, along with an investigation of difference due to pure and recycled elements.",
+      description: "Undergraduate research on improving the mechanical performance and sustainability of fused-deposition-modeled polymer components through interlocking interfaces, thermal post-processing, and recycled feedstocks.",
       technicalDetails: {
-        overview: "As the lead researcher, I worked on discussing trends of optimizing the mechanical properties of dual composite AM parts. We focussed on TPU-PLA composites and Polypropylene components, and associated tensile strength variations due to heat treatment, geometric pimple-dimple interactions, and pure/recycled filaments.",
-        results: "Specimens featuring a higher density of interlocks consistently outperformed those with fewer interlocks in terms of strength and stiffness. Results revealed that low-temperature treatment at 0°C significantly increased stiffness due to polymer chain contraction. Tensile strength and modulus peaked at 80°C, with recycled PP achieved comparable performance to virgin PP at over 70% lower environmental impact. ",
+        overview: "Led experimental studies of PLA–TPU interlocking composites and virgin/recycled polypropylene specimens under Dr. Ankit Gupta. Investigated interlock density, printing orientation, and heat-treatment effects using tensile testing, microscopy, ABAQUS-based analysis, and ANSYS Granta sustainability assessment.",
+        results: "Denser PLA–TPU interlocks improved strength and stiffness; polypropylene tensile strength and modulus peaked near 80°C heat treatment. Treated recycled PP approached virgin-PP performance, while the Granta assessment estimated over 70% lower production energy use and carbon emissions for recycled PP.",
         techStack: "ABAQUS (Finite Element Analysis), ANSYS Granta, Tensile Testing Machines, 3D printing, and Scanning Electron Microscopy (SEM)."
       },
-      impact: "Co-authored two peer-reviewed publications: the TPU-PLA property optimization paper in the Journal of Process Mechanical Engineering, the pure & recyled PP property optimization paper in ACS Omega.",
+      impact: "Contributed to two research publications exploring stronger multi-material prints and lower-impact recycled polymer components for additive manufacturing.",
       gallery: [
         {
           type: "image",
@@ -555,13 +555,13 @@ export const resumeData: ResumeData = {
         "Industry-Grade Research",
         "Python"
       ],
-      description: "This project was developed as a result of the Opportunities for Undergraduate Research (OUR) at Shiv Nadar University. I worked under the guidance of Dr. Ankit Gupta, with additional support from Dr. Deepak Kumar from IIT Delhi.",
+      description: "Undergraduate research project at Shiv Nadar University exploring an electromagnetic apparatus for synthesizing functionally graded materials with controlled material distribution.",
       technicalDetails: {
-        overview: "I contributed to a design concept, ideation, and creation of a device to synthesize an FGM with any 2 different materials and properties using electromagnetic heating and solenoid attraction processes. We proposed the idea, designed the apparatus on SolidWorks, created an electrical mock-up of the circuit, automated the filter system for iron filings, and fabricated the device to submit to the Government for a design and utility patent. With this device, the complexity of creating gradient FGMs reduce significantly, and the time taken is also about 2-3 hours shorter.",
-        results: "Successfully designed and patented an automated system for material synthesis, opening new possibilities for gradient composite fabrication.",
+        overview: "Developed the apparatus concept with faculty guidance, modeled its mechanical assembly in SolidWorks, designed the electrical control mock-up, and worked on solenoid-assisted material separation and automated handling of iron filings. Participated in fabrication and patent documentation.",
+        results: "Produced a detailed CAD assembly, electrical prototype concept, and fabricated apparatus for controlled material placement in FGM synthesis. The design received an Indian design patent; a utility-patent application was also pursued.",
         techStack: "Electromagnetic Simulation, SolidWorks CAD, Arduino-based PID control, Thermal Analysis, Industry Research"
       },
-      impact: "Acquired a design patent from the Government of India for the device. Utility patent procedure is underway",
+      impact: "Advanced a prototype approach to FGM fabrication that combines electromagnetic material handling with an integrated, documented apparatus design.",
       gallery: [
         {
           type: "image",
@@ -597,13 +597,13 @@ export const resumeData: ResumeData = {
         "Assembly & Testing",
       ],
       description:
-        "Baja SAE is a collegiate engineering competition challenging student teams to design, manufacture, and test rugged off-road all-terrain vehicles.",     
+        "Baja SAE is a collegiate engineering competition in which student teams design, manufacture, inspect, and test off-road all-terrain vehicles; this entry covers an electric ATV built for the Indian competition.",     
       technicalDetails: {
-        overview: "I contributed to the mechanical development of an SAE e-Baja electric ATV, focusing on suspension, chassis, and wheel assembly design. Conducted configuration analyses and trade studies for the suspension and wheel-assembly design and geometry using Lotus Shark, supported CAE investigations and generated an industry grade CAE report, and worked on subsystem assembly and testing.",
-        results: "Could fabricate our entire vehicle 2 weeks before the deliverable deadline due to quicker design convergence. Also reduced around 12-15k Rs. on the fabrication of the vehicle due to effective usage and improvements of COTS products. Finished among the top 15 CAE reports among all the 150 + Indian teams, and finished among the top 50 teams after the Mechanical, Electrical Technical Inspections and the ATV Run on the off-road track.",
+        overview: "Co-led wheel assembly, suspension, and CAE work for the electric ATV. Conducted suspension-geometry trade studies in Lotus Shark, supported chassis and wheel-assembly design and ANSYS analysis, prepared technical reports, and participated in subsystem assembly and testing.",
+        results: "The team completed vehicle fabrication about two weeks ahead of its deadline and reported approximately ₹12,000–₹15,000 in fabrication savings through COTS-based design choices. It placed among the top 15 CAE submissions from 150+ teams and the top 50 overall after inspections and the off-road event.",
         techStack: "Lotus Shark - Suspension Analysis, Wheel Assembly Design, CAE, Engineering Trade Studies, Mechanical Assembly & Testing."
       },
-      impact: "Supported electric ATV design optimization through suspension and wheel - assembly configuration studies, CAE documentation, and hands-on mechanical subsystem integration.",
+      impact: "Supported faster design convergence and practical subsystem integration, contributing to the team’s cost, schedule, and competition outcomes.",
       gallery: [
         {
           type: "image",

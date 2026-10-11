@@ -501,45 +501,40 @@ export const resumeData: ResumeData = {
 
     {
       id: "am-optimization",
-      title: "Property Optimization of AM Parts",
-      role: "Lead Researcher / Author",
+      title: "Property Optimization of Additively Manufactured Components using Heat Treatment, Geometric Interlocking, and Purity of Filaments",
+      role: "Lead Researcher / Co-Author",
       duration: "Aug 2024 - May 2025",
       thumbnail:
-        "https://lh3.googleusercontent.com/d/1yTrIvT4-z3EmB75ZrT27_uWaxkzH439c",
+        "https://lh3.googleusercontent.com/d/1vkIUG8HW4lGDMyKd6RQSRzZZTrQwSW-C",
       technologies: [
         "3D Printing",
         "ABAQUS",
         "ANSYS Granta",
         "SEM Analysis"
       ],
-      description:
-        "Evaluated tensile mechanical properties and warpage of virgin/recycled polypropylene via tensile testing on dogbones created via ABAQUS geometry. Investigated FDM composite reinforcement conditions.",
+      description: "This was my final project to fulfill my undergraduate requirements under the guidance of Dr. Ankit Gupta. We focussed on strength and durability optimization of AM parts using heat treatment and geometric interlocking techniques, along with an investigation of difference due to pure and recycled elements.",
       technicalDetails: {
-        overview:
-          "Research into optimizing the mechanical properties of parts produced via Fused Deposition Modeling (FDM). Focus was on using recycled materials and composite reinforcements.",
-        results:
-          "Determined optimal layer height and infill patterns to maximize tensile strength while minimizing warpage, resulting in two peer-reviewed publications.",
-        techStack:
-          "ABAQUS (Finite Element Analysis), ANSYS Granta, Tensile Testing Machines, 3D printing, and Scanning Electron Microscopy (SEM)."
+        overview: "As the lead researcher, I worked on discussing trends of optimizing the mechanical properties of dual composite AM parts. We focussed on TPU-PLA composites and Polypropylene components, and associated tensile strength variations due to heat treatment, geometric pimple-dimple interactions, and pure/recycled filaments.",
+        results: "Specimens featuring a higher density of interlocks consistently outperformed those with fewer interlocks in terms of strength and stiffness. Results revealed that low-temperature treatment at 0°C significantly increased stiffness due to polymer chain contraction. Tensile strength and modulus peaked at 80°C, with recycled PP achieved comparable performance to virgin PP at over 70% lower environmental impact. ",
+        techStack: "ABAQUS (Finite Element Analysis), ANSYS Granta, Tensile Testing Machines, 3D printing, and Scanning Electron Microscopy (SEM)."
       },
-      impact:
-        "Co-authored two peer-reviewed publications (ACS Omega, Journal of Process Mechanical Engineering) regarding material usage in engineering applications.",
+      impact: "Co-authored two peer-reviewed publications: the TPU-PLA property optimization paper in the Journal of Process Mechanical Engineering, the pure & recyled PP property optimization paper in ACS Omega.",
       gallery: [
         {
           type: "image",
           url:
-            "https://lh3.googleusercontent.com/d/1yTrIvT4-z3EmB75ZrT27_uWaxkzH439c",
-          caption: "Testing of 3D Printed Specimens"
+            "https://lh3.googleusercontent.com/d/1vkIUG8HW4lGDMyKd6RQSRzZZTrQwSW-C",
+          caption: "3D printing an ASTM Dogbone using 2 filaments in an interlock pattern"
         },
         {
           type: "image",
-          url: "https://picsum.photos/seed/am2/1200/800",
-          caption: "SEM Analysis of Composites"
+          url: "https://lh3.googleusercontent.com/d/1_oRtSmheG-Or5j7m2OxYTUK1zxG-EgNW",
+          caption: "SEM Analysis of a single composite"
         },
         {
           type: "image",
-          url: "https://picsum.photos/seed/am3/1200/800",
-          caption: "Warpage Comparison Charts"
+          url: "https://lh3.googleusercontent.com/d/1TbyR3QQyT2Vp2y-kGU8YK5RT11Kgv8u7",
+          caption: "Sample Load Displacement Curve Obtained for a 132 PD configuration at 90 degrees celsius"
         }
       ],
       attachments: {
@@ -565,8 +560,7 @@ export const resumeData: ResumeData = {
         "Industry-Grade Research",
         "Python"
       ],
-      description:
-        "This project was developed as a result of the Opportunities for Undergraduate Research (OUR) at Shiv Nadar University. I worked under the guidance of Dr. Ankit Gupta, with additional support from Dr. Deepak Kumar from IIT Delhi.",
+      description: "This project was developed as a result of the Opportunities for Undergraduate Research (OUR) at Shiv Nadar University. I worked under the guidance of Dr. Ankit Gupta, with additional support from Dr. Deepak Kumar from IIT Delhi.",
       technicalDetails: {
         overview: "I contributed to a design concept, ideation, and creation of a device to synthesize an FGM with any 2 different materials and properties using electromagnetic heating and solenoid attraction processes. We proposed the idea, designed the apparatus on SolidWorks, created an electrical mock-up of the circuit, automated the filter system for iron filings, and fabricated the device to submit to the Government for a design and utility patent. With this device, the complexity of creating gradient FGMs reduce significantly, and the time taken is also about 2-3 hours shorter.",
         results: "Successfully designed and patented an automated system for material synthesis, opening new possibilities for gradient composite fabrication.",

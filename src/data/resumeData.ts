@@ -358,9 +358,12 @@ export const resumeData: ResumeData = {
         }
       ],
       attachments: {
-        presentation:
+        presentation1:
           "https://drive.google.com/file/d/1YQfDouzujvs3Z--T90m6GpDX9jf0biVw/view?usp=drive_link",
-        presentationLabel: "CDR Presentation",
+        presentationLabel1: "CDR Presentation",
+        presentation2:
+          "https://docs.google.com/presentation/d/1bEegOnieLgfwRlbI-9eGp5pLfArBd0Ye/edit?usp=sharing&ouid=113711368431435030458&rtpof=true&sd=true",
+        presentationLabel2: "ORR Presentation",
         github:
           "https://github.com/Adhin575/FLAIRGroundStation"
       }

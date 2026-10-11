@@ -476,24 +476,23 @@ export const resumeData: ResumeData = {
         "V&V Test Plan",
         "Systems Engineering"
       ],
-      description:
-        "Executed Thermal and Structural Stability testing of the PLDC Component of the Maxwell 6U CubeSat. Devised V&V Systems Test Plans and detailed interface requirement documents for Swarm-Ex.",
+      description: "Executed Thermal and Structural Stability testing of the PLDC Component of the Maxwell 6U CubeSat. Devised V&V Systems Test Plans and detailed interface requirement documents for Swarm-Ex.",
       technicalDetails: {
-        overview:
-          "Hands-on engineering roles in the Maxwell and Swarm-Ex CubeSat programs. Focus was on Assembly, Integration, and Testing (AI&T) and systems-level documentation.",
-        results:
-          "Successfully completed structural verification for Maxwell and established standardized interface protocols for the multi-satellite Swarm-Ex constellation.",
-        techStack:
-          "Vibration Testing, Thermal Vacuum (TVAC) Chamber, Systems Engineering V-model, and JIRA/Confluence."
+        overview: "I worked on engineering roles in the Maxwell and Swarm-Ex CubeSat programs. For the Maxwell CubeSat program, I worked on design, assembly and testing (structural, thermal, vibrational) of the PLDC. I also worked on installing that component in the CubeSat chassis as part of the AI&T (Assembly, Integration, and Testing) subsystem. For the Swarm-Ex mission, I worked on the Systems Engineering Subsystem to create a dedicated readiness document, focussing specifically on the programmatics of the mission, detailed Verification and Validation Test Plan, making it ready for PDR.",
+        results: "Successfully completed structural, thermal and vibrational verification for Maxwell PLDC system and installed on the spacecraft.",
+        techStack: "Vibration and Thermal Testing using ANSYS, Thermal Vacuum (TVAC) Chamber, Systems Engineering, JIRA/Confluence."
       },
-      impact:
-        "Successfully integrated core components into the Maxwell body and standardized systems interface requirements for the program.",
+      impact: "Successfully integrated core components into the Maxwell body and standardized systems interface requirements for the Swarm-Ex program. The Maxwell 6U CubeSat is now waiting on the launchpad for launching to space.",
       gallery: [
         {
           type: "image",
-          url:
-            "https://lh3.googleusercontent.com/d/1L7iUe-4On_zYTXlpLUMLhvpAlTh35OnQ",
-          caption: "Maxwell CubeSat Integration"
+          url: "https://lh3.googleusercontent.com/d/1L7iUe-4On_zYTXlpLUMLhvpAlTh35OnQ",
+          caption: "Maxwell CubeSat "
+        },
+        {
+          type: "video",
+          url: "https://drive.google.com/file/d/1OLI9YDv-K-Tu6R_xb3V7Sw8165AjPhHX/preview",
+          caption: "Maxwell CubeSat Assembly, Integration and Testing",
         }
       ],
       attachments: {}
@@ -612,20 +611,15 @@ export const resumeData: ResumeData = {
       gallery: [
         {
           type: "image",
-          url:
-            "https://lh3.googleusercontent.com/d/12Iznh89MgTQ25rqO75DEwj6CXwm3314C",
-          caption:
-            "SAE e-Baja Electric All-Terrain Vehicle — BEAST v8"
+          url: "https://lh3.googleusercontent.com/d/12Iznh89MgTQ25rqO75DEwj6CXwm3314C",
+          caption: "SAE e-Baja Electric All-Terrain Vehicle — BEAST v8"
         },
         {
           type: "image",
-          url:
-            "https://lh3.googleusercontent.com/d/1bmG9xKUu5TOcGm8CV3WRTx1fLtWxl-9e",
-          caption:
-            "SAE e-Baja Project Team "
+          url: "https://lh3.googleusercontent.com/d/1bmG9xKUu5TOcGm8CV3WRTx1fLtWxl-9e",
+          caption: "SAE e-Baja Project Team "
         }
       ],
-
       attachments: {}
     }
   ],

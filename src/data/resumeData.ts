@@ -370,7 +370,7 @@ export const resumeData: ResumeData = {
       id: "shine",
       title:
         "SHINE (Survey of Hidden water-Ice in Non-illuminated Environments)",
-      role: "Principal Investigator / Project Manager",
+      role: "Principal Investigator / Project Manager / Lead Engineer",
       duration: "Sep 2025 - Dec 2025",
       thumbnail:
         "https://lh3.googleusercontent.com/d/121FOdalh3aCXpKRUmEEyyxe1j2lPlsry",
@@ -424,20 +424,16 @@ export const resumeData: ResumeData = {
         "https://lh3.googleusercontent.com/d/1fMHF6CnJZwDaRZXhd1JaQzMgltJPlq3B",
       technologies: [
         "Thermal Systems",
-        "Power Budgeting",
+        "Mass, Volume, and Power Budgeting",
         "ECLSS",
         "Human Factors"
       ],
-      description:
-        "Drafted Power budget for a 5+ year mission. Designed a highly-efficient thermal maintenance system and led development of mass budgets for ECLSS and consumables. Drafted interior habitat layouts.",
+      description: "Horizon Nexus is a conceptual design for a long-duration human habitat in Low Earth Orbit.",
       technicalDetails: {
-        overview:
-          "Horizon Nexus is a conceptual design for a long-duration human habitat in Low Earth Orbit. I was responsible for the critical life-support infrastructure, including power, thermal, and ECLSS subsystems.",
-        results:
-          "Conceptualized a thermal management system that improved efficiency by 20% and optimized the mass budget for a crew of six over a 5-year operational lifespan."
+        overview: "I was responsible for ideating, designing and calculating the requirements and concept study for the Power/Thermal, Crew Accomodation and EVA subsystems/tasks. I also assisted in doing the same tasks for the ECLSS and C3/Avionics Subsystem.",
+        results: "Conceptualized a thermal management system that improved efficiency and reduced the required power to make the habitat more sustainable and feasible to operate over longer durations in space. I optimized the mass budget for a crew of six over a 5-year operational lifespan, while taking into account consumables, ECLSS system subordinates, avionics, power, thermal, EVA,PA,CA additions."
       },
-      impact:
-        "Increased power efficiency by 20% and optimized mass budget through strategic positioning of functioning bays.",
+      impact: "We ended up with a highly feasible and highly convincing space habitat design that finished among the top 2 designs.",
       gallery: [
         {
           type: "image",
@@ -447,13 +443,13 @@ export const resumeData: ResumeData = {
         },
         {
           type: "image",
-          url: "https://picsum.photos/seed/horizon2/1200/800",
-          caption: "Thermal System Layout"
+          url: "https://lh3.googleusercontent.com/d/1IPotEyr8oXok4LDVrjVYg-X2hACt9x9J",
+          caption: "Horizon Nexus Concept of Operations"
         },
         {
           type: "image",
-          url: "https://picsum.photos/seed/horizon3/1200/800",
-          caption: "Consumables Analysis"
+          url: "https://lh3.googleusercontent.com/d/18u0iFkWktkucAnGJm9xGhFnhyykFCgdL",
+          caption: "Habitat System Flowchart"
         }
       ],
       attachments: {

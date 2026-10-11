@@ -147,15 +147,15 @@ export const resumeData: ResumeData = {
         "Flight Software"
       ],
       description:
-        "Designed the mission patch and worked with Systems Engineers to establish concrete requirements for every subsystem. Designed an elaborate fault protection architecture, safe mode configuration, and FDIR logic for nearly 300 possible faults. Devised flight software architecture and state machines.",
+        "Conceptual spacecraft mission for autonomous surveillance, tracking, and interception operations near Earth–Moon L2, requiring resilient flight software and fault protection during limited ground contact.",
       technicalDetails: {
         overview:
-          "The WatchDogL2 mission is a Space Force mission that focuses on surveillance and interception of enemy spacecraft at the Earth-Moon L2 Lagrange point. My role involved leading the Fault Detection, Isolation, and Recovery (FDIR) architecture and co-leading the flight software development. We established rigorous systems requirements to ensure mission success in a complex orbital environment.",
+          "Led the spacecraft Fault Detection, Isolation, and Recovery (FDIR) design and served as Flight/Simulation Software second. Developed subsystem fault logic, escalation and containment strategies, Safe Hold configurations, and mode-dependent responses for proximity operations and loss of communications.",
         results:
-          "Successfully developed a fault protection logic capable of handling over 300 fault scenarios across five criticality levels (F0-F4). Designed an industry-grade NASA Class B FPDD to show all the findings and fault DIR strategies. As the flight software co-lead, I devised the flight software architecture, state machine, and worked on the SLoC estimates. Helped in executing TS8 trade studies for FSW autonomy and FDIR execution."
+          "Produced the preliminary-design Fault Protection Design Document, including fault classifications, subsystem response matrices, Level 3/4 requirements, single-point failure analysis, and verification approach. Contributed to flight-software architecture, operational modes, and state-machine planning."
       },
       impact:
-        "Provided accurate mitigation and isolation strategies for each of those faults ranging from F0 to F4 criticality, thereby decreasing chances of LoM / LoV by 30%.",
+        "Established a traceable, mission-wide fault protection framework intended to protect spacecraft survivability and mission continuity during autonomous cislunar operations.",
       gallery: [
         {
           type: "image",
@@ -204,15 +204,15 @@ export const resumeData: ResumeData = {
         "STK"
       ],
       description:
-        "Developed an ADCS program to simulate the coordinate and navigation mechanism of a nano-satellite orbiting Mars under Sun-Pointing and GMO pointing modes.",
+        "Simulation study of autonomous attitude control for a nanosatellite in 400-km low Mars orbit, coordinating surface observation, solar-power generation, and relay communications with a geosynchronous Mars orbiter.",
       technicalDetails: {
         overview:
-          "Developed and simulated a multi-mode attitude dynamics and control system for a Mars-orbiting nanosatellite capable of autonomous Sun-pointing, nadir-pointing, and communication-pointing operations.",
+          "Developed the Sun-, nadir-, and GMO-pointing reference frames, Modified Rodrigues Parameter attitude dynamics, and analytically tuned PD feedback control. Implemented an RK4 propagator with MRP shadow-set switching and autonomous mission-mode selection.",
         results:
-          "Achieved stable attitude tracking and rapid detumbling using an MRP-based PD controller, with successful autonomous mode transitions and convergence across all mission phases in a 6,500-second Mars mission simulation."
+          "Validated torque-free dynamics and closed-loop pointing behavior across all three modes. The 6,500-second mission simulation demonstrated five operating phases with autonomous transitions, stable tracking, and gain designs satisfying the prescribed 120-second decay-time requirements."
       },
       impact:
-        "Established a scalable control framework for autonomous deep-space small-satellite missions operating under complex pointing requirements.",
+        "Demonstrated a reproducible multi-mode attitude-control architecture for small Mars-orbiting spacecraft with changing science, power, and communication demands.",
       gallery: [
         {
           type: "image",
@@ -250,15 +250,15 @@ export const resumeData: ResumeData = {
         "Python"
       ],
       description:
-        "Developed an autonomous low-thrust station-keeping framework for Earth-Moon NRHOs using nonlinear CR3BP modeling and time-varying LQR control. Quantified solar perturbation impacts on drift.",
+        "Computational research on fuel-efficient autonomous station-keeping for Earth–Moon near-rectilinear halo orbits, examining orbital instability, invariant manifolds, and solar gravitational perturbations.",
       technicalDetails: {
         overview:
-          "Research into maintaining stable orbits around Earth-Moon Lagrange points (NRHO) using low-thrust electric propulsion. This is critical for future missions like the Lunar Gateway.",
+          "Modeled a periodic NRHO using the Earth–Moon CR3BP, differential correction, state-transition matrices, and Floquet analysis. Extended the stability investigation to solar perturbations and compared full-state LQR with invariant/Floquet-mode-aligned feedback.",
         results:
-          "Demonstrated accurate station-keeping with kilometer-scale precision while accounting for solar radiation pressure and third-body perturbations."
+          "Converged the reference periodic orbit to about 2.94 × 10⁻¹¹ closure error and identified an unstable Floquet multiplier magnitude of 2.214. Both controllers tracked the test disturbance; the tuned LQR used less total ΔV (0.03406 versus 0.05498 in the reported simulation)."
       },
       impact:
-        "Presented results at departmental aerospace conference, demonstrating kilometer-scale drift control through structure-aware control strategies.",
+        "Quantified the trade-off between manifold-aware control and full-state LQR, informing autonomous station-keeping strategies for future cislunar platforms such as Lunar Gateway.",
       gallery: [
         {
           type: "image",
@@ -294,15 +294,15 @@ export const resumeData: ResumeData = {
         "SANS"
       ],
       description:
-        "Conducted extensive literature review on Spaceflight Associated Neuro-ocular Syndrome (SANS) and proposed experimental methods for ground and ISS testing, focusing on intracranial fluid dynamics.",
+        "Narrative review of Spaceflight Associated Neuro-ocular Syndrome (SANS), examining how microgravity-related fluid shifts, cerebral venous drainage, and optic-nerve biomechanics may contribute to astronauts’ ocular changes.",
       technicalDetails: {
         overview:
-          "This research investigates the mechanical triggers behind SANS, a critical health risk for astronauts on long-duration missions. The study focuses on how microgravity shifts fluid pressure within the cranium. Conducted extensive literature review and proposed experimental/analysis methods to be conducted in ground-based analogs and in the ISS to identify countermeasure strategies to mitigate SANS in astronauts.",
+          "Co-authored a literature synthesis comparing evidence from spaceflight observations, terrestrial analogs, animal studies, and computational models. Examined venous outflow, translaminar pressure gradients, glymphatic clearance, and cellular factors alongside potential countermeasures.",
         results:
-          "Identified key physiological indicators for early SANS onset and proposed a set of hydrodynamic experiments and countermeasures to be tested on the ISS."
+          "The review identified venous outflow impairment and translaminar pressure-gradient disruption as comparatively well-supported contributors, while glymphatic, immune, and mitochondrial processes remain less established. It also found that currently studied countermeasures have incomplete efficacy."
       },
       impact:
-        "Authored professional peer-review publication identifying new countermeasure strategies to mitigate microgravity effects on astronauts. Currently under peer-review.",
+        "Synthesized competing SANS mechanisms into an evidence-based framework to guide future multi-target countermeasures, research priorities, and individualized risk assessment.",
       gallery: [
         {
           type: "image",
@@ -330,15 +330,15 @@ export const resumeData: ResumeData = {
         "Data Analysis"
       ],
       description:
-        "Created a Ground Station Interface App on Python connecting to Payload Arduino. Displays real-time atmospheric data plots and controls hardware like exhaust fans. Worked on fabrication and TCFA testing for PLA enclosures and bulkheads.",
+        "FLAIR is a UAV-mounted atmospheric research payload developed to measure water-vapor isotopes (δ¹⁸O) alongside humidity, temperature, and altitude for studies of moisture transport and boundary-layer mixing.",
       technicalDetails: {
         overview:
-          "FLAIR is an airborne research payload designed to study atmospheric water O18 isotopes in the troposphere. I spearheaded the software development for the ground station and was responsible for the rapid prototyping of core structural components using carbon fiber and 3D printing.",
+          "Led development of the Python/PyQt ground-station interface for Arduino telemetry, live plotting, diagnostics, recording, and fan control. Supported structural fabrication, 3D-printed enclosure and bulkhead testing, and integration of the isotope payload into the Black Swift S3 platform.",
         results:
-          "Developed a functional real-time telemetry dashboard using Python/PyQt and successfully integrated it with the BlackSwift S3 aircraft. It connects to the Payload Arduino Code. Displays the data read by the drone in visual plots, using atmospheric boundary layer conditions. This app controls the exhaust fan in the laser spectrometer payload section, to enable smoother airflow through the system. Worked on the fabrication and TCFA testing to determine the ideal infill percentage for the PLA enclosures and bulkheads. Assisted on the AI&T of the payload in the BlackSwift S3 VToL."
+          "Delivered and demonstrated the ground-station interface with raw-packet diagnostics, fan-speed commands, and offline analysis capability. Supported mechanical fit, loading and integration tests; the ORR documented an as-built payload and verification results ahead of operational flight activities."
       },
       impact:
-        "Reduced fabrication costs by 25% of the budget. Regulated a proper and accurate test flight and enhanced durability of the payload that made it survive a catapult launch using pressurized N2 and a hard landing.",
+        "Advanced a compact airborne isotope-sampling payload toward operational readiness by linking telemetry and airflow control with practical fabrication, test, and UAV integration.",
       gallery: [
         {
           type: "image",
@@ -382,15 +382,15 @@ export const resumeData: ResumeData = {
         "TRL Management"
       ],
       description:
-        "Led development of a NASA Class D SMEX mission, overseeing STM development, instrumentation, and ConOps. Designed mission schedules, cost budgets, and testing V&V plans.",
+        "SHINE is a proposed NASA Class-D lunar small-spacecraft mission to detect, map, and distinguish water-ice deposits in permanently shadowed regions near the Moon’s south pole.",
       technicalDetails: {
         overview:
-          "SHINE is a proposed lunar mission aimed at surveying permanently shadowed regions (PSRs) for water ice. As PI/Project Manager, I led the mission architecture, payload selection, and systems budgeting.",
+          "Served as Principal Investigator, Project Manager, and Lead Engineer on the mission concept. Coordinated science traceability, near-infrared spectrometer/camera selection, spacecraft and mission architecture, concepts of operations, subsystem interfaces, budgets, schedules, risks, and verification planning.",
         results:
-          "Defined payload requirements and spacecraft components with trade studies and coordinated interfaces between the Science, Payload, and Spacecraft departments."
+          "Delivered a comprehensive preliminary mission proposal with requirements, a phased trajectory and operations plan, spacecraft sizing and subsystem trades, a programmatic budget, risk register, and verification matrix. The proposed payload targets ≤500-m mapping resolution for PSRs at least 10 km across."
       },
       impact:
-        "Delivered a comprehensive mission proposal with a 24% reduction in projected costs through optimized component trade-offs and robust V&V plans.",
+        "Developed a traceable, resource-conscious lunar water-ice mapping concept intended to inform volatile science and future Artemis in-situ resource utilization planning.",
       gallery: [
         {
           type: "image",

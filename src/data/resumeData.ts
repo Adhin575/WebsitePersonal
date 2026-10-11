@@ -554,29 +554,25 @@ export const resumeData: ResumeData = {
 
     {
       id: "fgm-apparatus",
-      title: "Functionally Graded Materials Apparatus",
+      title: "Functionally Graded Materials Apparatus using Electromagnetic Separation Methods",
       role: "Researcher / Design Patent Holder",
-      duration: "Aug 2024 - May 2025",
+      duration: "Aug 2023 - Sep 2024",
       thumbnail:
         "https://lh3.googleusercontent.com/d/15zBK97adxXQn7lXKa1FBHf6zU964hhhl",
       technologies: [
         "CAD Assembly",
         "Electromagnetic Separation",
-        "Electronic Schematics",
+        "Industry-Grade Research",
         "Python"
       ],
       description:
-        "Designed a device for FGM synthesis using electric/magnetic field intersection with controlled heating. Executed full CAD assembly and electronic control systems.",
+        "This project was developed as a result of the Opportunities for Undergraduate Research (OUR) at Shiv Nadar University. I worked under the guidance of Dr. Ankit Gupta, with additional support from Dr. Deepak Kumar from IIT Delhi.",
       technicalDetails: {
-        overview:
-          "Development of a novel apparatus for creating Functionally Graded Materials (FGMs) by selectively depositing materials using electromagnetic fields.",
-        results:
-          "Successfully designed and patented an automated system for material synthesis, opening new possibilities for graduated composite fabrication.",
-        techStack:
-          "Electromagnetic Simulation, SolidWorks CAD, Arduino-based PID control, and Thermal Analysis."
+        overview: "I contributed to a design concept, ideation, and creation of a device to synthesize an FGM with any 2 different materials and properties using electromagnetic heating and solenoid attraction processes. We proposed the idea, designed the apparatus on SolidWorks, created an electrical mock-up of the circuit, automated the filter system for iron filings, and fabricated the device to submit to the Government for a design and utility patent. With this device, the complexity of creating gradient FGMs reduce significantly, and the time taken is also about 2-3 hours shorter.",
+        results: "Successfully designed and patented an automated system for material synthesis, opening new possibilities for gradient composite fabrication.",
+        techStack: "Electromagnetic Simulation, SolidWorks CAD, Arduino-based PID control, Thermal Analysis, Industry Research"
       },
-      impact:
-        "Acquired a design patent from the Government of India for the automated synthesis process.",
+      impact: "Acquired a design patent from the Government of India for the device. Utility patent procedure is underway",
       gallery: [
         {
           type: "image",
@@ -586,14 +582,9 @@ export const resumeData: ResumeData = {
         },
         {
           type: "image",
-          url: "https://picsum.photos/seed/fgm2/1200/800",
-          caption: "Electronic Control Schematic"
+          url: "https://lh3.googleusercontent.com/d/13mE9JYZJsX9Q2skw1a38uZtMQ8qCLQGs",
+          caption: "Device in Real Life"
         },
-        {
-          type: "image",
-          url: "https://picsum.photos/seed/fgm3/1200/800",
-          caption: "Magneto-Thermal Separation Chamber"
-        }
       ],
       attachments: {
         pdf:
@@ -621,7 +612,7 @@ export const resumeData: ResumeData = {
       technicalDetails: {
         overview: "I contributed to the mechanical development of an SAE e-Baja electric ATV, focusing on suspension, chassis, and wheel assembly design. Conducted configuration analyses and trade studies for the suspension and wheel-assembly design and geometry using Lotus Shark, supported CAE investigations and generated an industry grade CAE report, and worked on subsystem assembly and testing.",
         results: "Could fabricate our entire vehicle 2 weeks before the deliverable deadline due to quicker design convergence. Also reduced around 12-15k Rs. on the fabrication of the vehicle due to effective usage and improvements of COTS products. Finished among the top 15 CAE reports among all the 150 + Indian teams, and finished among the top 50 teams after the Mechanical, Electrical Technical Inspections and the ATV Run on the off-road track.",
-      techStack: "Lotus Shark - Suspension Analysis, Wheel Assembly Design, CAE, Engineering Trade Studies, Mechanical Assembly & Testing."
+        techStack: "Lotus Shark - Suspension Analysis, Wheel Assembly Design, CAE, Engineering Trade Studies, Mechanical Assembly & Testing."
       },
       impact: "Supported electric ATV design optimization through suspension and wheel - assembly configuration studies, CAE documentation, and hands-on mechanical subsystem integration.",
       gallery: [

@@ -31,6 +31,8 @@ export interface Project {
     pdfLabel?: string;
     pdfLabel2?: string;
     presentation?: string;
+    presentation2?: string;
+    presentationLabel2?: string;
     presentationLabel?: string;
     github?: string;
     publication?: string;
@@ -179,8 +181,8 @@ export const resumeData: ResumeData = {
       attachments: {
         pdf1:
           "https://drive.google.com/file/d/1ayGQCikx1nGVS1KJua9S4T94EKSysGMJ/view?usp=drive_link",
-        pdfLabel1: "Fault Protection Design Document",
-         pdf2:
+        pdfLabel: "Fault Protection Design Document",
+        pdf2:
           "https://drive.google.com/file/d/158UrJImTHKtz1bPXlTMlnXd8VZQziRfd/view?usp=sharing",
         pdfLabel2: "WatchDog L2 PDR Design Document"
       }
@@ -219,7 +221,7 @@ export const resumeData: ResumeData = {
         },
         {
           type: "video",
-          url: "https://drive.google.com/file/d/1vIBbrQf054mtopMhu17GmTVzEgzQxqIk/view?usp=sharing",
+          url: "https://drive.google.com/file/d/1vIBbrQf054mtopMhu17GmTVzEgzQxqIk/preview",
           caption: "Mars ADC Simulation"
         }
       ],
@@ -267,7 +269,7 @@ export const resumeData: ResumeData = {
           type: "image",
           url: "https://lh3.googleusercontent.com/d/1pfWxmhfPvI_kaoErivtyCpqwVx5f8H15",
           caption: "Stable Eigenstructure Simulation using Python"
-        }
+        },
         {
           type: "image",
           url: "https://lh3.googleusercontent.com/d/17XYpQWxqohJkt4eubJxC_PMgyYWn4iK3",
@@ -358,14 +360,14 @@ export const resumeData: ResumeData = {
         },
         {
           type: "video",
-          url: "https://drive.google.com/file/d/1dCGVYlZS1iK-9JEAjnSX7tJior5hANBw/view?usp=sharing",
+          url: "https://drive.google.com/file/d/1dCGVYlZS1iK-9JEAjnSX7tJior5hANBw/preview",
           caption: "FLAIR field run",
         }
       ],
       attachments: {
-        presentation1:
+        presentation:
           "https://drive.google.com/file/d/1YQfDouzujvs3Z--T90m6GpDX9jf0biVw/view?usp=drive_link",
-        presentationLabel1: "CDR Presentation",
+        presentationLabel: "CDR Presentation",
         presentation2:
           "https://docs.google.com/presentation/d/1bEegOnieLgfwRlbI-9eGp5pLfArBd0Ye/edit?usp=sharing&ouid=113711368431435030458&rtpof=true&sd=true",
         presentationLabel2: "ORR Presentation",
@@ -410,7 +412,7 @@ export const resumeData: ResumeData = {
           type: "image",
           url: "https://lh3.googleusercontent.com/d/1v-bfmQeBnIFPsqXnL_03PORGrHo5CYm9",
           caption: "Mission Trajectory Map"
-        }
+        },
         {
           type: "image",
           url: "https://lh3.googleusercontent.com/d/1aTLuHDFcZ6lvg7uppIZET9K9iL7dEu6A",
@@ -423,7 +425,7 @@ export const resumeData: ResumeData = {
         pdfLabel: "Mission Proposal",
         presentation:
           "https://docs.google.com/presentation/d/12lcgb_0XOjSiEmUWDgdtAf_bDMTOfeWn/edit?usp=sharing&ouid=113711368431435030458&rtpof=true&sd=true",
-        presentationLabel: "PDR Presentation"
+        presentationLabel: "PDR Presentation",
         github:
           "https://github.com/Adhin575/SHINEMissionSimulator"
       }
@@ -443,7 +445,7 @@ export const resumeData: ResumeData = {
         "Mass, Volume, and Power Budgeting",
         "ECLSS",
         "Human Factors"
-          ],
+      ],
       description: "Horizon Nexus is a conceptual design for a long-duration human habitat in Low Earth Orbit.",
       technicalDetails: {
         overview: "I was responsible for ideating, designing and calculating the requirements and concept study for the Power/Thermal, Crew Accomodation and EVA subsystems/tasks. I also assisted in doing the same tasks for the ECLSS and C3/Avionics Subsystem.",
@@ -487,9 +489,9 @@ export const resumeData: ResumeData = {
         "Structural Stability",
         "V&V Test Plan",
         "Systems Engineering"
-          ],
-          description: "Two university CubeSat programs focused on spacecraft assembly, integration, testing, and systems readiness: the Maxwell 6U satellite and the SWARM-Ex multi-satellite mission.",
-          technicalDetails: {
+      ],
+      description: "Two university CubeSat programs focused on spacecraft assembly, integration, testing, and systems readiness: the Maxwell 6U satellite and the SWARM-Ex multi-satellite mission.",
+      technicalDetails: {
         overview: "Supported Maxwell PLDC design, installation, and structural, thermal, and vibration testing as part of spacecraft AI&T. For SWARM-Ex, developed systems-engineering readiness documentation, verification and validation test plans, and interface requirements to support preliminary design review.",
         results: "Completed PLDC-level structural, thermal, and vibration verification activities and supported installation within the Maxwell spacecraft chassis. Prepared SWARM-Ex readiness and V&V documentation for system-level design review.",
         techStack: "Vibration and Thermal Testing using ANSYS, Thermal Vacuum (TVAC) Chamber, Systems Engineering, JIRA/Confluence."
@@ -613,7 +615,7 @@ export const resumeData: ResumeData = {
         "Assembly & Testing",
       ],
       description:
-        "Baja SAE is a collegiate engineering competition in which student teams design, manufacture, inspect, and test off-road all-terrain vehicles; this entry covers an electric ATV built for the Indian competition.",     
+        "Baja SAE is a collegiate engineering competition in which student teams design, manufacture, inspect, and test off-road all-terrain vehicles; this entry covers an electric ATV built for the Indian competition.",
       technicalDetails: {
         overview: "Co-led wheel assembly, suspension, and CAE work for the electric ATV. Conducted suspension-geometry trade studies in Lotus Shark, supported chassis and wheel-assembly design and ANSYS analysis, prepared technical reports, and participated in subsystem assembly and testing.",
         results: "The team completed vehicle fabrication about two weeks ahead of its deadline and reported approximately ₹12,000–₹15,000 in fabrication savings through COTS-based design choices. It placed among the top 15 CAE submissions from 150+ teams and the top 50 overall after inspections and the off-road event.",
@@ -677,7 +679,7 @@ export const resumeData: ResumeData = {
     {
       category: "Programming",
       skills: [
-            { name: "Python", level: 95 },
+        { name: "Python", level: 95 },
         { name: "MATLAB", level: 90 },
         { name: "SQL", level: 80 },
         { name: "PowerBi", level: 85 },
@@ -715,7 +717,9 @@ export const resumeData: ResumeData = {
         { name: "Technical Leadership", level: 90 },
         { name: "Technical Writing", level: 90 },
         { name: "Project Management", level: 85 },
-        { name: "Creative Thinking", level: 80 }
+        { name: "Creative Thinking", level: 80 },
+        { name: "Systems Engineering - Capella", level: 80 },
+        { name: "Project Management", level: 85 }
       ]
     },
     {

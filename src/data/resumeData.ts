@@ -195,7 +195,7 @@ export const resumeData: ResumeData = {
       role: "Graduate Researcher",
       duration: "Jan 2026 - Mar 2026",
       thumbnail:
-        "https://lh3.googleusercontent.com/d/1CpH1fHQ7bxStkTIPYjsoW4__mce8yYnK",
+        "https://lh3.googleusercontent.com/d/1CpH1fHQ7bxStkTIPYjsoW4__mce8yYnK/",
       technologies: [
         "Python",
         "ADCS",
@@ -641,11 +641,11 @@ export const resumeData: ResumeData = {
   professionalExperiences: [
     {
       id: "intern-ret",
-      role: "R&D Aerospace Intern",
+      role: "R&D Aerospace Engineer (Internship & Part-Time)",
       organization: "RE&T, Muscat, Oman",
       description:
-        "Executed industry grade research on turbopump design parameters. Worked on the design optimization of an 80-bar turbopump and conducted multiple comparative design and simulation iterations to arrive at a highly efficient end product.",
-      duration: "Jul 2026 - Aug 2026"
+        "Developed a MATLAB-based N-node turbopump vibration model with customizable design parameters. Worked on the design optimization of an 80-bar liquid methane (LCH4)/LOX turbopump and am developing an integrated MATLAB engineering interface for parametric rocket-engine component design, analysis, and optimization.",
+      duration: "Jul 2026 - Present"
     },
     {
       id: "aaeio",

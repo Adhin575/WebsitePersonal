@@ -195,7 +195,7 @@ export const resumeData: ResumeData = {
       role: "Graduate Researcher",
       duration: "Jan 2026 - Mar 2026",
       thumbnail:
-        "https://lh3.googleusercontent.com/d/1CpH1fHQ7bxStkTIPYjsoW4__mce8yYnK/",
+        "https://lh3.googleusercontent.com/d/1CpH1fHQ7bxStkTIPYjsoW4__mce8yYnK",
       technologies: [
         "Python",
         "ADCS",

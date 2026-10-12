@@ -139,7 +139,7 @@ export const resumeData: ResumeData = {
       role:
         "Fault Protection Systems Engineering Lead and Flight Software Sub-Lead",
       duration: "Jan 2026 - May 2026",
-      thumbnail: "Imageswebsite/WatchDog-Thumbnail.png",
+      thumbnail: "https://lh3.googleusercontent.com/d/1HeUHIWj8K5uMi3bOwugUvZPron2nrd1E",
       technologies: [
         "FDIR Architecture",
         "Decision Autonomy",
@@ -166,12 +166,6 @@ export const resumeData: ResumeData = {
         {
           type: "image",
           url:
-            "https://lh3.googleusercontent.com/d/1gSLDGNww5uq2bUM86kq536B16bH0EH_H",
-          caption: "WatchDog L2 Mission Patch"
-        },
-        {
-          type: "image",
-          url:
             "https://lh3.googleusercontent.com/d/122i1Sy3dspVbg6P8mhJCv6udrpUD7Up1",
           caption: "Flight Software Architecture"
         },
@@ -183,9 +177,12 @@ export const resumeData: ResumeData = {
         }
       ],
       attachments: {
-        pdf:
+        pdf1:
           "https://drive.google.com/file/d/1ayGQCikx1nGVS1KJua9S4T94EKSysGMJ/view?usp=drive_link",
-        pdfLabel: "Fault Protection Design Document"
+        pdfLabel1: "Fault Protection Design Document",
+         pdf2:
+          "https://drive.google.com/file/d/158UrJImTHKtz1bPXlTMlnXd8VZQziRfd/view?usp=sharing",
+        pdfLabel2: "WatchDog L2 PDR Design Document"
       }
     },
 
@@ -196,7 +193,7 @@ export const resumeData: ResumeData = {
       role: "Graduate Researcher",
       duration: "Jan 2026 - Mar 2026",
       thumbnail:
-        "https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400",
+        "https://lh3.googleusercontent.com/d/1CpH1fHQ7bxStkTIPYjsoW4__mce8yYnK",
       technologies: [
         "Python",
         "ADCS",
@@ -217,13 +214,13 @@ export const resumeData: ResumeData = {
         {
           type: "image",
           url:
-            "https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400",
+            "https://lh3.googleusercontent.com/d/1CpH1fHQ7bxStkTIPYjsoW4__mce8yYnK",
           caption: "Orbital Trajectory Plotting"
         },
         {
-          type: "image",
-          url: "https://picsum.photos/seed/nrho/1200/800",
-          caption: "Drift Analysis Graph"
+          type: "video",
+          url: "https://drive.google.com/file/d/1vIBbrQf054mtopMhu17GmTVzEgzQxqIk/view?usp=sharing",
+          caption: "Mars ADC Simulation"
         }
       ],
       attachments: {
@@ -264,12 +261,17 @@ export const resumeData: ResumeData = {
           type: "image",
           url:
             "https://lh3.googleusercontent.com/d/1Y4M8Bzs6L30LIOD2izI6UVPzYFqoC400",
-          caption: "Orbital Trajectory Plotting"
+          caption: "Orbital Trajectory "
         },
         {
           type: "image",
-          url: "https://picsum.photos/seed/nrho/1200/800",
-          caption: "Drift Analysis Graph"
+          url: "https://lh3.googleusercontent.com/d/1pfWxmhfPvI_kaoErivtyCpqwVx5f8H15",
+          caption: "Stable Eigenstructure Simulation using Python"
+        }
+        {
+          type: "image",
+          url: "https://lh3.googleusercontent.com/d/17XYpQWxqohJkt4eubJxC_PMgyYWn4iK3",
+          caption: "Results of the experiment"
         }
       ],
       attachments: {
@@ -286,7 +288,7 @@ export const resumeData: ResumeData = {
         "Mechanistic Investigation for Spaceflight Associated Neuro-ocular Syndrome (SANS)",
       role: "Lead Researcher / Co-Author",
       duration: "Jan 2026 - May 2026",
-      thumbnail: "https://picsum.photos/seed/sans/800/600",
+      thumbnail: "https://lh3.googleusercontent.com/d/1pHntW6svg03blkJoWIipCla5jUEmQ0Bh",
       technologies: [
         "Microgravity Research",
         "Fluid Dynamics",
@@ -306,11 +308,14 @@ export const resumeData: ResumeData = {
       gallery: [
         {
           type: "image",
-          url: "https://picsum.photos/seed/sans2/1200/800",
-          caption: "Fluid Dynamics Model under Microgravity"
+          url: "https://lh3.googleusercontent.com/d/1pHntW6svg03blkJoWIipCla5jUEmQ0Bh",
+          caption: "Eyes before and after spaceflight to illustrate SANS"
         }
       ],
-      attachments: {}
+      attachments: {
+        pdf: "https://drive.google.com/file/d/1f6W4mS9Qa0OxM7u9hELKejVpJZ1uJ9lM/view?usp=sharing",
+        pdfLabel: "Review Paper"
+      }
     },
 
     {
@@ -343,18 +348,18 @@ export const resumeData: ResumeData = {
         {
           type: "image",
           url:
-            "https://lh3.googleusercontent.com/d/1aljQ6j_b8ifiHK4QpS0q1zjyXz5AlbsC",
+            "https://lh3.googleusercontent.com/d/1-QH3aOCbRBU0G40WEAqG0dV70BComhUu",
           caption: "Ground Station Dashboard Interface"
         },
         {
           type: "image",
-          url: "https://picsum.photos/seed/flair2/1200/800",
+          url: "https://lh3.googleusercontent.com/d/1gd5smT6H8yS-Md5MNzGPM3oLvhIW6xJI",
           caption: "BlackSwift S3 Integration"
         },
         {
-          type: "image",
-          url: "https://picsum.photos/seed/flair3/1200/800",
-          caption: "TCFA Testing Setup"
+          type: "video",
+          url: "https://drive.google.com/file/d/1dCGVYlZS1iK-9JEAjnSX7tJior5hANBw/view?usp=sharing",
+          caption: "FLAIR field run",
         }
       ],
       attachments: {

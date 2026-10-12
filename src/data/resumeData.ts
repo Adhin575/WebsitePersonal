@@ -325,7 +325,7 @@ export const resumeData: ResumeData = {
       title:
         "Flying Lab for Airborne Isotope Research (FLAIR) - INSTAAR Lab",
       role:
-        "UI/UX Software Lead / Data Analyst / Fabrication Engineer",
+        "Software Lead / Data Analyst / Fabrication Engineer",
       duration: "Sep 2025 - May 2026",
       thumbnail:
         "https://lh3.googleusercontent.com/d/1aljQ6j_b8ifiHK4QpS0q1zjyXz5AlbsC",

@@ -170,12 +170,6 @@ export const resumeData: ResumeData = {
           url:
             "https://lh3.googleusercontent.com/d/122i1Sy3dspVbg6P8mhJCv6udrpUD7Up1",
           caption: "Flight Software Architecture"
-        },
-        {
-          type: "image",
-          url:
-            "https://lh3.googleusercontent.com/d/1XbM_isrQxGvhvbuvs6GIRNX_9nvLb6I9",
-          caption: "FDIR Logic Flow Chart"
         }
       ],
       attachments: {

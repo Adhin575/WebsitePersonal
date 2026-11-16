@@ -563,7 +563,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             <figcaption className="w-full shrink-0 border-t border-border-main bg-bg-main px-5 sm:px-8 py-3 sm:py-4">
 
               {currentItem?.caption && (
-                <p className="mx-auto max-w-[65ch] text-center text-[13px] sm:text-sm font-sans font-medium leading-relaxed text-text-main break-words">
+                <p className="mx-auto max-w-[65ch] text-center font-mono text-[12px] sm:text-[13px] font-medium tracking-[0.035em] leading-relaxed text-text-sub break-words">
                   {currentItem.caption}
                 </p>
               )}

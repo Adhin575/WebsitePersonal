@@ -141,7 +141,7 @@ export const resumeData: ResumeData = {
       role:
         "Fault Protection Systems Engineering Lead and Flight Software Sub-Lead",
       duration: "Jan 2026 - May 2026",
-      thumbnail: "https://lh3.googleusercontent.com/d/1HeUHIWj8K5uMi3bOwugUvZPron2nrd1E",
+      thumbnail: "media/images/Screenshot 2026-04-29 111758.png",
       technologies: [
         "FDIR Architecture",
         "Decision Autonomy",
@@ -162,13 +162,13 @@ export const resumeData: ResumeData = {
         {
           type: "image",
           url:
-            "https://lh3.googleusercontent.com/d/1HeUHIWj8K5uMi3bOwugUvZPron2nrd1E",
+            "media/images/Screenshot 2026-04-29 111758.png",
           caption: "Spacecraft CAD"
         },
         {
           type: "image",
           url:
-            "https://lh3.googleusercontent.com/d/122i1Sy3dspVbg6P8mhJCv6udrpUD7Up1",
+            "/media/images/flight-software.png",
           caption: "Flight Software Architecture"
         }
       ],

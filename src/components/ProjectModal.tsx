@@ -563,10 +563,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             <figcaption className="w-full shrink-0 border-t border-border-main bg-bg-main px-5 sm:px-8 py-3 sm:py-4">
 
               {currentItem?.caption && (
-                <p className="mx-auto max-w-[65ch] text-center font-mono text-[12px] sm:text-[13px] font-medium tracking-[0.035em] leading-relaxed text-text-sub break-words">
-                  {currentItem.caption}
-                </p>
-              )}
+                <div className="mx-auto flex max-w-[65ch] items-center justify-center gap-3 sm:gap-4">
+                  <span
+                    aria-hidden="true"
+                    className="h-[3px] w-5 sm:w-8 shrink-0 rounded-full bg-accent/80"
+                  />
+
+              <p className="min-w-0 text-center font-sans text-[15px] sm:text-[18px] font-semibold italic tracking-[0.015em] leading-snug text-text-main break-words">
+                {currentItem.caption}
+              </p>
+
+              <span
+                aria-hidden="true"
+                className="h-[3px] w-5 sm:w-8 shrink-0 rounded-full bg-accent/80"
+              />
+            </div>
+          )}
 
               {gallery.length > 1 && (
                 <div className={`flex items-center justify-center gap-2.5 ${currentItem?.caption ? 'mt-3' : ''}`} role="group" aria-label="Select gallery image or video">

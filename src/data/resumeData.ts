@@ -168,7 +168,7 @@ export const resumeData: ResumeData = {
         {
           type: "image",
           url:
-            "/media/images/flight-software.png",
+            "media/images/Screenshot 2026-04-29 111906.png",
           caption: "Flight Software Architecture"
         }
       ],
